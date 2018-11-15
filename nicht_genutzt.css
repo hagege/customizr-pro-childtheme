@@ -1,0 +1,54 @@
+/* CSS Document */
+/* nicht genutzte Regeln */
+
+/*--------------------------------------------------------------- */
+/* Start: Tribe Widget Calendar Aachener Kinder Styles */
+/*--------------------------------------------------------------- */ 
+
+#tribe-mini-calendar-3 .tribe-mini-calendar-nav td, #tribe-mini-calendar-3 .tribe-mini-calendar-nav td span {
+  background: #6ba825;
+  border-color: #6ba825;
+}
+
+#tribe-mini-calendar-3 .tribe-events-past a{
+  background: #f9f9f9;
+}
+
+#tribe-mini-calendar-3 .tribe-events-future a{
+  background: #ffffff;
+  color:#919191;
+}
+
+#tribe-mini-calendar-month {
+  background: none;
+}
+#tribe-mini-calendar-3 .tribe-mini-calendar-nav-link span {
+  background: none;
+}
+
+#tribe-mini-calendar-3 td a:hover{
+  color: #ffffff;
+  background: #6ba825;
+}
+#tribe-mini-calendar-3 td:hover{
+  background:#6ba825;
+}
+
+#tribe-mini-calendar-3 td.tribe-events-present {
+  background-color: #6ba825;
+}
+#tribe-mini-calendar-3 td.tribe-events-present a{
+  color: #ffffff;
+}
+/*--------------------------------------------------------------- */
+/* Ende: Tribe Widget Calendar Aachener Kinder Styles */
+/*--------------------------------------------------------------- */ 
+
+
+/* evtl. zum Test, wenn das Menü nicht komplett gezeigt wird: */
+@media (min-width: 800px)
+.navbar-expand-md .navbar-nav {
+    -ms-flex-direction: row;
+    flex-direction: row;
+} 
+
