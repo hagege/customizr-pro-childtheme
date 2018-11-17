@@ -129,6 +129,12 @@ table:not([id^="wp-calendar"]):not(.ui-datepicker-calendar) th, #add_payment_met
     border: 1px solid #f7f8f9;
 }
 
+.tribe-mini-calendar-dayofweek{
+	padding-top:5px!important;
+	padding-bottom:5px!important;
+}
+
+
 /*--------------------------------------------------------------- */
 /* Ende: Tribe Widget Calendar Aachener Kinder Styles */
 /*--------------------------------------------------------------- */ 
@@ -402,10 +408,10 @@ a.tribe-events-button-beitrag:visited{
 }
 
   
-/* Hintergrund: grün */  
+/* Hintergrund: gelb */  
 a.tribe-events-button-beitrag:hover{
   color: #fff!important;
-  background-color: #6ba825;
+  background-color: #F9B81E;
 }
 
 /*----------------------------------------------------------------*/
