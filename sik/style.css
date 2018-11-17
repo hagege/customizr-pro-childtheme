@@ -81,17 +81,56 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 /*--------------------------------------------------------------- */
 /* Start: Tribe Widget Calendar Aachener Kinder Styles */
 /*--------------------------------------------------------------- */ 
-
 #tribe-mini-calendar-3 .tribe-mini-calendar-nav td, #tribe-mini-calendar-3 .tribe-mini-calendar-nav td span {
-    background: #77BCC7;
-    border-color: #77BCC7;
-		padding-top: 5px;
-		padding-bottom: 5px;    
+  background: #6ba825;
+  border-color: #6ba825;
+}
+
+#tribe-mini-calendar-3 .tribe-events-past a{
+  background: #f9f9f9;
+}
+
+#tribe-mini-calendar-3 .tribe-events-future a{
+  background: #ffffff;
+  color:#919191;
+}
+
+#tribe-mini-calendar-month {
+  background: none;
+}
+#tribe-mini-calendar-3 .tribe-mini-calendar-nav-link span {
+  background: none;
+}
+
+#tribe-mini-calendar-3 td a:hover{
+  color: #ffffff;
+  background: #77BCC7;
+}
+#tribe-mini-calendar-3 td:hover{
+  background:#77BCC7;
+}
+
+#tribe-mini-calendar-3 td.tribe-events-present {
+  background-color: #77BCC7;
+}
+#tribe-mini-calendar-3 td.tribe-events-present a{
+  color: #ffffff;
 }
 
 .tribe-mini-calendar-event .list-date {
     background: #77BCC7!important;
     background-color: #77BCC7;  
+}
+
+/*.tribe-mini-calendar-wrapper{
+    background: #77BCC7!important;
+    background-color: #77BCC7;  
+}
+*/
+
+#tribe-mini-calendar-3 .tribe-mini-calendar-nav td, #tribe-mini-calendar-3 .tribe-mini-calendar-nav td span {
+    background: #77BCC7;
+    border-color: #77BCC7;
 }
 
 #tribe-mini-calendar-3 td.tribe-events-present {
@@ -107,28 +146,6 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     margin-right: 3px;
     box-shadow: 0 0 1px 0 rgba(0,0,0,.2);
 }
-
-.tribe-events-thismonth .tribe-events-future .tribe-events-has-events .mobile-trigger .tribe-event-day-18 .tribe-events-right
-{
-    background-color: #77BCC7;
-    margin: 0 5px;
-    float: left;
-    height: 40px;
-    width: 40px;
-    line-height: 35px;
-    text-align: center;
-    padding: 0;
-    border-radius: 40px;
-    margin-right: 3px;
-    box-shadow: 0 0 1px 0 rgba(0,0,0,.2);
-}
-
-
-table:not([id^="wp-calendar"]):not(.ui-datepicker-calendar) th, #add_payment_method .cart-collaterals .cart_totals table th, .woocommerce-cart .cart-collaterals .cart_totals table th, .woocommerce-checkout .cart-collaterals .cart_totals table th, .woocommerce table.shop_table th, table:not([id^="wp-calendar"]):not(.ui-datepicker-calendar) td, #add_payment_method .cart-collaterals .cart_totals table td, .woocommerce-cart .cart-collaterals .cart_totals table td, .woocommerce-checkout .cart-collaterals .cart_totals table td, .woocommerce table.shop_table td {
-    padding: 0;
-    border: 1px solid #f7f8f9;
-}
-
 /*--------------------------------------------------------------- */
 /* Ende: Tribe Widget Calendar Aachener Kinder Styles */
 /*--------------------------------------------------------------- */ 
@@ -368,48 +385,3 @@ img.rund {
 .text-md-right {
     text-align: left !important; 
 }
-
-/*----------------------------------------------------------------*/
-/* Start: Button in Beiträgen
-/* Datum: 23.02.2018
-/* Autor: hgg
-/* z. Bsp.: weiße Farbe, bei Hover: grüner Button
-/*----------------------------------------------------------------*/
-
-/* Absatz für Button */
-.button-absatz {
-    margin:30px 0px 30px 0px;
-}
-
-.tribe-events-button-beitrag {
-    padding: 10px;
-    color: #ffffff!important;
-    font-size: 14px;
-    background-color: #77BCC7;
-    border-radius: 4px;
-    text-decoration: none!important;
-}
-
-
-a.tribe-events-button-beitrag:focus{
-  color: #fff!important;
-  text-decoration: none;
-}
-
-a.tribe-events-button-beitrag:visited{
-  color: #fff!important;
-  text-decoration: none;
-}
-
-  
-/* Hintergrund: grün */  
-a.tribe-events-button-beitrag:hover{
-  color: #fff!important;
-  background-color: #6ba825;
-}
-
-/*----------------------------------------------------------------*/
-/* Ende: Button in Beiträgen
-/* Datum: 23.02.2018
-/* Autor: hgg
-/*----------------------------------------------------------------*/
