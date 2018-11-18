@@ -1,0 +1,201 @@
+/* CSS Document */
+
+/*----------------------------------------------------------------*/
+/* Start: Anpassungen Kalender (Listenansicht)
+/* Datum: 17.10.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+
+/*
+.tribe-events-event-image img {
+    height: auto;
+    max-width: 100%;
+}
+*/
+
+/* einzelne Bilder bei der Einzelansicht */
+/*
+.single-tribe_events {
+    clear: both;
+    margin-bottom: 30px;
+    text-align: center;
+    background-position: center center;
+    position: relative;
+    z-index: 1;
+    width: 50%;
+    height: 50%;
+}
+*/
+
+/* Hintergrund für Details und Veranstaltungsort */ 
+.single-tribe_events .tribe-events-event-meta {
+    background-color: #ffffff;
+}
+
+/* Anzeige eines einzelnen Termins etwas schmaler */
+.single-tribe_events #tribe-events-content {
+    width: 80%;
+    float: left;
+    padding-left: 5px;
+}
+
+.tribe-events-list-event-title {
+    display: block!important;
+}
+
+.tribe-event-url {
+    color: #000000 !important;
+    font-weight: normal;  
+    display: block !important;
+    line-height: 1.4em;    
+}
+
+. tribe-events-map-event-title {
+    font-size: 22px !important;
+}
+
+/*----------------------------------------------------------------*/
+/* Ende: Anpassungen Kalender (Listenansicht)
+/* Datum: 17.10.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------- */
+/* Start: Tribe Widget Calendar Aachener Kinder Styles */
+/*--------------------------------------------------------------- */ 
+
+#tribe-mini-calendar-3 .tribe-mini-calendar-nav td, #tribe-mini-calendar-3 .tribe-mini-calendar-nav td span {
+    background: #77BCC7;
+    border-color: #77BCC7;
+		padding-top: 5px;
+		padding-bottom: 5px;    
+}
+
+.tribe-mini-calendar-event .list-date {
+    background: #77BCC7!important;
+    background-color: #77BCC7;  
+}
+
+#tribe-mini-calendar-3 td.tribe-events-present {
+    background-color: #77BCC7;
+    margin: 0 5px;
+    float: left;
+    height: 40px;
+    width: 40px;
+    line-height: 35px;
+    text-align: center;
+    padding: 0;
+    border-radius: 40px;
+    margin-right: 3px;
+    box-shadow: 0 0 1px 0 rgba(0,0,0,.2);
+}
+
+.tribe-events-thismonth .tribe-events-future .tribe-events-has-events .mobile-trigger .tribe-event-day-18 .tribe-events-right
+{
+    background-color: #77BCC7;
+    margin: 0 5px;
+    float: left;
+    height: 40px;
+    width: 40px;
+    line-height: 35px;
+    text-align: center;
+    padding: 0;
+    border-radius: 40px;
+    margin-right: 3px;
+    box-shadow: 0 0 1px 0 rgba(0,0,0,.2);
+}
+
+
+table:not([id^="wp-calendar"]):not(.ui-datepicker-calendar) th, #add_payment_method .cart-collaterals .cart_totals table th, .woocommerce-cart .cart-collaterals .cart_totals table th, .woocommerce-checkout .cart-collaterals .cart_totals table th, .woocommerce table.shop_table th, table:not([id^="wp-calendar"]):not(.ui-datepicker-calendar) td, #add_payment_method .cart-collaterals .cart_totals table td, .woocommerce-cart .cart-collaterals .cart_totals table td, .woocommerce-checkout .cart-collaterals .cart_totals table td, .woocommerce table.shop_table td {
+    padding: 0;
+    border: 1px solid #f7f8f9;
+}
+
+.tribe-mini-calendar-dayofweek{
+	padding-top:5px!important;
+	padding-bottom:5px!important;
+}
+
+
+/*--------------------------------------------------------------- */
+/* Ende: Tribe Widget Calendar Aachener Kinder Styles */
+/*--------------------------------------------------------------- */ 
+
+/*----------------------------------------------------------------*/
+/* Start: Anpassungen für Darstellung der Filter Bar (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+
+.tribe-bar-submit {
+    margin-left: 0;
+}
+
+.tribe-bar-date-filter {
+    width: 30%;
+}
+
+dl dt::before {
+    content: none;
+}
+/*----------------------------------------------------------------*/
+/* Ende: Anpassungen für Darstellung der Filter Bar (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+
+/*----------------------------------------------------------------*/
+/* Start: Darstellung der Details in Einzelansicht (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+/* Schriften etc. größer */
+.tribe-events-start-date-label,
+.tribe-events-start-time-label,
+.tribe-events-event-categories-label,
+.tribe-events-event-url-label,
+.tribe-organizer-tel-label,
+.tribe-organizer-email-label
+{
+    padding-left: 0px;
+		font-size: 1.1em;
+	  padding-right: 0px;
+}
+
+dt{
+		padding-left: 0px!important;
+    font-size: 1.1em;
+		padding-right: 0px;
+}
+
+/* Mehr Platz beim Datum */
+.tribe-event-date-start .tribe-event-date-end .tribe-event-time{
+	padding-right: 5px;
+}
+
+/*----------------------------------------------------------------*/
+/* Ende: Darstellung der Details in Einzelansicht (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+
+/*----------------------------------------------------------------*/
+/* Start: Darstellung der Links mit Unterstrich (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+
+#tribe-events-content a, .tribe-events-adv-list-widget .tribe-events-widget-link a, .tribe-events-adv-list-widget .tribe-events-widget-link a:hover, .tribe-events-back a, .tribe-events-back a:hover, .tribe-events-event-meta a, .tribe-events-list-widget .tribe-events-widget-link a, .tribe-events-list-widget .tribe-events-widget-link a:hover, ul.tribe-events-sub-nav a, ul.tribe-events-sub-nav a:hover {
+    text-decoration: underline;
+}
+
+/* Titel ohne Unterstrich */
+.tribe-event-url {
+	text-decoration:none!important;	
+}
+/*----------------------------------------------------------------*/
+/* Ende: Darstellung der Links mit Unterstrich (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
