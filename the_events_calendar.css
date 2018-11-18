@@ -65,17 +65,69 @@
 /* Start: Tribe Widget Calendar Aachener Kinder Styles */
 /*--------------------------------------------------------------- */ 
 
+/*
+.tribe-event-date-start .tribe-event-date-end .tribe-event-time{
+	padding-right: 30px;
+}
+
+
 #tribe-mini-calendar-3 .tribe-mini-calendar-nav td, #tribe-mini-calendar-3 .tribe-mini-calendar-nav td span {
-    background: #77BCC7;
-    border-color: #77BCC7;
-		padding-top: 5px;
-		padding-bottom: 5px;    
+  background: #6ba825;
+  border-color: #6ba825;
+}
+
+#tribe-mini-calendar-3 .tribe-events-past a{
+  background: #f9f9f9;
+}
+
+#tribe-mini-calendar-3 .tribe-events-future a{
+  background: #ffffff;
+  color:#919191;
+}
+
+#tribe-mini-calendar-month {
+  background: none;
+}
+
+#tribe-mini-calendar-3 .tribe-mini-calendar-nav-link span {
+  background: none;
+}
+*/
+
+#tribe-mini-calendar-3 td a:hover{
+  color: #ffffff;
+  background: #77BCC7;
+}
+
+#tribe-mini-calendar-3 td:hover{
+  background:#77BCC7;
+}
+
+#tribe-mini-calendar-3 td.tribe-events-present {
+  background-color: #77BCC7;
+}
+#tribe-mini-calendar-3 td.tribe-events-present a{
+  color: #ffffff;
 }
 
 .tribe-mini-calendar-event .list-date {
     background: #77BCC7!important;
     background-color: #77BCC7;  
 }
+
+/*.tribe-mini-calendar-wrapper{
+    background: #77BCC7!important;
+    background-color: #77BCC7;  
+}
+
+*/
+#tribe-mini-calendar-3 .tribe-mini-calendar-nav td, #tribe-mini-calendar-3 .tribe-mini-calendar-nav td span {
+    background: #77BCC7;
+    border-color: #77BCC7;
+		padding-top: 5px;
+		padding-bottom: 5px;
+}
+
 
 #tribe-mini-calendar-3 td.tribe-events-present {
     background-color: #77BCC7;
@@ -107,14 +159,26 @@
 }
 
 
+/* keine Ränder bei den Zellen, weil sonst Probleme mit der Breite */
 table:not([id^="wp-calendar"]):not(.ui-datepicker-calendar) th, #add_payment_method .cart-collaterals .cart_totals table th, .woocommerce-cart .cart-collaterals .cart_totals table th, .woocommerce-checkout .cart-collaterals .cart_totals table th, .woocommerce table.shop_table th, table:not([id^="wp-calendar"]):not(.ui-datepicker-calendar) td, #add_payment_method .cart-collaterals .cart_totals table td, .woocommerce-cart .cart-collaterals .cart_totals table td, .woocommerce-checkout .cart-collaterals .cart_totals table td, .woocommerce table.shop_table td {
     padding: 0;
     border: 1px solid #f7f8f9;
 }
 
+/* Rand oben und unten bei Überschrift Tage größer */ 
 .tribe-mini-calendar-dayofweek{
 	padding-top:5px!important;
 	padding-bottom:5px!important;
+}
+
+/* Punkte beim Kalender für Termine vorhanden nicht zeigen */
+.tribe-mini-calendar .tribe-events-has-events div[id*="daynum-"] a::before {
+    display: none;
+}
+
+/* kein unterer Rand beim aktuellen Tag im Kalender */
+.tribe-mini-calendar-day-link{
+  padding-bottom: 0px!important;;
 }
 
 

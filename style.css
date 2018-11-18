@@ -12,174 +12,18 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 @import url("../customizr-pro/style.css");
 
-/* @import url("the_events_calendar.css"); */
+@import url("the_events_calendar.css");
 
 @import url("parallax_scrolling.css");
 
 
 
-
-/*--------------------------------------------------------------- */
-/* Start: Anpassungen Freizeitangebote WP GOOGLE MAPS */
-/*--------------------------------------------------------------- */
-
-/*Kategorien nebeneinander floaten */
-.category_filter {
-    display: block;
-    float: left;
-    margin-bottom: 10px;
-  }
-
-/*Auf großen Displays 4 Kategoriefilter nebeneinander darstellen */
-@media (min-width: 1700px) {
-  .category_filter {
-    width: 25%;
-  }
-}
-
-/*Auf mittelgroßen Displays 3 Kategoriefilter nebeneinander darstellen */
-@media (min-width: 1400px) and (max-width: 1700px) {
-  .category_filter {
-    width: 33%;
-  }
-}
-
-/*Auf kleinen Displays 2 Kategoriefilter nebeneinander darstellen */
-@media (max-width: 1400px)  {
-  .category_filter {
-    width: 50%;
-  }
+/* Breite des Containers von 1140px auf 1340px erweitert */
+.container {
+    max-width: 1340px;
 }
 
 
-.category_filter img {
-  height: 40px !important;
-  width: auto;
-}
-
-.category_filter input {
-  display: inline-block!important;
-  margin: 0 2px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: 2px solid grey;
-  border-radius: 0px;
-   width: 15px;
-  height: 15px;  
-  position: relative; 
-  cursor: pointer;
-}
-
-.category_filter input:checked:before {
-  content     : '✓';
-  width: 15px;
-  height: 15px;
-  color       : black;
-  font-size   : 0.975em;
-  line-height : 0;
-  text-align  : center;
-  font-weight : bold;
-  position: absolute;
-  left: -3px;
-  top: 6px;
-}
-
-table.wpgmza_table thead tr{
-  background-color: #2f3c4e;
-}
-
-table.wpgmza_table thead tr th {color: #fff;}
-table.wpgmza_table tbody .wpgmza_marker_icon {
-  height: 55px !important;
-  width: auto;
-}
-
-table.wpgmza_table tbody tr td {
-  border-bottom: 1px solid #dbdbdb !important;
-}
-
-body .dataTables_wrapper .dataTables_paginate {
-  display: block;
-  float: none;
-  margin: auto;
-  text-align: center;
-}
-
-body .dataTables_wrapper .dataTables_info {
-  float: none;
-  text-align: center;
-  font-size: 12px;
-  margin-bottom: 10px;
-}
-
-select {
-  border: 1px solid lightgrey;
-  padding: 8px;
-  outline: none;
-  font-size: 13px;
-  border-radius: 2px;
-  -webkit-appearance: inherit;
-  -webkit-user-select: auto;
-  -moz-transition: border .25s linear, color .25s linear, background-color .25s linear;
-  background: none;
-  width: auto;
-  position: relative;
-  z-index: 2;
-}
-
-body .dataTables_wrapper .dataTables_length,
-body .dataTables_wrapper .dataTables_filter {
-  margin: 15px 0; 
-}
-
-body .dataTables_wrapper .dataTables_filter input {
-  border-radius: 2px;
-  height: 30px;
-  border: 1px solid lightgrey;
-  padding: 0 5px;
-}
-
-#wpgmza_filter_1 {
-  text-align: left;
-  margin-bottom: 0px;
-  font-size: 1.6rem !important;
-  font-weight: bold;
-  margin-bottom: 20px !important;
-  text-transform: uppercase;
-}
-
-#wpgmza_filter_1:after {
-  content: ":";
-}
-
-#wpgmza_table_1 thead tr,#wpgmza_table_1 thead th{
-  background: #77BCC7;
-  color: #fff;
-}
-
-#wpgmza_table_1 thead strong{
-color: #fff;
-}
-
-.main_color tr:nth-child(odd){
-  background: #fff;
-} 
-
-/* wp google maps */
-.wpgmza_filter_container{
-  display: block; 
-  float: left; 
-  width: 100% !important;
-}
-
-/* Korrekte Darstellung der Checkboxen */
-#top input[type="checkbox"] {
-    display: inline-block;
-}
-/*--------------------------------------------------------------- */
-/* Ende: Anpassungen Freizeitangebote WP GOOGLE MAPS */
-/*--------------------------------------------------------------- */
 
 /*----------------------------------------------------------------*/
 /* Start: Anpassungen für Paginierung
@@ -361,3 +205,166 @@ a.tribe-events-button-beitrag:hover{
 /* Datum: 23.02.2018
 /* Autor: hgg
 /*----------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------- */
+/* Start: Anpassungen Freizeitangebote WP GOOGLE MAPS */
+/*--------------------------------------------------------------- */
+
+/*Kategorien nebeneinander floaten */
+.category_filter {
+    display: block;
+    float: left;
+    margin-bottom: 10px;
+  }
+
+/*Auf großen Displays 4 Kategoriefilter nebeneinander darstellen */
+@media (min-width: 1700px) {
+  .category_filter {
+    width: 25%;
+  }
+}
+
+/*Auf mittelgroßen Displays 3 Kategoriefilter nebeneinander darstellen */
+@media (min-width: 1400px) and (max-width: 1700px) {
+  .category_filter {
+    width: 33%;
+  }
+}
+
+/*Auf kleinen Displays 2 Kategoriefilter nebeneinander darstellen */
+@media (max-width: 1400px)  {
+  .category_filter {
+    width: 50%;
+  }
+}
+
+
+.category_filter img {
+  height: 40px !important;
+  width: auto;
+}
+
+.category_filter input {
+  display: inline-block!important;
+  margin: 0 2px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 2px solid grey;
+  border-radius: 0px;
+   width: 15px;
+  height: 15px;  
+  position: relative; 
+  cursor: pointer;
+}
+
+.category_filter input:checked:before {
+  content     : '✓';
+  width: 15px;
+  height: 15px;
+  color       : black;
+  font-size   : 0.975em;
+  line-height : 0;
+  text-align  : center;
+  font-weight : bold;
+  position: absolute;
+  left: -3px;
+  top: 6px;
+}
+
+table.wpgmza_table thead tr{
+  background-color: #2f3c4e;
+}
+
+table.wpgmza_table thead tr th {color: #fff;}
+table.wpgmza_table tbody .wpgmza_marker_icon {
+  height: 55px !important;
+  width: auto;
+}
+
+table.wpgmza_table tbody tr td {
+  border-bottom: 1px solid #dbdbdb !important;
+}
+
+body .dataTables_wrapper .dataTables_paginate {
+  display: block;
+  float: none;
+  margin: auto;
+  text-align: center;
+}
+
+body .dataTables_wrapper .dataTables_info {
+  float: none;
+  text-align: center;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+select {
+  border: 1px solid lightgrey;
+  padding: 8px;
+  outline: none;
+  font-size: 13px;
+  border-radius: 2px;
+  -webkit-appearance: inherit;
+  -webkit-user-select: auto;
+  -moz-transition: border .25s linear, color .25s linear, background-color .25s linear;
+  background: none;
+  width: auto;
+  position: relative;
+  z-index: 2;
+}
+
+body .dataTables_wrapper .dataTables_length,
+body .dataTables_wrapper .dataTables_filter {
+  margin: 15px 0; 
+}
+
+body .dataTables_wrapper .dataTables_filter input {
+  border-radius: 2px;
+  height: 30px;
+  border: 1px solid lightgrey;
+  padding: 0 5px;
+}
+
+#wpgmza_filter_1 {
+  text-align: left;
+  margin-bottom: 0px;
+  font-size: 1.6rem !important;
+  font-weight: bold;
+  margin-bottom: 20px !important;
+  text-transform: uppercase;
+}
+
+#wpgmza_filter_1:after {
+  content: ":";
+}
+
+#wpgmza_table_1 thead tr,#wpgmza_table_1 thead th{
+  background: #77BCC7;
+  color: #fff;
+}
+
+#wpgmza_table_1 thead strong{
+color: #fff;
+}
+
+.main_color tr:nth-child(odd){
+  background: #fff;
+} 
+
+/* wp google maps */
+.wpgmza_filter_container{
+  display: block; 
+  float: left; 
+  width: 100% !important;
+}
+
+/* Korrekte Darstellung der Checkboxen */
+#top input[type="checkbox"] {
+    display: inline-block;
+}
+/*--------------------------------------------------------------- */
+/* Ende: Anpassungen Freizeitangebote WP GOOGLE MAPS */
+/*--------------------------------------------------------------- */
