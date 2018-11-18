@@ -12,17 +12,111 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 @import url("../customizr-pro/style.css");
 
-@import url("the_events_calendar.css");
+@import url("the_events_calendar.css"); 
 
 @import url("parallax_scrolling.css");
 
 
+/*----------------------------------------------------------------*/
+/* Start: allgemeine Anpassungen für Darstellung
+/* Datum: 18.11.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
 
 /* Breite des Containers von 1140px auf 1340px erweitert */
 .container {
     max-width: 1340px;
 }
 
+/* Hintergrundfarbe des Hauptmenüs */
+.primary-navbar__wrapper {
+    background-color: #F9B81E;
+}
+
+/*----------------------------------------------------------------*/
+/* Ende: allgemeine Anpassungen für Darstellung
+/* Datum: 18.11.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------*/
+/* Start: Anpassungen für Darstellung der Filter Bar (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+
+.tribe-bar-submit {
+    margin-left: 0;
+}
+
+.tribe-bar-date-filter {
+    width: 30%;
+}
+
+dl dt::before {
+    content: none;
+}
+/*----------------------------------------------------------------*/
+/* Ende: Anpassungen für Darstellung der Filter Bar (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+
+/*----------------------------------------------------------------*/
+/* Start: Darstellung der Details in Einzelansicht (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+/* Schriften etc. größer */
+.tribe-events-start-date-label,
+.tribe-events-start-time-label,
+.tribe-events-event-categories-label,
+.tribe-events-event-url-label,
+.tribe-organizer-tel-label,
+.tribe-organizer-email-label
+{
+    padding-left: 0px;
+		font-size: 1.1em;
+	  padding-right: 0px;
+}
+
+dt{
+		padding-left: 0px!important;
+    font-size: 1.1em;
+		padding-right: 0px;
+}
+
+/* Mehr Platz beim Datum */
+.tribe-event-date-start .tribe-event-date-end .tribe-event-time{
+	padding-right: 5px;
+}
+
+/*----------------------------------------------------------------*/
+/* Ende: Darstellung der Details in Einzelansicht (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+
+/*----------------------------------------------------------------*/
+/* Start: Darstellung der Links mit Unterstrich (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+
+#tribe-events-content a, .tribe-events-adv-list-widget .tribe-events-widget-link a, .tribe-events-adv-list-widget .tribe-events-widget-link a:hover, .tribe-events-back a, .tribe-events-back a:hover, .tribe-events-event-meta a, .tribe-events-list-widget .tribe-events-widget-link a, .tribe-events-list-widget .tribe-events-widget-link a:hover, ul.tribe-events-sub-nav a, ul.tribe-events-sub-nav a:hover {
+    text-decoration: underline;
+}
+
+/* Titel ohne Unterstrich */
+.tribe-event-url {
+	text-decoration:none!important;	
+}
+/*----------------------------------------------------------------*/
+/* Ende: Darstellung der Links mit Unterstrich (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------*/
@@ -74,10 +168,22 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     max-width: 25%;
 }
 
+/* Platz für Text voheriger und nächster Beitrag */
+.col-5 {
+    max-width: 33%!important;
+}
+
 /* Inhalte in der Sidebar rechtsbündig */
 .tc-sidebar.text-md-right .widget-title::after {
     right: 0;
     left: 0;
+}
+
+
+/* Text ältere und neuere Beiträge stärker hervorheben */
+/* funktioniert noch nicht */
+.post-navigation .meta-nav {
+    opacity: 0.8!important;
 }
 /*----------------------------------------------------------------*/
 /* Ende: Anpassungen für Paginierung
@@ -216,17 +322,18 @@ a.tribe-events-button-beitrag:hover{
     display: block;
     float: left;
     margin-bottom: 10px;
+    font-size:0.8em;
   }
 
 /*Auf großen Displays 4 Kategoriefilter nebeneinander darstellen */
-@media (min-width: 1700px) {
+@media (min-width: 2000px) {
   .category_filter {
     width: 25%;
   }
 }
 
 /*Auf mittelgroßen Displays 3 Kategoriefilter nebeneinander darstellen */
-@media (min-width: 1400px) and (max-width: 1700px) {
+@media (min-width: 1400px) and (max-width: 2000px) {
   .category_filter {
     width: 33%;
   }

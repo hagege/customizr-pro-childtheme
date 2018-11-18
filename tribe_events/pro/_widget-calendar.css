@@ -1,4 +1,15 @@
-/* CSS Document */
+/**
+ * The Events Calendar Widget Calendar Full Stylesheet
+ *
+ * To add your own custom styles, create a stylesheet with the name
+ * widget-calendar.css in the tribe-events/pro/ directory of your theme.
+ * Your new stylesheet will be loaded after our own stylesheet.
+ *
+ * To replace our stylsheet altogether, you can use the 'tribe_events_pro_widget_calendar_stylesheet_url' filter.
+ *
+ * @package TribeEventsCalendarPro
+ *
+ */
 
 /*----------------------------------------------------------------*/
 /* Start: Anpassungen Kalender (Listenansicht)
@@ -161,7 +172,7 @@
 
 /* keine Ränder bei den Zellen, weil sonst Probleme mit der Breite */
 table:not([id^="wp-calendar"]):not(.ui-datepicker-calendar) th, #add_payment_method .cart-collaterals .cart_totals table th, .woocommerce-cart .cart-collaterals .cart_totals table th, .woocommerce-checkout .cart-collaterals .cart_totals table th, .woocommerce table.shop_table th, table:not([id^="wp-calendar"]):not(.ui-datepicker-calendar) td, #add_payment_method .cart-collaterals .cart_totals table td, .woocommerce-cart .cart-collaterals .cart_totals table td, .woocommerce-checkout .cart-collaterals .cart_totals table td, .woocommerce table.shop_table td {
-    padding: 0px;
+    padding: 0;
     border: 1px solid #f7f8f9;
 }
 
@@ -186,81 +197,3 @@ table:not([id^="wp-calendar"]):not(.ui-datepicker-calendar) th, #add_payment_met
 /* Ende: Tribe Widget Calendar Aachener Kinder Styles */
 /*--------------------------------------------------------------- */ 
 
-/*----------------------------------------------------------------*/
-/* Start: Anpassungen für Darstellung der Filter Bar (TEC)
-/* Datum: 17.11.2018
-/* Autor: hgg  
-/*----------------------------------------------------------------*/
-
-.tribe-bar-submit {
-    margin-left: 0;
-}
-
-.tribe-bar-date-filter {
-    width: 30%;
-}
-
-dl dt::before {
-    content: none;
-}
-/*----------------------------------------------------------------*/
-/* Ende: Anpassungen für Darstellung der Filter Bar (TEC)
-/* Datum: 17.11.2018
-/* Autor: hgg  
-/*----------------------------------------------------------------*/
-
-/*----------------------------------------------------------------*/
-/* Start: Darstellung der Details in Einzelansicht (TEC)
-/* Datum: 17.11.2018
-/* Autor: hgg  
-/*----------------------------------------------------------------*/
-/* Schriften etc. größer */
-.tribe-events-start-date-label,
-.tribe-events-start-time-label,
-.tribe-events-event-categories-label,
-.tribe-events-event-url-label,
-.tribe-organizer-tel-label,
-.tribe-organizer-email-label
-{
-    padding-left: 0px;
-		font-size: 1.1em;
-	  padding-right: 0px;
-}
-
-dt{
-		padding-left: 0px!important;
-    font-size: 1.1em;
-		padding-right: 0px;
-}
-
-/* Mehr Platz beim Datum */
-.tribe-event-date-start .tribe-event-date-end .tribe-event-time{
-	padding-right: 5px;
-}
-
-/*----------------------------------------------------------------*/
-/* Ende: Darstellung der Details in Einzelansicht (TEC)
-/* Datum: 17.11.2018
-/* Autor: hgg  
-/*----------------------------------------------------------------*/
-
-/*----------------------------------------------------------------*/
-/* Start: Darstellung der Links mit Unterstrich (TEC)
-/* Datum: 17.11.2018
-/* Autor: hgg  
-/*----------------------------------------------------------------*/
-
-#tribe-events-content a, .tribe-events-adv-list-widget .tribe-events-widget-link a, .tribe-events-adv-list-widget .tribe-events-widget-link a:hover, .tribe-events-back a, .tribe-events-back a:hover, .tribe-events-event-meta a, .tribe-events-list-widget .tribe-events-widget-link a, .tribe-events-list-widget .tribe-events-widget-link a:hover, ul.tribe-events-sub-nav a, ul.tribe-events-sub-nav a:hover {
-    text-decoration: underline;
-}
-
-/* Titel ohne Unterstrich */
-.tribe-event-url {
-	text-decoration:none!important;	
-}    
-
-/*----------------------------------------------------------------*/
-/* Ende: Darstellung der Links mit Unterstrich (TEC)
-/* Datum: 17.11.2018
-/* Autor: hgg  
-/*----------------------------------------------------------------*/
