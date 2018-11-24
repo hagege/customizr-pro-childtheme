@@ -535,6 +535,10 @@ table.dataTable.no-footer {
 .dataTables_wrapper .dataTables_length, body .dataTables_wrapper .dataTables_filter {
     margin: 15px !important;
 }
+
+#wpgmza_table_1 thead tr, #wpgmza_table_1 thead th {
+    width: 100px !important;
+}
 /*--------------------------------------------------------------- */
 /* Ende: Anpassungen Freizeitangebote WP GOOGLE MAPS */
 /*--------------------------------------------------------------- */
