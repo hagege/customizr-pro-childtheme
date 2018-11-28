@@ -282,7 +282,7 @@ table.responsive {
 /*----------------------------------------------------------------*/
 
 /*----------------------------------------------------------------*/
-/* Start: Schriftartem
+/* Start: Schriftarten
 /* Datum: 02.11.2018
 /* Autor: hgg  
 /*----------------------------------------------------------------*/
@@ -296,7 +296,7 @@ span.klein {
   font-style:italic;
 }
 /*----------------------------------------------------------------*/
-/* Ende: Schritartem
+/* Ende: Schriftarten
 /* Datum: 02.11.2018
 /* Autor: hgg  
 /*----------------------------------------------------------------*/
@@ -329,10 +329,16 @@ img.rund {
 .tribe-events-button-beitrag {
     padding: 10px;
     color: #ffffff!important;
-    font-size: 14px;
+    font-size: 1.0em;
     background-color: #77BCC7;
     border-radius: 4px;
     text-decoration: none!important;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 840px) {
+  .tribe-events-button-beitrag {
+      font-size: 0.8em;
+  }
 }
 
 

@@ -200,3 +200,49 @@ dt{
 /* Autor: hgg  
 /*----------------------------------------------------------------*/
 
+/*----------------------------------------------------------------*/
+/* Start: Hover - Effekt mit blauem animierten Unterstrich
+/* Datum: 17.11.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+#tribe-events-content a, .tribe-events-adv-list-widget .tribe-events-widget-link a{
+  position: relative;
+  color: #000;
+  text-decoration: underline;
+}
+
+#tribe-events-content a:hover, .tribe-events-adv-list-widget .tribe-events-widget-link a:hover{
+  color: #000;
+	text-decoration: none;
+}
+
+#tribe-events-content a:before, .tribe-events-adv-list-widget .tribe-events-widget-link a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 2px;
+  left: 0;
+	/* background-color: #F9B81E; */
+  background-color: #77BCC7;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+#tribe-events-content a:hover:before, .tribe-events-adv-list-widget .tribe-events-widget-link a:hover:before{
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+/*----------------------------------------------------------------*/
+/* Ende: Hover - Effekt mit blauem animierten Unterstrich
+/* Datum: 17.11.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+
+
+
