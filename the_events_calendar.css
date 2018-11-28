@@ -6,30 +6,16 @@
 /* Autor: hgg  
 /*----------------------------------------------------------------*/
 
-/*
-.tribe-events-event-image img {
-    height: auto;
-    max-width: 100%;
-}
-*/
 
-/* einzelne Bilder bei der Einzelansicht */
-/*
-.single-tribe_events {
-    clear: both;
-    margin-bottom: 30px;
-    text-align: center;
-    background-position: center center;
-    position: relative;
-    z-index: 1;
-    width: 50%;
-    height: 50%;
-}
-*/
 
 /* Hintergrund für Details und Veranstaltungsort */ 
 .single-tribe_events .tribe-events-event-meta {
     background-color: #ffffff;
+}
+
+/* Veranstalterangaben etwas größer in der Einzelansicht */
+.single-tribe_events #tribe-events-content .tribe-events-event-meta dd {
+    font-size: 1.3em;
 }
 
 /* Anzeige eines einzelnen Termins etwas schmaler */
@@ -54,6 +40,8 @@
     font-size: 22px !important;
 }
 
+
+
 /*----------------------------------------------------------------*/
 /* Ende: Anpassungen Kalender (Listenansicht)
 /* Datum: 17.10.2018
@@ -65,104 +53,17 @@
 /* Start: Tribe Widget Calendar Aachener Kinder Styles */
 /*--------------------------------------------------------------- */ 
 
-/*
-.tribe-event-date-start .tribe-event-date-end .tribe-event-time{
-	padding-right: 30px;
+/* Überschrift mit Monat */
+.tribe-mini-calendar thead {
+    background: #77BCC7 !important;
+    border: 1px solid #77BCC7 !important;
 }
 
 
-#tribe-mini-calendar-3 .tribe-mini-calendar-nav td, #tribe-mini-calendar-3 .tribe-mini-calendar-nav td span {
-  background: #6ba825;
-  border-color: #6ba825;
-}
-
-#tribe-mini-calendar-3 .tribe-events-past a{
-  background: #f9f9f9;
-}
-
-#tribe-mini-calendar-3 .tribe-events-future a{
-  background: #ffffff;
-  color:#919191;
-}
-
-#tribe-mini-calendar-month {
-  background: none;
-}
-
-#tribe-mini-calendar-3 .tribe-mini-calendar-nav-link span {
-  background: none;
-}
-*/
-
-#tribe-mini-calendar-3 td a:hover{
-  color: #ffffff;
-  background: #77BCC7;
-}
-
-#tribe-mini-calendar-3 td:hover{
-  background:#77BCC7;
-}
-
-#tribe-mini-calendar-3 td.tribe-events-present {
-  background-color: #77BCC7;
-}
-#tribe-mini-calendar-3 td.tribe-events-present a{
-  color: #ffffff;
-}
-
+/* Datum vor dem event in der sidebar */
 .tribe-mini-calendar-event .list-date {
     background: #77BCC7!important;
     background-color: #77BCC7;  
-}
-
-/*.tribe-mini-calendar-wrapper{
-    background: #77BCC7!important;
-    background-color: #77BCC7;  
-}
-
-*/
-#tribe-mini-calendar-3 .tribe-mini-calendar-nav td, #tribe-mini-calendar-3 .tribe-mini-calendar-nav td span {
-    background: #77BCC7;
-    border-color: #77BCC7;
-		padding-top: 5px;
-		padding-bottom: 5px;
-}
-
-
-#tribe-mini-calendar-3 td.tribe-events-present {
-    background-color: #77BCC7;
-    margin: 0 5px;
-    float: left;
-    height: 40px;
-    width: 40px;
-    line-height: 35px;
-    text-align: center;
-    padding: 0;
-    border-radius: 40px;
-    margin-right: 3px;
-    box-shadow: 0 0 1px 0 rgba(0,0,0,.2);
-}
-
-.tribe-events-thismonth .tribe-events-future .tribe-events-has-events .mobile-trigger .tribe-event-day-18 .tribe-events-right
-{
-    background-color: #77BCC7;
-    margin: 0 5px;
-    float: left;
-    height: 40px;
-    width: 40px;
-    line-height: 35px;
-    text-align: center;
-    padding: 0;
-    border-radius: 40px;
-    margin-right: 3px;
-    box-shadow: 0 0 1px 0 rgba(0,0,0,.2);
-}
-
-
-/* keine Ränder bei den Zellen, weil sonst Probleme mit der Breite */
-table:not([id^="wp-calendar"]):not(.ui-datepicker-calendar) th, #add_payment_method .cart-collaterals .cart_totals table th, .woocommerce-cart .cart-collaterals .cart_totals table th, .woocommerce-checkout .cart-collaterals .cart_totals table th, .woocommerce table.shop_table th, table:not([id^="wp-calendar"]):not(.ui-datepicker-calendar) td, #add_payment_method .cart-collaterals .cart_totals table td, .woocommerce-cart .cart-collaterals .cart_totals table td, .woocommerce-checkout .cart-collaterals .cart_totals table td, .woocommerce table.shop_table td {
-    padding: 0px;
-    border: 1px solid #f7f8f9;
 }
 
 /* Rand oben und unten bei Überschrift Tage größer */ 
@@ -179,6 +80,39 @@ table:not([id^="wp-calendar"]):not(.ui-datepicker-calendar) th, #add_payment_met
 /* kein unterer Rand beim aktuellen Tag im Kalender */
 .tribe-mini-calendar-day-link{
   padding-bottom: 0px!important;;
+}
+
+
+
+/* Überschrift Kalender abhängig von der Breite */
+@media only screen and (min-width: 768px) and (max-width: 840px) {
+  .tribe-mini-calendar-nav span {
+      font-size: 0.65em;
+  }
+}
+
+@media only screen and (min-width: 841px) and (max-width: 880px) {
+  .tribe-mini-calendar-nav span {
+      font-size: 0.7em;
+  }
+}
+
+@media only screen and (min-width: 881px) and (max-width: 950px) {
+  .tribe-mini-calendar-nav span {
+      font-size: 0.8em;
+  }
+}
+
+@media only screen and (min-width: 951px) and (max-width: 1019px) {
+  .tribe-mini-calendar-nav span {
+      font-size: 0.9em;
+  }
+}
+
+@media screen and (min-width: 1020px), (max-width: 765px) {
+  .tribe-mini-calendar-nav span {
+      font-size: 1.0em;
+  }
 }
 
 
@@ -249,10 +183,11 @@ dt{
 /* Datum: 17.11.2018
 /* Autor: hgg  
 /*----------------------------------------------------------------*/
-
+/*
 #tribe-events-content a, .tribe-events-adv-list-widget .tribe-events-widget-link a, .tribe-events-adv-list-widget .tribe-events-widget-link a:hover, .tribe-events-back a, .tribe-events-back a:hover, .tribe-events-event-meta a, .tribe-events-list-widget .tribe-events-widget-link a, .tribe-events-list-widget .tribe-events-widget-link a:hover, ul.tribe-events-sub-nav a, ul.tribe-events-sub-nav a:hover {
     text-decoration: underline;
 }
+*/
 
 /* Titel ohne Unterstrich */
 .tribe-event-url {
@@ -264,3 +199,4 @@ dt{
 /* Datum: 17.11.2018
 /* Autor: hgg  
 /*----------------------------------------------------------------*/
+

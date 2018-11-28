@@ -26,15 +26,6 @@
 
 /* -------------------------------------------------------------------------------------------------------- */
 
-  /* Funktion für pronamic google maps - pronamic */
-  if ( function_exists( 'pronamic_google_maps' ) ) {
-    pronamic_google_maps( array(
-        'width'  => 290,
-        'height' => 200
-    ) );
-  }
-
-
 /* -------------------------------------------------------------------------------------------------------- */
 
 
@@ -103,14 +94,3 @@
           return '';
       }
   }
-
-/* -------------------------------------------------------------------------------------------------------- */
-/* Funktion aus Wordpress Praixs, S. 271
-/* -------------------------------------------------------------------------------------------------------- */
-add_filter('widget_text', 'jetztgibmirphp', 99); 
-function jetztgibmirphp($text) {
-if (strpos($text, '<'. '?') !== false) { ob_start();
-eval('?'. '>'. $text);
-$text = ob_get_contents(); ob_end_clean();
-}
-return $text; }

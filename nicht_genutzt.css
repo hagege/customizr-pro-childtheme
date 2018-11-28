@@ -1,5 +1,132 @@
+
+
+
 /* CSS Document */
 /* nicht genutzte Regeln */
+
+
+/*
+.tribe-event-date-start .tribe-event-date-end .tribe-event-time{
+	padding-right: 30px;
+}
+
+
+#tribe-mini-calendar-3 .tribe-mini-calendar-nav td, #tribe-mini-calendar-3 .tribe-mini-calendar-nav td span {
+  background: #6ba825;
+  border-color: #6ba825;
+}
+
+#tribe-mini-calendar-3 .tribe-events-past a{
+  background: #f9f9f9;
+}
+
+#tribe-mini-calendar-3 .tribe-events-future a{
+  background: #ffffff;
+  color:#919191;
+}
+
+#tribe-mini-calendar-month {
+  background: none;
+}
+
+#tribe-mini-calendar-3 .tribe-mini-calendar-nav-link span {
+  background: none;
+}
+
+
+
+
+
+#tribe-mini-calendar-3 td a:hover{
+  color: #ffffff;
+  background: #77BCC7;
+}
+
+#tribe-mini-calendar-3 td:hover{
+  background:#77BCC7;
+}
+
+#tribe-mini-calendar-3 td.tribe-events-present {
+  background-color: #77BCC7;
+}
+#tribe-mini-calendar-3 td.tribe-events-present a{
+  color: #ffffff;
+}
+
+
+
+.tribe-mini-calendar-wrapper{
+    background: #77BCC7!important;
+    background-color: #77BCC7;  
+}
+
+
+#tribe-mini-calendar-3 .tribe-mini-calendar-nav td, #tribe-mini-calendar-3 .tribe-mini-calendar-nav td span {
+    background: #77BCC7;
+    border-color: #77BCC7;
+		padding-top: 5px;
+		padding-bottom: 5px;
+}
+
+
+#tribe-mini-calendar-3 td.tribe-events-present {
+    background-color: #77BCC7;
+    margin: 0 5px;
+    float: left;
+    height: 40px;
+    width: 40px;
+    line-height: 35px;
+    text-align: center;
+    padding: 0;
+    border-radius: 40px;
+    margin-right: 3px;
+    box-shadow: 0 0 1px 0 rgba(0,0,0,.2);
+}
+
+.tribe-events-thismonth .tribe-events-future .tribe-events-has-events .mobile-trigger .tribe-event-day-18 .tribe-events-right
+{
+    background-color: #77BCC7;
+    margin: 0 5px;
+    float: left;
+    height: 40px;
+    width: 40px;
+    line-height: 35px;
+    text-align: center;
+    padding: 0;
+    border-radius: 40px;
+    margin-right: 3px;
+    box-shadow: 0 0 1px 0 rgba(0,0,0,.2);
+}
+
+
+/* keine Ränder bei den Zellen, weil sonst Probleme mit der Breite */
+/*
+table:not([id^="wp-calendar"]):not(.ui-datepicker-calendar) th, #add_payment_method .cart-collaterals .cart_totals table th, .woocommerce-cart .cart-collaterals .cart_totals table th, .woocommerce-checkout .cart-collaterals .cart_totals table th, .woocommerce table.shop_table th, table:not([id^="wp-calendar"]):not(.ui-datepicker-calendar) td, #add_payment_method .cart-collaterals .cart_totals table td, .woocommerce-cart .cart-collaterals .cart_totals table td, .woocommerce-checkout .cart-collaterals .cart_totals table td, .woocommerce table.shop_table td {
+    padding: 0px;
+    border: 1px solid #f7f8f9;
+}
+*/
+
+/*
+.tribe-events-event-image img {
+    height: auto;
+    max-width: 100%;
+}
+*/
+
+/* einzelne Bilder bei der Einzelansicht */
+/*
+.single-tribe_events {
+    clear: both;
+    margin-bottom: 30px;
+    text-align: center;
+    background-position: center center;
+    position: relative;
+    z-index: 1;
+    width: 50%;
+    height: 50%;
+}
+*/
 
 /*--------------------------------------------------------------- */
 /* Start: Tribe Widget Calendar Aachener Kinder Styles */
