@@ -72,7 +72,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 /* Bildhöhe bei Beiträgen auf 200px festlegen und einen Bildausschnitt wählen */
 .tc-thumbnail img {
 	  height: 200px;
-    clip-path: inset(2% 2% 2% 2% round 2% 2%);
+    /* clip-path: inset(2% 2% 2% 2% round 2% 2%); */
     object-fit: cover;
     object-position: top center;
 }
@@ -91,98 +91,6 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 /* Autor: hgg  
 /*----------------------------------------------------------------*/
 
-
-/*----------------------------------------------------------------*/
-/* Start: Anpassungen für Darstellung der Filter Bar (TEC)
-/* Datum: 17.11.2018
-/* Autor: hgg  
-/*----------------------------------------------------------------*/
-
-.tribe-bar-submit {
-    margin-left: 0;
-}
-
-.tribe-bar-date-filter {
-    width: 30%;
-}
-
-dl dt::before {
-    content: none;
-}
-/*----------------------------------------------------------------*/
-/* Ende: Anpassungen für Darstellung der Filter Bar (TEC)
-/* Datum: 17.11.2018
-/* Autor: hgg  
-/*----------------------------------------------------------------*/
-
-/*----------------------------------------------------------------*/
-/* Start: Darstellung der Details in Einzelansicht (TEC)
-/* Datum: 17.11.2018
-/* Autor: hgg  
-/*----------------------------------------------------------------*/
-/* Schriften etc. größer */
-.tribe-events-start-date-label,
-.tribe-events-start-time-label,
-.tribe-events-event-categories-label,
-.tribe-events-event-url-label,
-.tribe-organizer-tel-label,
-.tribe-organizer-email-label
-{
-    padding-left: 0px;
-		font-size: 1.1em;
-	  padding-right: 0px;
-}
-
-dt{
-		padding-left: 0px!important;
-    font-size: 1.1em;
-		padding-right: 0px;
-}
-
-/* Mehr Platz beim Datum */
-.tribe-event-date-start .tribe-event-date-end .tribe-event-time{
-	padding-right: 5px;
-}
-
-/*----------------------------------------------------------------*/
-/* Ende: Darstellung der Details in Einzelansicht (TEC)
-/* Datum: 17.11.2018
-/* Autor: hgg  
-/*----------------------------------------------------------------*/
-
-/*----------------------------------------------------------------*/
-/* Start: Darstellung der Überschrift in Listenansicht TEC)
-/* Datum: 23.11.2018
-/* Autor: hgg  
-/*----------------------------------------------------------------*/
-.tribe-events-map-event-title {
-    font-size: 21px !important;
-}
-/*----------------------------------------------------------------*/
-/* Ende: Darstellung der Überschrift in Listenansicht TEC)
-/* Datum: 23.11.2018
-/* Autor: hgg  
-/*----------------------------------------------------------------*/
-
-/*----------------------------------------------------------------*/
-/* Start: Darstellung der Links mit Unterstrich (TEC)
-/* Datum: 17.11.2018
-/* Autor: hgg  
-/*----------------------------------------------------------------*/
-
-#tribe-events-content a, .tribe-events-adv-list-widget .tribe-events-widget-link a, .tribe-events-adv-list-widget .tribe-events-widget-link a:hover, .tribe-events-back a, .tribe-events-back a:hover, .tribe-events-event-meta a, .tribe-events-list-widget .tribe-events-widget-link a, .tribe-events-list-widget .tribe-events-widget-link a:hover, ul.tribe-events-sub-nav a, ul.tribe-events-sub-nav a:hover {
-    text-decoration: underline;
-}
-
-/* Titel ohne Unterstrich */
-.tribe-event-url {
-	text-decoration:none!important;	
-}
-/*----------------------------------------------------------------*/
-/* Ende: Darstellung der Links mit Unterstrich (TEC)
-/* Datum: 17.11.2018
-/* Autor: hgg  
-/*----------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------*/
