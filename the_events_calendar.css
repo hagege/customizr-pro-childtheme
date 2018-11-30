@@ -59,6 +59,11 @@
     border: 1px solid #77BCC7 !important;
 }
 
+/* Hintergrund und Farbe bei aktuellem Tag */
+.tribe-mini-calendar .tribe-events-present, .tribe-mini-calendar .tribe-mini-calendar-today {
+    background-color: #77BCC7;
+    color: #000000;
+}
 
 /* Datum vor dem event in der sidebar */
 .tribe-mini-calendar-event .list-date {

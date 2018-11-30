@@ -23,10 +23,20 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 /* Autor: hgg  
 /*----------------------------------------------------------------*/
 
-/* Breite des Containers erst mal so belassen und nicht von 1140px auf 1340px erweitert */
+
+
+/* Breite des Containers (statt 1140px) erweitert 
 .container {
-    max-width: 1140px;
+    max-width: 1240px !important;
 }
+
+
+@media only screen and (min-width: 993px) and (max-width: 1140px) {
+  .container {
+      max-width: 1140px !important;
+  }
+}
+*/
 
 /* Hintergrundfarbe des Hauptmenüs */
 .primary-navbar__wrapper {
@@ -56,6 +66,15 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 .grid-title_size, .grid .entry-title, .grid .woocommerce .woocommerce-products-header .page-title, .woocommerce .woocommerce-products-header .grid .page-title {
     line-height: 1.1;
     font-size: 1.3em;
+}
+
+
+/* Bildhöhe bei Beiträgen auf 200px festlegen und einen Bildausschnitt wählen */
+.tc-thumbnail img {
+	  height: 200px;
+    clip-path: inset(2% 2% 2% 2% round 2% 2%);
+    object-fit: cover;
+    object-position: top center;
 }
 
 /*----------------------------------------------------------------*/
