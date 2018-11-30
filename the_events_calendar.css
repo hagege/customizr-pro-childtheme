@@ -236,8 +236,15 @@ dt{
 }
 
 .tribe-bar-date-filter {
-    width: 30%;
+    width: 30%;   
+    padding-right: 0px;
+    padding-left: 5px;
 }
+
+#tribe-bar-form label {
+    font-weight: 500;
+}
+
 
 dl dt::before {
     content: none;
