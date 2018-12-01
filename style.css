@@ -549,6 +549,15 @@ dt{
 	padding-right: 5px;
 }
 
+/* Veranstalterdaten und Karte untereinander, weil die Infos teilweise unter der Karte liegen */ 
+.tribe-events-event-meta .column, .tribe-events-event-meta .tribe-events-meta-group {
+    width: 90% !important;
+}
+
+.single-tribe_events .secondary .tribe-events-venue-map {
+    width: 90% !important;
+}
+
 /*----------------------------------------------------------------*/
 /* Ende: Darstellung der Details in Einzelansicht (TEC)
 /* Datum: 17.11.2018
