@@ -62,8 +62,16 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 }
 
 /* Untermenues werden leider trotzdem rechts angezeigt, wenn der Punkt am rechten Rand gelistet wird */ 
-.menue_links {
+/*.menue_links {
   text-align: left!important;
+}
+*/
+
+/* Darstellung Links (Hover) bei Beiträgen */
+article .entry-content a:hover{
+  color: #77BCC7;
+	text-decoration: underline;
+  text-decoration-color: #77BCC7;
 }
 
 /*----------------------------------------------------------------*/
@@ -549,13 +557,32 @@ dt{
 	padding-right: 5px;
 }
 
-/* Veranstalterdaten und Karte untereinander, weil die Infos teilweise unter der Karte liegen */ 
-.tribe-events-event-meta .column, .tribe-events-event-meta .tribe-events-meta-group {
-    width: 90% !important;
+
+
+/* Veranstalterdaten nebeneinander mit mehr Platz */ 
+@media screen and (max-width: 768px) {
+.tribe-events-meta-group.tribe-events-meta-group-organizer,
+.tribe-events-meta-group.tribe-events-meta-group-details {
+    width: 100%;
+  }
 }
 
+@media screen and (min-width: 769px) { 
+.tribe-events-meta-group.tribe-events-meta-group-organizer,
+.tribe-events-meta-group.tribe-events-meta-group-details {
+    width: 50%;
+  }
+}
+
+/*
 .single-tribe_events .secondary .tribe-events-venue-map {
-    width: 90% !important;
+    width: 45% !important;
+}
+*/
+
+abbr[title], abbr[data-original-title] {
+    -webkit-text-decoration: none;
+    text-decoration: none;
 }
 
 /*----------------------------------------------------------------*/
