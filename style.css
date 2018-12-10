@@ -865,28 +865,42 @@ dt{
   padding-bottom: 0px!important;;
 }
 
+/* Damit der Minikalender korekt dargestellt wird */
 
+table:not([id^="wp-calendar"]):not(.ui-datepicker-calendar) th, table:not([id^="wp-calendar"]):not(.ui-datepicker-calendar) td, td {
+    padding: 0px;
+}
+
+	
 
 /* Überschrift Kalender abhängig von der Breite */
+/* vorheriger und nachfolgender Monat ohne Rand */
+/* hgg, 10.12.2018 */ 
 @media only screen and (min-width: 768px) and (max-width: 840px) {
   .tribe-mini-calendar-nav span {
       font-size: 0.65em;
   }
+	.tribe-mini-calendar-nav .next-month {
+			margin: 0 0 0 0px!important;
+  }
+	.tribe-mini-calendar-nav .prev-month {
+			margin: 0 0px 0 0!important;
+	}
 }
 
-@media only screen and (min-width: 841px) and (max-width: 880px) {
+@media only screen and (min-width: 841px) and (max-width: 990px) {
   .tribe-mini-calendar-nav span {
       font-size: 0.7em;
   }
-}
-
-@media only screen and (min-width: 881px) and (max-width: 950px) {
-  .tribe-mini-calendar-nav span {
-      font-size: 0.8em;
+	.tribe-mini-calendar-nav .next-month {
+			margin: 0 0 0 0px!important;
   }
+	.tribe-mini-calendar-nav .prev-month {
+			margin: 0 0px 0 0!important;
+	}
 }
 
-@media only screen and (min-width: 951px) and (max-width: 1019px) {
+@media only screen and (min-width: 990px) and (max-width: 1019px) {
   .tribe-mini-calendar-nav span {
       font-size: 0.9em;
   }
