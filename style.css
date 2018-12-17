@@ -779,7 +779,7 @@ dt{
 /*----------------------------------------------------------------*/
 
 /*----------------------------------------------------------------*/
-/* Start: Hover - Effekt mit blauem animierten Unterstrich
+/* Start: Hover - Effekt mit blauem Unterstrich
 /* Datum: 17.11.2018
 /* Autor: hgg  
 /*----------------------------------------------------------------*/
@@ -789,6 +789,14 @@ dt{
   text-decoration: underline;
 }
 
+#tribe-events-content a:hover, .tribe-events-adv-list-widget .tribe-events-widget-link a:hover{
+  color: #77BCC7;
+	text-decoration: underline;
+  text-decoration-color: #77BCC7;
+}
+
+/*  Hover - Effekt mit blauem animierten Unterstrich ausgeschaltet, 14.12.2018, hgg */
+/*
 #tribe-events-content a:hover, .tribe-events-adv-list-widget .tribe-events-widget-link a:hover{
   color: #000;
 	text-decoration: none;
@@ -801,7 +809,6 @@ dt{
   height: 2px;
   bottom: 2px;
   left: 0;
-	/* background-color: #F9B81E; */
   background-color: #77BCC7;
   visibility: hidden;
   -webkit-transform: scaleX(0);
@@ -815,7 +822,7 @@ dt{
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
 }
-
+*/
 /*----------------------------------------------------------------*/
 /* Ende: Hover - Effekt mit blauem animierten Unterstrich
 /* Datum: 17.11.2018
