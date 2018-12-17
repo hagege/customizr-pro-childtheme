@@ -100,7 +100,7 @@ class Schlagwort_widget extends WP_Widget {
         ?>
         <div class="sidebar_widget">
            <?php
-           echo '<h4>' . $titel . '</h4>';
+           echo '<h3 class="widget-title">' . $titel . '</h3>';
            wp_tag_cloud('smallest=' . $kleinste . '&largest=' . $groesste . '&unit=' . $einheit . '&number=' . $anzahl . '&orderby=' . $sortiert);
            ?>
            <!-- Your Content goes here -->
