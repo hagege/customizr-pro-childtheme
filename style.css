@@ -304,6 +304,16 @@ a.tribe-events-button-beitrag:hover{
   background-color: #F9B81E;
 }
 
+/* Schrfitgröße für Widget-Titel */
+.sidebar .widget-title {
+    font-size: 1.0em;
+}
+
+/* Kein Rahmen bei Schlagwörtern */
+.btn-skin-dark-oh.inverted {
+    border-color: #ffffff;
+		padding: 0px;
+}
 /*----------------------------------------------------------------*/
 /* Ende: Button in Beiträgen
 /* Datum: 23.02.2018
@@ -919,8 +929,6 @@ table:not([id^="wp-calendar"]):not(.ui-datepicker-calendar) th, table:not([id^="
   }
 }
 
-
 /*--------------------------------------------------------------- */
 /* Ende: Tribe Widget Calendar Aachener Kinder Styles */
 /*--------------------------------------------------------------- */ 
-
