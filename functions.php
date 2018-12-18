@@ -265,8 +265,36 @@ class anzahl_widget extends WP_Widget {
 }
 
 add_action('widgets_init', create_function('', 'register_widget( "anzahl_widget" );'));
+
 /*----------------------------------------------------------------*/
 /* Ende: eigenes Anzahl Veranstaltungen-Widget 
 /* Datum: 18.12.2018
 /* Autor: hgg
 /*----------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------*/
+/* Start: shortcodes für Anzahl Veranstaltungen und Beiträge
+/* Datum: 18.12.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+
+// Display the total number of published posts using the shortcode [published-posts-count]
+function customprefix_total_number_published_posts($atts) {
+    return wp_count_posts('post')->publish;
+}
+add_shortcode('published-posts-count', 'customprefix_total_number_published_posts');
+
+
+// Display the total number of published events using the shortcode [published-events-count]
+function customprefix_total_number_published_events($atts) {
+    return wp_count_posts('tribe_events')->publish;
+}
+add_shortcode('published-events-count', 'customprefix_total_number_published_events');
+
+/*----------------------------------------------------------------*/
+/* Ende: shortcodes für Anzahl Veranstaltungen und Beiträge
+/* Datum: 18.12.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+?>
