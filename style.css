@@ -259,6 +259,20 @@ img.rund {
     text-align: left !important; 
 }
 
+/* Schlagwörter: Änderung Darstellung */
+.btn-skin-dark-oh {
+    background-color: #ffffff !important; 
+    border-color: #ffffff !important;
+    color: #3b3b3b;
+}
+
+.btn-skin-dark-oh:hover {
+/*  background-color: #aaaaaa !important; 	*/
+  color: #77BCC7 !important;
+/*  text-decoration: underline;	*/
+}
+
+
 /*----------------------------------------------------------------*/
 /* Start: Button in Beiträgen
 /* Datum: 23.02.2018
@@ -634,6 +648,12 @@ abbr[title], abbr[data-original-title] {
 .tribe-events-sub-nav li a {
     background: #fff;
 }
+
+/* Tagesveranstaltungen - Darstellung des Titels geändert (kein Unterstrich) */
+.tribe-events-list-event-title .url {
+    text-decoration: none !important; 
+}
+
 /*----------------------------------------------------------------*/
 /* Ende: Darstellung der Links mit Unterstrich (TEC)
 /* Datum: 17.11.2018
