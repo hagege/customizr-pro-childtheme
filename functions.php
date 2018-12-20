@@ -297,4 +297,10 @@ add_shortcode('published-events-count', 'customprefix_total_number_published_eve
 /* Datum: 18.12.2018
 /* Autor: hgg
 /*----------------------------------------------------------------*/
+
+add_action('admin_head', function(){
+    echo "<style>.tribe-editor__date-time .editor-block-list__block > .editor-block-list__insertion-point { top: 50px; }</style>";
+});
+
 ?>
+
