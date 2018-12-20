@@ -620,9 +620,11 @@ abbr[title], abbr[data-original-title] {
 /* Datum: 23.11.2018
 /* Autor: hgg  
 /*----------------------------------------------------------------*/
+
 .tribe-events-map-event-title {
     font-size: 21px !important;
 }
+
 /*----------------------------------------------------------------*/
 /* Ende: Darstellung der Überschrift in Listenansicht TEC)
 /* Datum: 23.11.2018
@@ -697,7 +699,7 @@ abbr[title], abbr[data-original-title] {
     line-height: 1.4em;    
 }
 
-. tribe-events-map-event-title {
+.tribe-events-map-event-title {
     font-size: 22px !important;
 }
 
@@ -866,24 +868,23 @@ dt{
 
 /* Überschrift mit Monat */
 .tribe-mini-calendar thead {
-    background: #77BCC7 !important;
+    background-color: #77BCC7 !important;
     border: 1px solid #77BCC7 !important;
 }
 
 /* Hintergrund und Farbe bei aktuellem Tag */
 .tribe-mini-calendar .tribe-events-present,.tribe-mini-calendar .tribe-mini-calendar-today {
- background-color:#77BCC7 !important;
+    background-color:#77BCC7 !important;
 }
 
 /* Hintergrund und Farbe bei Hover auf Tag */
 .tribe-mini-calendar .tribe-events-has-events:hover a:hover {
- background:#77BCC7 !important;
+    background-color:#77BCC7 !important;
 }
 
 /* Datum vor dem event in der sidebar */
 .tribe-mini-calendar-event .list-date {
-    background: #77BCC7!important;
-    background-color: #77BCC7;  
+    background: #77BCC7 !important;  
 }
 
 /* Rand oben und unten bei Überschrift Tage größer */ 
