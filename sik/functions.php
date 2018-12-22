@@ -326,6 +326,36 @@ function add_promotional_text() {
 /*----------------------------------------------------------------*/
 
 
+/*----------------------------------------------------------------*/
+/* Start: Veröffentlichungsdatum bei der Einzelansicht
+/* Datum: 22.12.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+function loop_mit_datum( $query ) {
+		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+		}
+		$time_string = sprintf( $time_string,
+			esc_attr( get_the_date( 'c' ) ),
+			esc_html( get_the_date() ),
+			esc_attr( get_the_modified_date( 'c' ) ),
+			esc_html( get_the_modified_date() )
+		);
+		$posted_on = sprintf(
+			esc_html_x( 'Veröffentlicht am %s', 'post date', 'theme-slug' ),
+			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+		);
+		echo '<span class="meta-date">' . $posted_on . '</span>';
+	}
 
+  /* echo 'Veröffentlicht: ' . get_the_date(); */
+
+add_action( 'pre_get_posts', 'loop_mit_datum' );
+/*----------------------------------------------------------------*/
+/* Start: Veröffentlichungsdatum bei der Einzelansicht
+/* Datum: 22.12.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
 
 ?>
