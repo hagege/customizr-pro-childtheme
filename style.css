@@ -76,9 +76,18 @@ article .entry-content a:hover{
 
 
 /* Schriftart im Container mit Beschreibung aachenerkinder.de */
-.ackids {
-  font-size: 1.2em;
+@media only screen and (max-width: 840px) {
+  .ackids {
+    font-size: 0.9em;
+  }
 }
+
+@media only screen and (min-width: 841px) {
+  .ackids {
+    font-size: 1.2em;
+  }
+}
+
 
 /*----------------------------------------------------------------*/
 /* Start: Anpassungen für Darstellung der Überschrift und 
