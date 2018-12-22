@@ -317,7 +317,7 @@ function add_promotional_text() {
   if ( !is_front_page() )
     return;
   // Echo the html
-  echo "<div><strong>aachenerkinder.de</strong> - Internetportal für Familien und Kinder in der Städteregion Aachen und Umgebung mit Freizeitangeboten und Veranstaltungen, Terminen, vielen Infos und Tipps – Online-Familienzeitung.</div><br>";
+  echo "<div class='ackids'><strong>aachenerkinder.de</strong> - Internetportal für Familien und Kinder in der Städteregion Aachen und Umgebung mit Freizeitangeboten und Veranstaltungen, Terminen, vielen Infos und Tipps – Online-Familienzeitung.</div><br>";
 }
 /*----------------------------------------------------------------*/
 /* Ende: Text vor dem loop
