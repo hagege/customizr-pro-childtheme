@@ -30,12 +30,12 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 /*----------------------------------------------------------------*/
 /* Start: allgemeine Anpassungen für Darstellung
 /* Datum: 18.11.2018
-/* Autor: hgg  
+/* Autor: hgg
 /*----------------------------------------------------------------*/
 
 
 
-/* Breite des Containers (statt 1140px) erweitert 
+/* Breite des Containers (statt 1140px) erweitert
 .container {
     max-width: 1240px !important;
 }
@@ -55,13 +55,13 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 
 /* Eule größer beim Runterscrollen (sticky menue) */
-.can-shrink-brand.sticky-brand-shrink-on .desktop-sticky 
+.can-shrink-brand.sticky-brand-shrink-on .desktop-sticky
 .navbar-brand img {
     max-height: 130px !important;
     width: auto !important;
 }
 
-/* Untermenues werden leider trotzdem rechts angezeigt, wenn der Punkt am rechten Rand gelistet wird */ 
+/* Untermenues werden leider trotzdem rechts angezeigt, wenn der Punkt am rechten Rand gelistet wird */
 /*.menue_links {
   text-align: left!important;
 }
@@ -76,6 +76,7 @@ article .entry-content a:hover{
 
 
 /* Schriftart im Container mit Beschreibung aachenerkinder.de */
+/* kleinere Darstellung bis 840px */
 @media only screen and (max-width: 840px) {
   .ackids {
     font-size: 0.9em;
@@ -90,10 +91,10 @@ article .entry-content a:hover{
 
 
 /*----------------------------------------------------------------*/
-/* Start: Anpassungen für Darstellung der Überschrift und 
+/* Start: Anpassungen für Darstellung der Überschrift und
 /*        Zeilenabstand Masonry grid
 /* Datum: 21.11.2018
-/* Autor: hgg  
+/* Autor: hgg
 /*----------------------------------------------------------------*/
 
 .grid-title_size, .grid .entry-title, .grid .woocommerce .woocommerce-products-header .page-title, .woocommerce .woocommerce-products-header .grid .page-title {
@@ -111,17 +112,17 @@ article .entry-content a:hover{
 }
 
 /*----------------------------------------------------------------*/
-/* Ende: Anpassungen für Darstellung der Übesrchrift und 
+/* Ende: Anpassungen für Darstellung der Übesrchrift und
 /*        Zeilenabstand Masonry grid
 /* Datum: 21.11.2018
-/* Autor: hgg  
+/* Autor: hgg
 /*----------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------*/
 /* Ende: allgemeine Anpassungen für Darstellung
 /* Datum: 18.11.2018
-/* Autor: hgg  
+/* Autor: hgg
 /*----------------------------------------------------------------*/
 
 
@@ -129,7 +130,7 @@ article .entry-content a:hover{
 /*----------------------------------------------------------------*/
 /* Start: Anpassungen für Paginierung
 /* Datum: 17.11.2018
-/* Autor: hgg  
+/* Autor: hgg
 /*----------------------------------------------------------------*/
 /* Schriftgröße im Container "Ältere Beiträge" vergrößern */
 .post-navigation nav {
@@ -195,7 +196,7 @@ article .entry-content a:hover{
 /*----------------------------------------------------------------*/
 /* Ende: Anpassungen für Paginierung
 /* Datum: 17.11.2018
-/* Autor: hgg  
+/* Autor: hgg
 /*----------------------------------------------------------------*/
 
 
@@ -205,26 +206,26 @@ article .entry-content a:hover{
 /*----------------------------------------------------------------*/
 /* Start: aktuelle Mitteilungen in Beiträgen
 /* Datum: 19.4.2018
-/* Autor: hgg  
+/* Autor: hgg
 /*----------------------------------------------------------------*/
 .mitteilung {
   background-color: #F9F9F9;
   padding: 10px;
   margin-bottom: 10px;
-  border-width:5px;  
+  border-width:5px;
   border-style:dashed;
 }
 /*----------------------------------------------------------------*/
 /* Ende: aktuelle Mitteilungen in Beiträgen
 /* Datum: 19.4.2018
-/* Autor: hgg  
-/*----------------------------------------------------------------*/     
+/* Autor: hgg
+/*----------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------*/
 /* Start: Tabellen responsive
 /* Datum: 28.9.2018
-/* Autor: hgg  
+/* Autor: hgg
 /*----------------------------------------------------------------*/
 @media only screen and (max-width: 840px) {
 table.responsive {
@@ -238,13 +239,13 @@ table.responsive {
 /*----------------------------------------------------------------*/
 /* Ende: Tabellen responsive
 /* Datum: 28.9.2018
-/* Autor: hgg  
+/* Autor: hgg
 /*----------------------------------------------------------------*/
 
 /*----------------------------------------------------------------*/
 /* Start: Schriftarten
 /* Datum: 02.11.2018
-/* Autor: hgg  
+/* Autor: hgg
 /*----------------------------------------------------------------*/
 span.gross {
   font-size: 18pt;
@@ -258,7 +259,7 @@ span.klein {
 /*----------------------------------------------------------------*/
 /* Ende: Schriftarten
 /* Datum: 02.11.2018
-/* Autor: hgg  
+/* Autor: hgg
 /*----------------------------------------------------------------*/
 
 
@@ -271,12 +272,12 @@ img.rund {
 
 /* Inhalte in der sidebar rechtsbündig anzeigen (customizr) */
 .text-md-right {
-    text-align: left !important; 
+    text-align: left !important;
 }
 
 /* Schlagwörter: Änderung Darstellung */
 .btn-skin-dark-oh {
-    background-color: #ffffff !important; 
+    background-color: #ffffff !important;
     border-color: #ffffff !important;
     color: #3b3b3b;
 }
@@ -326,8 +327,8 @@ a.tribe-events-button-beitrag:visited{
   text-decoration: none;
 }
 
-  
-/* Hintergrund: gelb */  
+
+/* Hintergrund: gelb */
 a.tribe-events-button-beitrag:hover{
   color: #fff!important;
   background-color: #F9B81E;
@@ -403,8 +404,8 @@ a.tribe-events-button-beitrag:hover{
   border: 2px solid grey;
   border-radius: 0px;
    width: 15px;
-  height: 15px;  
-  position: relative; 
+  height: 15px;
+  position: relative;
   cursor: pointer;
 }
 
@@ -467,7 +468,7 @@ select {
 
 body .dataTables_wrapper .dataTables_length,
 body .dataTables_wrapper .dataTables_filter {
-  margin: 15px 0; 
+  margin: 15px 0;
 }
 
 body .dataTables_wrapper .dataTables_filter input {
@@ -501,12 +502,12 @@ color: #fff;
 
 .main_color tr:nth-child(odd){
   background: #fff;
-} 
+}
 
 /* wp google maps */
 .wpgmza_filter_container{
-  display: block; 
-  float: left; 
+  display: block;
+  float: left;
   width: 100% !important;
 }
 
@@ -520,7 +521,7 @@ color: #fff;
     overflow: hidden;
 }
 
-/* Tabelle nicht über die gesamte Breite, weil sonst */ 
+/* Tabelle nicht über die gesamte Breite, weil sonst */
 /* die Schrift am linken Rand der Tabelle "klebt"    */
 table.dataTable.no-footer {
     width: 95% !important;
@@ -547,7 +548,7 @@ table.dataTable.no-footer {
 /*----------------------------------------------------------------*/
 /* Start: Anpassungen für Darstellung der Filter Bar (TEC)
 /* Datum: 17.11.2018
-/* Autor: hgg  
+/* Autor: hgg
 /*----------------------------------------------------------------*/
 
 .tribe-bar-submit {
@@ -564,13 +565,13 @@ dl dt::before {
 /*----------------------------------------------------------------*/
 /* Ende: Anpassungen für Darstellung der Filter Bar (TEC)
 /* Datum: 17.11.2018
-/* Autor: hgg  
+/* Autor: hgg
 /*----------------------------------------------------------------*/
 
 /*----------------------------------------------------------------*/
 /* Start: Darstellung der Details in Einzelansicht (TEC)
 /* Datum: 17.11.2018
-/* Autor: hgg  
+/* Autor: hgg
 /*----------------------------------------------------------------*/
 /* Schriften etc. größer */
 .tribe-events-start-date-label,
@@ -598,7 +599,7 @@ dt{
 
 
 
-/* Veranstalterdaten nebeneinander mit mehr Platz */ 
+/* Veranstalterdaten nebeneinander mit mehr Platz */
 @media screen and (max-width: 768px) {
 .tribe-events-meta-group.tribe-events-meta-group-organizer,
 .tribe-events-meta-group.tribe-events-meta-group-details {
@@ -606,7 +607,7 @@ dt{
   }
 }
 
-@media screen and (min-width: 769px) { 
+@media screen and (min-width: 769px) {
 .tribe-events-meta-group.tribe-events-meta-group-organizer,
 .tribe-events-meta-group.tribe-events-meta-group-details {
     width: 50%;
@@ -627,13 +628,13 @@ abbr[title], abbr[data-original-title] {
 /*----------------------------------------------------------------*/
 /* Ende: Darstellung der Details in Einzelansicht (TEC)
 /* Datum: 17.11.2018
-/* Autor: hgg  
+/* Autor: hgg
 /*----------------------------------------------------------------*/
 
 /*----------------------------------------------------------------*/
 /* Start: Darstellung der Überschrift in Listenansicht TEC)
 /* Datum: 23.11.2018
-/* Autor: hgg  
+/* Autor: hgg
 /*----------------------------------------------------------------*/
 
 .tribe-events-map-event-title {
@@ -643,13 +644,13 @@ abbr[title], abbr[data-original-title] {
 /*----------------------------------------------------------------*/
 /* Ende: Darstellung der Überschrift in Listenansicht TEC)
 /* Datum: 23.11.2018
-/* Autor: hgg  
+/* Autor: hgg
 /*----------------------------------------------------------------*/
 
 /*----------------------------------------------------------------*/
 /* Start: Darstellung der Links mit Unterstrich (TEC)
 /* Datum: 17.11.2018
-/* Autor: hgg  
+/* Autor: hgg
 /*----------------------------------------------------------------*/
 
 #tribe-events-content a, .tribe-events-adv-list-widget .tribe-events-widget-link a, .tribe-events-adv-list-widget .tribe-events-widget-link a:hover, .tribe-events-back a, .tribe-events-back a:hover, .tribe-events-event-meta a, .tribe-events-list-widget .tribe-events-widget-link a, .tribe-events-list-widget .tribe-events-widget-link a:hover, ul.tribe-events-sub-nav a, ul.tribe-events-sub-nav a:hover {
@@ -658,7 +659,7 @@ abbr[title], abbr[data-original-title] {
 
 /* Titel ohne Unterstrich */
 .tribe-event-url {
-	text-decoration:none!important;	
+	text-decoration:none!important;
 }
 
 /* Hintergrund weiß statt dunkelgrau, sonst schlecht lesbar */
@@ -668,25 +669,25 @@ abbr[title], abbr[data-original-title] {
 
 /* Tagesveranstaltungen - Darstellung des Titels geändert (kein Unterstrich) */
 .tribe-events-list-event-title .url {
-    text-decoration: none !important; 
+    text-decoration: none !important;
 }
 
 /*----------------------------------------------------------------*/
 /* Ende: Darstellung der Links mit Unterstrich (TEC)
 /* Datum: 17.11.2018
-/* Autor: hgg  
+/* Autor: hgg
 /*----------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------*/
 /* Start: Anpassungen Kalender (Listenansicht)
 /* Datum: 17.10.2018
-/* Autor: hgg  
+/* Autor: hgg
 /*----------------------------------------------------------------*/
 
 
 
-/* Hintergrund für Details und Veranstaltungsort */ 
+/* Hintergrund für Details und Veranstaltungsort */
 .single-tribe_events .tribe-events-event-meta {
     background-color: #ffffff;
 }
@@ -709,9 +710,9 @@ abbr[title], abbr[data-original-title] {
 
 .tribe-event-url {
     color: #000000 !important;
-    font-weight: normal;  
+    font-weight: normal;
     display: block !important;
-    line-height: 1.4em;    
+    line-height: 1.4em;
 }
 
 .tribe-events-map-event-title {
@@ -723,7 +724,7 @@ abbr[title], abbr[data-original-title] {
 /*----------------------------------------------------------------*/
 /* Ende: Anpassungen Kalender (Listenansicht)
 /* Datum: 17.10.2018
-/* Autor: hgg  
+/* Autor: hgg
 /*----------------------------------------------------------------*/
 
 
@@ -731,7 +732,7 @@ abbr[title], abbr[data-original-title] {
 /*----------------------------------------------------------------*/
 /* Start: Anpassungen für Darstellung der Filter Bar (TEC)
 /* Datum: 17.11.2018
-/* Autor: hgg  
+/* Autor: hgg
 /*----------------------------------------------------------------*/
 
 .tribe-bar-submit {
@@ -739,7 +740,7 @@ abbr[title], abbr[data-original-title] {
 }
 
 .tribe-bar-date-filter {
-    width: 28%;   
+    width: 28%;
     padding-right: 0px;
     padding-left: 5px;
 }
@@ -765,13 +766,13 @@ dl dt::before {
 /*----------------------------------------------------------------*/
 /* Ende: Anpassungen für Darstellung der Filter Bar (TEC)
 /* Datum: 17.11.2018
-/* Autor: hgg  
+/* Autor: hgg
 /*----------------------------------------------------------------*/
 
 /*----------------------------------------------------------------*/
 /* Start: Darstellung der Details in Einzelansicht (TEC)
 /* Datum: 17.11.2018
-/* Autor: hgg  
+/* Autor: hgg
 /*----------------------------------------------------------------*/
 /* Schriften etc. größer */
 .tribe-events-start-date-label,
@@ -800,13 +801,13 @@ dt{
 /*----------------------------------------------------------------*/
 /* Ende: Darstellung der Details in Einzelansicht (TEC)
 /* Datum: 17.11.2018
-/* Autor: hgg  
+/* Autor: hgg
 /*----------------------------------------------------------------*/
 
 /*----------------------------------------------------------------*/
 /* Start: Darstellung der Links mit Unterstrich (TEC)
 /* Datum: 17.11.2018
-/* Autor: hgg  
+/* Autor: hgg
 /*----------------------------------------------------------------*/
 /*
 #tribe-events-content a, .tribe-events-adv-list-widget .tribe-events-widget-link a, .tribe-events-adv-list-widget .tribe-events-widget-link a:hover, .tribe-events-back a, .tribe-events-back a:hover, .tribe-events-event-meta a, .tribe-events-list-widget .tribe-events-widget-link a, .tribe-events-list-widget .tribe-events-widget-link a:hover, ul.tribe-events-sub-nav a, ul.tribe-events-sub-nav a:hover {
@@ -816,19 +817,19 @@ dt{
 
 /* Titel ohne Unterstrich */
 .tribe-event-url {
-	text-decoration:none!important;	
-}    
+	text-decoration:none!important;
+}
 
 /*----------------------------------------------------------------*/
 /* Ende: Darstellung der Links mit Unterstrich (TEC)
 /* Datum: 17.11.2018
-/* Autor: hgg  
+/* Autor: hgg
 /*----------------------------------------------------------------*/
 
 /*----------------------------------------------------------------*/
 /* Start: Hover - Effekt mit blauem Unterstrich
 /* Datum: 17.11.2018
-/* Autor: hgg  
+/* Autor: hgg
 /*----------------------------------------------------------------*/
 #tribe-events-content a, .tribe-events-adv-list-widget .tribe-events-widget-link a{
   position: relative;
@@ -873,13 +874,13 @@ dt{
 /*----------------------------------------------------------------*/
 /* Ende: Hover - Effekt mit blauem animierten Unterstrich
 /* Datum: 17.11.2018
-/* Autor: hgg  
+/* Autor: hgg
 /*----------------------------------------------------------------*/
 
 
 /*--------------------------------------------------------------- */
 /* Start: Tribe Widget Calendar Aachener Kinder Styles */
-/*--------------------------------------------------------------- */ 
+/*--------------------------------------------------------------- */
 
 /* Überschrift mit Monat */
 .tribe-mini-calendar thead {
@@ -899,10 +900,10 @@ dt{
 
 /* Datum vor dem event in der sidebar */
 .tribe-mini-calendar-event .list-date {
-    background: #77BCC7 !important;  
+    background: #77BCC7 !important;
 }
 
-/* Rand oben und unten bei Überschrift Tage größer */ 
+/* Rand oben und unten bei Überschrift Tage größer */
 .tribe-mini-calendar-dayofweek{
 	padding-top:5px!important;
 	padding-bottom:5px!important;
@@ -924,11 +925,11 @@ table:not([id^="wp-calendar"]):not(.ui-datepicker-calendar) th, table:not([id^="
     padding: 0px;
 }
 
-	
+
 
 /* Überschrift Kalender abhängig von der Breite */
 /* vorheriger und nachfolgender Monat ohne Rand */
-/* hgg, 10.12.2018 */ 
+/* hgg, 10.12.2018 */
 @media only screen and (min-width: 768px) and (max-width: 840px) {
   .tribe-mini-calendar-nav span {
       font-size: 0.65em;
@@ -967,5 +968,4 @@ table:not([id^="wp-calendar"]):not(.ui-datepicker-calendar) th, table:not([id^="
 
 /*--------------------------------------------------------------- */
 /* Ende: Tribe Widget Calendar Aachener Kinder Styles */
-/*--------------------------------------------------------------- */ 
-
+/*--------------------------------------------------------------- */
