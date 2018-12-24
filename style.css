@@ -931,10 +931,10 @@ table:not([id^="wp-calendar"]):not(.ui-datepicker-calendar) th, table:not([id^="
 /* vorheriger und nachfolgender Monat ohne Rand */
 /* hgg, 10.12.2018 */
 
-/* Rand über und unter dem Monat vergrößern */
+/* Rand über und unter dem Monat beim Minikalender vergrößern */
 .tribe-mini-calendar-nav span {
 		margin-top: 6px !important;
-		margin-bottom: 6px !important;	
+		margin-bottom: 6px !important;
 }
 
 
