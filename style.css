@@ -930,6 +930,14 @@ table:not([id^="wp-calendar"]):not(.ui-datepicker-calendar) th, table:not([id^="
 /* Überschrift Kalender abhängig von der Breite */
 /* vorheriger und nachfolgender Monat ohne Rand */
 /* hgg, 10.12.2018 */
+
+/* Rand über und unter dem Monat vergrößern */
+.tribe-mini-calendar-nav span {
+		margin-top: 6px !important;
+		margin-bottom: 6px !important;	
+}
+
+
 @media only screen and (min-width: 768px) and (max-width: 840px) {
   .tribe-mini-calendar-nav span {
       font-size: 0.65em;
@@ -956,7 +964,7 @@ table:not([id^="wp-calendar"]):not(.ui-datepicker-calendar) th, table:not([id^="
 
 @media only screen and (min-width: 990px) and (max-width: 1019px) {
   .tribe-mini-calendar-nav span {
-      font-size: 0.9em;
+      font-size: 0.8em;
   }
 }
 
