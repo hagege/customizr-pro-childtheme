@@ -10,30 +10,30 @@
 
 /* https://theeventscalendar.com/support/forums/topic/counting-posts/ */
 function tribe_count_by_cat ( $event_category_slug ) {
- 
+
     if ( ! class_exists('Tribe__Events__Main') ) return false;
- 
-     
+
+
     $tax_query = array(    'taxonomy'    => Tribe__Events__Main::TAXONOMY,
                         'field'        => 'slug',
                         'terms'        => $event_category_slug );
- 
+
       $args = array( 'post_type' => Tribe__Events__Main::POSTTYPE, 'post_status' => 'publish', 'tax_query' => array( $tax_query ), 'posts_per_page' => -1);
- 
+
     $query = new WP_Query( $args );
- 
+
     return $query->found_posts;
 }
 
 
- 
+
 /**
  * Test if the current widget is an Advanced List Widget and fix the event limit if it is.
  */
 function increase_event_widget_limit(array $instance, $widget) {
     if (is_a($widget, 'Tribe__Events__Pro__Advanced_List_Widget'))
         $instance['limit'] = 30;
- 
+
     return $instance;
 }
 add_filter('avf_title_args', 'fix_blog_page_title', 10, 2);
@@ -51,7 +51,7 @@ add_filter('the_generator', 'wpb_remove_version');
 
 
 /*----------------------------------------------------------------*/
-/* Start: PHP in Text-Widget nutzen 
+/* Start: PHP in Text-Widget nutzen
 /* Datum: 05.04.2018
 /* Autor: hgg
 /*----------------------------------------------------------------*/
@@ -66,14 +66,14 @@ function gibmirphp($text) {
   return $text;
 }
 /*----------------------------------------------------------------*/
-/* Ende: PHP in Text-Widget nutzen 
+/* Ende: PHP in Text-Widget nutzen
 /* Datum: 05.04.2018
 /* Autor: hgg
 /*----------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------*/
-/* Start: eigenes Schlagwörter-Widget mit weiteren Parametern nutzen 
+/* Start: eigenes Schlagwörter-Widget mit weiteren Parametern nutzen
 /* Datum: 17.12.2018
 /* Autor: hgg
 /*----------------------------------------------------------------*/
@@ -91,11 +91,11 @@ class Schlagwort_widget extends WP_Widget {
         extract($args);
 
         /* Display Widget */
-        $kleinste = ! empty( $instance['smallest'] ) ? $instance['smallest'] : 8; 
+        $kleinste = ! empty( $instance['smallest'] ) ? $instance['smallest'] : 8;
         $groesste = ! empty( $instance['largest'] ) ? $instance['largest'] : 22;
         $titel = ! empty( $instance['title'] ) ? $instance['title'] : 'Schlagwörter';
         $anzahl = ! empty( $instance['number'] ) ? $instance['number'] : 35;
-        $einheit = ! empty( $instance['unit'] ) ? $instance['unit'] : 'pt'; 
+        $einheit = ! empty( $instance['unit'] ) ? $instance['unit'] : 'pt';
         $sortiert = ! empty( $instance['orderby'] ) ? $instance['orderby'] : 'name';
         ?>
         <div class="sidebar_widget">
@@ -136,7 +136,7 @@ class Schlagwort_widget extends WP_Widget {
         $largest = ! empty( $instance['largest'] ) ? $instance['largest'] : esc_html__( '25', 'text_domain' );
         $unit = ! empty( $instance['unit'] ) ? $instance['unit'] : esc_html__( 'pt', 'text_domain' );
         $orderby = ! empty( $instance['orderby'] ) ? $instance['orderby'] : esc_html__( 'name', 'text_domain' );
-        
+
         ?>
 
         <!-- Title: Text Input -->
@@ -174,14 +174,14 @@ class Schlagwort_widget extends WP_Widget {
 
 add_action('widgets_init', create_function('', 'register_widget( "Schlagwort_widget" );'));
 /*----------------------------------------------------------------*/
-/* Ende: Schlagwörter-Widget nutzen 
+/* Ende: Schlagwörter-Widget nutzen
 /* Datum: 17.12.2018
 /* Autor: hgg
 /*----------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------*/
-/* Start: eigenes Anzahl Veranstaltungen-Widget 
+/* Start: eigenes Anzahl Veranstaltungen-Widget
 /* Datum: 18.12.2018
 /* Autor: hgg
 /*----------------------------------------------------------------*/
@@ -200,7 +200,7 @@ class anzahl_widget extends WP_Widget {
 
         /* Display Widget */
         /* $anzahl_events = ! empty( $instance['anzahl_events'] ) ? $instance['anzahl_events'] : wp_count_posts('tribe_events'); */
-        /* die Schleife ist eigentlich nur notwendig, wenn das Widget noch nicht eingerichtet war */ 
+        /* die Schleife ist eigentlich nur notwendig, wenn das Widget noch nicht eingerichtet war */
         if (empty($instance['anzahl_freizeit'])) {
           $anzahl_events = wp_count_posts('tribe_events');
           $anzahl_events = $anzahl_events->publish;
@@ -210,7 +210,7 @@ class anzahl_widget extends WP_Widget {
           $instance['anzahl_posts'] = $anzahl_posts;
           $instance['anzahl_freizeit'] = 407;
         }
-        
+
         ?>
 
         <hr>
@@ -248,7 +248,7 @@ class anzahl_widget extends WP_Widget {
     public function form($instance) {
 
         $anzahl_freizeit = ! empty( $instance['anzahl_freizeit'] ) ? $instance['anzahl_freizeit'] : esc_html__( '407', 'text_domain' );
-        
+
         ?>
 
         <!-- Title: Text Input -->
@@ -267,7 +267,7 @@ class anzahl_widget extends WP_Widget {
 add_action('widgets_init', create_function('', 'register_widget( "anzahl_widget" );'));
 
 /*----------------------------------------------------------------*/
-/* Ende: eigenes Anzahl Veranstaltungen-Widget 
+/* Ende: eigenes Anzahl Veranstaltungen-Widget
 /* Datum: 18.12.2018
 /* Autor: hgg
 /*----------------------------------------------------------------*/
@@ -299,7 +299,7 @@ add_shortcode('published-events-count', 'customprefix_total_number_published_eve
 /*----------------------------------------------------------------*/
 
 
-/* Korrektur des Datum-Zeit-Problems bei Veranstaltungen, wenn man den Block (Gutenberg) verwendet */ 
+/* Korrektur des Datum-Zeit-Problems bei Veranstaltungen, wenn man den Block (Gutenberg) verwendet */
 add_action('admin_head', function(){
     echo "<style>.tribe-editor__date-time .editor-block-list__block > .editor-block-list__insertion-point { top: 50px; }</style>";
 });
@@ -325,6 +325,32 @@ function add_promotional_text() {
 /* Autor: hgg
 /*----------------------------------------------------------------*/
 
+
+/*----------------------------------------------------------------*/
+/* Start: Anzeige image in der Beitragsliste
+/* Datum: 25.12.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+
+add_filter('manage_posts_columns', 'add_img_column');
+add_filter('manage_posts_custom_column', 'manage_img_column', 10, 2);
+
+function add_img_column($columns) {
+  $columns = array_slice($columns, 0, 1, true) + array("img" => "Beitragsbild") + array_slice($columns, 1, count($columns) - 1, true);
+  return $columns;
+}
+
+function manage_img_column($column_name, $post_id) {
+ if( $column_name == 'img' ) {
+  echo get_the_post_thumbnail($post_id, 'thumbnail');
+ }
+ return $column_name;
+}
+/*----------------------------------------------------------------*/
+/* Ende: Anzeige image in der Beitragsliste
+/* Datum: 25.12.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
 
 
 
