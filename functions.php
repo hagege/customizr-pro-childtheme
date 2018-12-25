@@ -346,6 +346,7 @@ function manage_img_column($column_name, $post_id) {
  }
  return $column_name;
 }
+
 /*----------------------------------------------------------------*/
 /* Ende: Anzeige image in der Beitragsliste
 /* Datum: 25.12.2018
