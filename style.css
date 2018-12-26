@@ -299,6 +299,7 @@ img.rund {
 /* Absatz für Button */
 .button-absatz {
     margin:30px 0px 30px 0px;
+    display:inline-flex;
 }
 
 .tribe-events-button-beitrag {
