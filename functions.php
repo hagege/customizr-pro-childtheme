@@ -361,7 +361,7 @@ function manage_img_column($column_name, $post_id) {
 /*
 function wpr_maintenance_mode() {
  if ( !current_user_can( 'edit_themes' ) || !is_user_logged_in() ) {
-  $meldung = "<div><strong>aachenerkinder.de</strong> - wird momentan gewartet. Die Webseite ist in Kürze wieder erreichbar.</div><br>";
+  $meldung = "<div><strong>aachenerkinder.de</strong> - Sorry, die Webseite befindet sich zur Zeit im Wartungsmodus.<br>Es wird leider noch ein wenig dauern, bis die Seite wieder zur Verfügung steht.<br>Danke für Dein Verständnis.</div><br>";
   wp_die($meldung);
  }
 }
