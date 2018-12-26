@@ -12,9 +12,19 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 @import url("../customizr-pro/style.css");
 
-@import url("the_events_calendar.css"); 
-
 @import url("parallax_scrolling.css");
+
+/*----------------------------------------------------------------*/
+/* 1. ALLGEMEIN
+/* 2. Anpassungen Freizeitangebote WP GOOGLE MAPS
+/* 3. TEC (The Events Calendar)
+/*----------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------*/
+/* 1. ALLGEMEIN
+/*----------------------------------------------------------------*/
+
 
 
 /*----------------------------------------------------------------*/
@@ -52,8 +62,16 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 }
 
 /* Untermenues werden leider trotzdem rechts angezeigt, wenn der Punkt am rechten Rand gelistet wird */ 
-.menue_links {
+/*.menue_links {
   text-align: left!important;
+}
+*/
+
+/* Darstellung Links (Hover) bei Beiträgen */
+article .entry-content a:hover{
+  color: #77BCC7;
+	text-decoration: underline;
+  text-decoration-color: #77BCC7;
 }
 
 /*----------------------------------------------------------------*/
@@ -293,6 +311,11 @@ a.tribe-events-button-beitrag:hover{
 /*----------------------------------------------------------------*/
 
 
+/*----------------------------------------------------------------*/
+/* 2. Anpassungen Freizeitangebote WP GOOGLE MAPS
+/*----------------------------------------------------------------*/
+
+
 /*--------------------------------------------------------------- */
 /* Start: Anpassungen Freizeitangebote WP GOOGLE MAPS */
 /*--------------------------------------------------------------- */
@@ -475,3 +498,429 @@ table.dataTable.no-footer {
 /*--------------------------------------------------------------- */
 /* Ende: Anpassungen Freizeitangebote WP GOOGLE MAPS */
 /*--------------------------------------------------------------- */
+
+
+
+/*----------------------------------------------------------------*/
+/* 3. TEC (The Events Calendar)
+/*----------------------------------------------------------------*/
+
+/*----------------------------------------------------------------*/
+/* Start: Anpassungen für Darstellung der Filter Bar (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+
+.tribe-bar-submit {
+    margin-left: 0;
+}
+
+.tribe-bar-date-filter {
+    width: 30%;
+}
+
+dl dt::before {
+    content: none;
+}
+/*----------------------------------------------------------------*/
+/* Ende: Anpassungen für Darstellung der Filter Bar (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+
+/*----------------------------------------------------------------*/
+/* Start: Darstellung der Details in Einzelansicht (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+/* Schriften etc. größer */
+.tribe-events-start-date-label,
+.tribe-events-start-time-label,
+.tribe-events-event-categories-label,
+.tribe-events-event-url-label,
+.tribe-organizer-tel-label,
+.tribe-organizer-email-label
+{
+    padding-left: 0px;
+		font-size: 1.1em;
+	  padding-right: 0px;
+}
+
+dt{
+		padding-left: 0px!important;
+    font-size: 1.1em;
+		padding-right: 0px;
+}
+
+/* Mehr Platz beim Datum */
+.tribe-event-date-start .tribe-event-date-end .tribe-event-time{
+	padding-right: 5px;
+}
+
+
+
+/* Veranstalterdaten nebeneinander mit mehr Platz */ 
+@media screen and (max-width: 768px) {
+.tribe-events-meta-group.tribe-events-meta-group-organizer,
+.tribe-events-meta-group.tribe-events-meta-group-details {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 769px) { 
+.tribe-events-meta-group.tribe-events-meta-group-organizer,
+.tribe-events-meta-group.tribe-events-meta-group-details {
+    width: 50%;
+  }
+}
+
+/*
+.single-tribe_events .secondary .tribe-events-venue-map {
+    width: 45% !important;
+}
+*/
+
+abbr[title], abbr[data-original-title] {
+    -webkit-text-decoration: none;
+    text-decoration: none;
+}
+
+/*----------------------------------------------------------------*/
+/* Ende: Darstellung der Details in Einzelansicht (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+
+/*----------------------------------------------------------------*/
+/* Start: Darstellung der Überschrift in Listenansicht TEC)
+/* Datum: 23.11.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+.tribe-events-map-event-title {
+    font-size: 21px !important;
+}
+/*----------------------------------------------------------------*/
+/* Ende: Darstellung der Überschrift in Listenansicht TEC)
+/* Datum: 23.11.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+
+/*----------------------------------------------------------------*/
+/* Start: Darstellung der Links mit Unterstrich (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+
+#tribe-events-content a, .tribe-events-adv-list-widget .tribe-events-widget-link a, .tribe-events-adv-list-widget .tribe-events-widget-link a:hover, .tribe-events-back a, .tribe-events-back a:hover, .tribe-events-event-meta a, .tribe-events-list-widget .tribe-events-widget-link a, .tribe-events-list-widget .tribe-events-widget-link a:hover, ul.tribe-events-sub-nav a, ul.tribe-events-sub-nav a:hover {
+    text-decoration: underline;
+}
+
+/* Titel ohne Unterstrich */
+.tribe-event-url {
+	text-decoration:none!important;	
+}
+
+/* Hintergrund weiß statt dunkelgrau, sonst schlecht lesbar */
+.tribe-events-sub-nav li a {
+    background: #fff;
+}
+/*----------------------------------------------------------------*/
+/* Ende: Darstellung der Links mit Unterstrich (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------*/
+/* Start: Anpassungen Kalender (Listenansicht)
+/* Datum: 17.10.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+
+
+
+/* Hintergrund für Details und Veranstaltungsort */ 
+.single-tribe_events .tribe-events-event-meta {
+    background-color: #ffffff;
+}
+
+/* Veranstalterangaben etwas größer in der Einzelansicht */
+.single-tribe_events #tribe-events-content .tribe-events-event-meta dd {
+    font-size: 1.3em;
+}
+
+/* Anzeige eines einzelnen Termins etwas schmaler */
+.single-tribe_events #tribe-events-content {
+    width: 80%;
+    float: left;
+    padding-left: 5px;
+}
+
+.tribe-events-list-event-title {
+    display: block!important;
+}
+
+.tribe-event-url {
+    color: #000000 !important;
+    font-weight: normal;  
+    display: block !important;
+    line-height: 1.4em;    
+}
+
+. tribe-events-map-event-title {
+    font-size: 22px !important;
+}
+
+
+
+/*----------------------------------------------------------------*/
+/* Ende: Anpassungen Kalender (Listenansicht)
+/* Datum: 17.10.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+
+
+
+/*----------------------------------------------------------------*/
+/* Start: Anpassungen für Darstellung der Filter Bar (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+
+.tribe-bar-submit {
+    margin-left: 0;
+}
+
+.tribe-bar-date-filter {
+    width: 28%;   
+    padding-right: 0px;
+    padding-left: 5px;
+}
+
+.tribe-bar-search-filter {
+    width: 28%;
+    padding-right: 0px;
+    padding-left: 5px;
+}
+
+.tribe-bar-submit {
+    margin-left: 10%;
+}
+
+#tribe-bar-form label {
+    font-weight: 500;
+}
+
+
+dl dt::before {
+    content: none;
+}
+/*----------------------------------------------------------------*/
+/* Ende: Anpassungen für Darstellung der Filter Bar (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+
+/*----------------------------------------------------------------*/
+/* Start: Darstellung der Details in Einzelansicht (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+/* Schriften etc. größer */
+.tribe-events-start-date-label,
+.tribe-events-start-time-label,
+.tribe-events-event-categories-label,
+.tribe-events-event-url-label,
+.tribe-organizer-tel-label,
+.tribe-organizer-email-label
+{
+    padding-left: 0px;
+		font-size: 1.1em;
+	  padding-right: 0px;
+}
+
+dt{
+		padding-left: 0px!important;
+    font-size: 1.1em;
+		padding-right: 0px;
+}
+
+/* Mehr Platz beim Datum */
+.tribe-event-date-start .tribe-event-date-end .tribe-event-time{
+	padding-right: 5px;
+}
+
+/*----------------------------------------------------------------*/
+/* Ende: Darstellung der Details in Einzelansicht (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+
+/*----------------------------------------------------------------*/
+/* Start: Darstellung der Links mit Unterstrich (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+/*
+#tribe-events-content a, .tribe-events-adv-list-widget .tribe-events-widget-link a, .tribe-events-adv-list-widget .tribe-events-widget-link a:hover, .tribe-events-back a, .tribe-events-back a:hover, .tribe-events-event-meta a, .tribe-events-list-widget .tribe-events-widget-link a, .tribe-events-list-widget .tribe-events-widget-link a:hover, ul.tribe-events-sub-nav a, ul.tribe-events-sub-nav a:hover {
+    text-decoration: underline;
+}
+*/
+
+/* Titel ohne Unterstrich */
+.tribe-event-url {
+	text-decoration:none!important;	
+}    
+
+/*----------------------------------------------------------------*/
+/* Ende: Darstellung der Links mit Unterstrich (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+
+/*----------------------------------------------------------------*/
+/* Start: Hover - Effekt mit blauem Unterstrich
+/* Datum: 17.11.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+#tribe-events-content a, .tribe-events-adv-list-widget .tribe-events-widget-link a{
+  position: relative;
+  color: #000;
+  text-decoration: underline;
+}
+
+#tribe-events-content a:hover, .tribe-events-adv-list-widget .tribe-events-widget-link a:hover{
+  color: #77BCC7;
+	text-decoration: underline;
+  text-decoration-color: #77BCC7;
+}
+
+/*  Hover - Effekt mit blauem animierten Unterstrich ausgeschaltet, 14.12.2018, hgg */
+/*
+#tribe-events-content a:hover, .tribe-events-adv-list-widget .tribe-events-widget-link a:hover{
+  color: #000;
+	text-decoration: none;
+}
+
+#tribe-events-content a:before, .tribe-events-adv-list-widget .tribe-events-widget-link a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 2px;
+  left: 0;
+  background-color: #77BCC7;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+#tribe-events-content a:hover:before, .tribe-events-adv-list-widget .tribe-events-widget-link a:hover:before{
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+*/
+/*----------------------------------------------------------------*/
+/* Ende: Hover - Effekt mit blauem animierten Unterstrich
+/* Datum: 17.11.2018
+/* Autor: hgg  
+/*----------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------- */
+/* Start: Tribe Widget Calendar Aachener Kinder Styles */
+/*--------------------------------------------------------------- */ 
+
+/* Überschrift mit Monat */
+.tribe-mini-calendar thead {
+    background: #77BCC7 !important;
+    border: 1px solid #77BCC7 !important;
+}
+
+/* Hintergrund und Farbe bei aktuellem Tag */
+.tribe-mini-calendar .tribe-events-present,.tribe-mini-calendar .tribe-mini-calendar-today {
+ background-color:#77BCC7 !important;
+}
+
+/* Hintergrund und Farbe bei Hover auf Tag */
+.tribe-mini-calendar .tribe-events-has-events:hover a:hover {
+ background:#77BCC7 !important;
+}
+
+/* Datum vor dem event in der sidebar */
+.tribe-mini-calendar-event .list-date {
+    background: #77BCC7!important;
+    background-color: #77BCC7;  
+}
+
+/* Rand oben und unten bei Überschrift Tage größer */ 
+.tribe-mini-calendar-dayofweek{
+	padding-top:5px!important;
+	padding-bottom:5px!important;
+}
+
+/* Punkte beim Kalender für Termine vorhanden nicht zeigen */
+.tribe-mini-calendar .tribe-events-has-events div[id*="daynum-"] a::before {
+    display: none;
+}
+
+/* kein unterer Rand beim aktuellen Tag im Kalender */
+.tribe-mini-calendar-day-link{
+  padding-bottom: 0px!important;;
+}
+
+/* Damit der Minikalender korekt dargestellt wird */
+
+table:not([id^="wp-calendar"]):not(.ui-datepicker-calendar) th, table:not([id^="wp-calendar"]):not(.ui-datepicker-calendar) td, td {
+    padding: 0px;
+}
+
+	
+
+/* Überschrift Kalender abhängig von der Breite */
+/* vorheriger und nachfolgender Monat ohne Rand */
+/* hgg, 10.12.2018 */ 
+@media only screen and (min-width: 768px) and (max-width: 840px) {
+  .tribe-mini-calendar-nav span {
+      font-size: 0.65em;
+  }
+	.tribe-mini-calendar-nav .next-month {
+			margin: 0 0 0 0px!important;
+  }
+	.tribe-mini-calendar-nav .prev-month {
+			margin: 0 0px 0 0!important;
+	}
+}
+
+@media only screen and (min-width: 841px) and (max-width: 990px) {
+  .tribe-mini-calendar-nav span {
+      font-size: 0.7em;
+  }
+	.tribe-mini-calendar-nav .next-month {
+			margin: 0 0 0 0px!important;
+  }
+	.tribe-mini-calendar-nav .prev-month {
+			margin: 0 0px 0 0!important;
+	}
+}
+
+@media only screen and (min-width: 990px) and (max-width: 1019px) {
+  .tribe-mini-calendar-nav span {
+      font-size: 0.9em;
+  }
+}
+
+@media screen and (min-width: 1020px), (max-width: 765px) {
+  .tribe-mini-calendar-nav span {
+      font-size: 1.0em;
+  }
+}
+
+
+/*--------------------------------------------------------------- */
+/* Ende: Tribe Widget Calendar Aachener Kinder Styles */
+/*--------------------------------------------------------------- */ 
+

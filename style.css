@@ -53,6 +53,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     background-color: #F9B81E;
 }
 
+/* Menü: Keine Umwandlung in Großbuchstaben */
+.nav__menu {
+	text-transform: none;
+}
 
 /* Eule größer beim Runterscrollen (sticky menue) */
 .can-shrink-brand.sticky-brand-shrink-on .desktop-sticky
@@ -307,7 +311,8 @@ img.rund {
     color: #ffffff!important;
     font-size: 1.0em;
     background-color: #77BCC7;
-    border-radius: 4px;
+    /* keine runden Ecken */
+    /* border-radius: 4px; */
     text-decoration: none!important;
 }
 
