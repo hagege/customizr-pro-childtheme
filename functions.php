@@ -353,6 +353,24 @@ function manage_img_column($column_name, $post_id) {
 /* Autor: hgg
 /*----------------------------------------------------------------*/
 
-
+/*----------------------------------------------------------------*/
+/* Start: Wartungsmodus
+/* Datum: 26.12.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+/*
+function wpr_maintenance_mode() {
+ if ( !current_user_can( 'edit_themes' ) || !is_user_logged_in() ) {
+  $meldung = "<div><strong>aachenerkinder.de</strong> - wird momentan gewartet. Die Webseite ist in Kürze wieder erreichbar.</div><br>";
+  wp_die($meldung);
+ }
+}
+add_action('get_header', 'wpr_maintenance_mode');
+*/
+/*----------------------------------------------------------------*/
+/* Ende: Wartungsmodus
+/* Datum: 26.12.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
 
 ?>

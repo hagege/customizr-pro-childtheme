@@ -18,7 +18,8 @@
 }
 
 .para_img-2 {
-  background-image: url("");
+  /* background-image: url(""); */
+  background-color: #F9B81E;
   min-height: 400px;
 }
 
