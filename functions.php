@@ -358,17 +358,17 @@ function manage_img_column($column_name, $post_id) {
 /* Datum: 26.12.2018
 /* Autor: hgg
 /*----------------------------------------------------------------*/
-/*
+
 function wpr_maintenance_mode() {
  if ( !current_user_can( 'edit_themes' ) || !is_user_logged_in() ) {
-  ?><div><img src="http://aachener-senioren.de/_test_/wp-content/uploads/2018/08/IMG-20180802-WA0004.jpg" height = "530px" alt="Wartungsmodus"/>
+  ?><div style="width: 100%; height: 100%; overflow: hidden; background-image: url(http://aachener-senioren.de/_test_/wp-content/uploads/2018/08/IMG-20180802-WA0004.jpg)">
   <?php
-  $meldung = "<strong>aachenerkinder.de</strong> - Sorry, die Webseite befindet sich zur Zeit im Wartungsmodus.<br>Es wird leider noch ein wenig dauern, bis die Seite wieder zur Verfügung steht.<br>Danke für Dein Verständnis.</div><br>";
+  $meldung = "<h1 style=\"text-align: center\">aachenerkinder.de</h1><p style=\"text-align: center\">Sorry, die Webseite befindet sich zur Zeit im Wartungsmodus.<br>Wir ändern gerade die Optik der Seite, aber außer der Optik ändert sich nichts.<br><br>Es wird leider noch ein wenig dauern, bis die Seite wieder zur Verfügung steht.<br>Wir gehen davon aus, dass aachenerkinder.de um ca. 6.30 Uhr wieder online ist.<br>Danke für Dein Verständnis.<br><br></div>";
   wp_die($meldung);
  }
 }
 add_action('get_header', 'wpr_maintenance_mode');
-*/
+
 /*----------------------------------------------------------------*/
 /* Ende: Wartungsmodus
 /* Datum: 26.12.2018
