@@ -552,29 +552,6 @@ table.dataTable.no-footer {
 /*----------------------------------------------------------------*/
 
 /*----------------------------------------------------------------*/
-/* Start: Anpassungen für Darstellung der Filter Bar (TEC)
-/* Datum: 17.11.2018
-/* Autor: hgg
-/*----------------------------------------------------------------*/
-
-.tribe-bar-submit {
-    margin-left: 0;
-}
-
-.tribe-bar-date-filter {
-    width: 30%;
-}
-
-dl dt::before {
-    content: none;
-}
-/*----------------------------------------------------------------*/
-/* Ende: Anpassungen für Darstellung der Filter Bar (TEC)
-/* Datum: 17.11.2018
-/* Autor: hgg
-/*----------------------------------------------------------------*/
-
-/*----------------------------------------------------------------*/
 /* Start: Darstellung der Details in Einzelansicht (TEC)
 /* Datum: 17.11.2018
 /* Autor: hgg
@@ -742,8 +719,10 @@ abbr[title], abbr[data-original-title] {
 /*----------------------------------------------------------------*/
 
 .tribe-bar-submit {
-    margin-left: 0;
+    width: 35%;
+		margin-left: 3%;
 }
+
 
 .tribe-bar-date-filter {
     width: 28%;
@@ -751,24 +730,23 @@ abbr[title], abbr[data-original-title] {
     padding-left: 5px;
 }
 
+
 .tribe-bar-search-filter {
     width: 28%;
     padding-right: 0px;
     padding-left: 5px;
 }
 
-.tribe-bar-submit {
-    margin-left: 10%;
-}
 
 #tribe-bar-form label {
     font-weight: 500;
 }
 
-
 dl dt::before {
     content: none;
 }
+
+
 /*----------------------------------------------------------------*/
 /* Ende: Anpassungen für Darstellung der Filter Bar (TEC)
 /* Datum: 17.11.2018

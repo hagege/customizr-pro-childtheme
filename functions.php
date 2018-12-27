@@ -5,7 +5,7 @@
 
   require_once 'library/inc.kundenfunktionen.php';
   require_once 'library/inc.overwrite_plugin.php';
-  require_once 'library/inc.disable_tribe_js.php';
+  require_once 'library/inc.disable_tribe_js.php'; 
 
 
 /* https://theeventscalendar.com/support/forums/topic/counting-posts/ */
