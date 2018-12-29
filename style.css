@@ -107,7 +107,7 @@ article .entry-content a:hover{
 }
 
 
-/* Bildhöhe bei Beiträgen auf 200px festlegen und einen Bildausschnitt wählen */
+/* Bildhöhe bei Beiträgen auf 150px festlegen und einen Bildausschnitt wählen */
 /* folgende Regel führte zu Problemen beim Bild im Einzelbeitrag: */
 /* .tc-thumbnail img { */
 .tc-thumbnail.entry-media__holder {
@@ -117,7 +117,7 @@ article .entry-content a:hover{
     object-position: top center;
 }
 
-/* Regel für das Beitragsbild - notwendig, weil ansonsten die Bilder nicht korrekt angezeigt werden */ 
+/* Regel für das Beitragsbild - notwendig, weil ansonsten die Bilder nicht korrekt angezeigt werden */
 .tc-thumbnail.entry-media__holder.tc-singular-thumbnail-wrapper.__before_regular_heading_title {
     height: 250px;
     object-fit: none;
