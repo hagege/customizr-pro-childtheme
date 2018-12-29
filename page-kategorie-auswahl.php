@@ -25,6 +25,15 @@ if ( apply_filters( 'czr_ms', false ) ) {
 
                     <?php do_action ('__before_loop');##hooks the heading of the list of post : archive, search... ?>
 
+                        <?php if ( czr_fn__f('__is_no_results') || is_404() ) : ##no search results or 404 cases ?>
+
+                            <article <?php czr_fn__f('__article_selectors') ?>>
+                                <?php do_action( '__loop' ); ?>
+                            </article>
+
+                        <?php endif; ?>
+
+                        <?php if ( have_posts() && ! is_404() ) : ?>
                             <?php while ( have_posts() ) : ##all other cases for single and lists: post, custom post type, page, archives, search, 404 ?>
                                 <?php the_post(); ?>
                                 /* START: Teil mit den eigenen Inhalten: */
@@ -94,7 +103,9 @@ if ( apply_filters( 'czr_ms', false ) ) {
                                     </article>
                                 <?php do_action ('__after_article') ?>
 */
+                            <?php endwhile; ?>
 
+                        <?php endif; ##end if have posts ?>
 
                     <?php do_action ('__after_loop');##hook of the comments and the posts navigation with priorities 10 and 20 ?>
 
