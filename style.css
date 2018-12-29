@@ -108,9 +108,11 @@ article .entry-content a:hover{
 
 
 /* Bildhöhe bei Beiträgen auf 200px festlegen und einen Bildausschnitt wählen */
-.tc-thumbnail img {
+/* folgende Regel führte zu Problemen beim Bild im Einzelbeitrag: */
+/* .tc-thumbnail img { */
+.entry-media__wrapper.czr__r-i.no-centering{
 	  height: 150px;
-    /* clip-path: inset(2% 2% 2% 2% round 2% 2%); */
+    /* clip-path: inset(2% 2% 2% 2% round 2% 2%);*/
     object-fit: cover;
     object-position: top center;
 }

@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------*/
 /* Start: Parallax Scrolling Effekt
 /* Datum: 24.10.2018
-/* Autor: hgg  
+/* Autor: hgg
 /*----------------------------------------------------------------*/
 .para_img-1, .para_img-2, .para_img-3 {
   position: relative;
@@ -13,7 +13,7 @@
 
 }
 .para_img-1 {
-  background-image: url("https://aachenerkinder.de/wp-content/uploads/2018/03/platzhalter_rathaus.jpg");
+  background-image: url("https://aachenerkinder.de/wp-content/uploads/2018/12/platzhalter_Weihnachtsmarkt_aachen_slider.jpg");
   min-height: 400px;
 }
 
@@ -31,5 +31,5 @@
 /*----------------------------------------------------------------*/
 /* Ende: Parallax Scrolling Effekt
 /* Datum: 24.10.2018
-/* Autor: hgg  
+/* Autor: hgg
 /*----------------------------------------------------------------*/
