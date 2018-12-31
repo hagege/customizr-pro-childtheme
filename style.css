@@ -315,6 +315,23 @@ img.rund {
 }
 
 
+.ac_tabelle td, th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.ac_tabelle tr:nth-child(even){background-color: #f2f2f2;}
+
+.ac_tabelle tr:hover {background-color: #ddd;}
+
+.ac_tabelle th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #77BCC7;
+  color: white;
+}
+
 /*----------------------------------------------------------------*/
 /* Start: Button in Beiträgen
 /* Datum: 23.02.2018

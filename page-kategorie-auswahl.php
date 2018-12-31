@@ -89,7 +89,11 @@ if ( apply_filters( 'czr_ms', false ) ):
                         ?>
                         <br><br>
                         <h4> <?php echo $anzahl_array; ?> Kategorien: </h4>
-                        <table class="wp-block-table"><tbody>
+                        <table class="ac_tabelle"><tbody>
+                        <tr>
+                          <th>Kategorie</th>
+                          <th>Beschreibung</th>
+                        </tr>
                         <?php
                         for($v=0; $v < $anzahl_array; $v++) {
                         ?>
