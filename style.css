@@ -314,7 +314,7 @@ img.rund {
 /*  text-decoration: underline;	*/
 }
 
-
+/* schönere Darstellung von Tabellen */
 .ac_tabelle td, th {
   border: 1px solid #ddd;
   padding: 8px;
