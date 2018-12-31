@@ -1,4 +1,9 @@
 <?php
+/*
+* Template Name: Kategorie-Auswahl
+* http://localhost/ackids_50/wp-admin/post.php?post=61562&action=edit
+* page-{id}.php siehe https://developer.wordpress.org/themes/template-files-section/page-template-files/
+*
 /**
  * The main template file. Includes the loop.
  *

@@ -330,6 +330,7 @@ img.rund {
   text-align: left;
   background-color: #77BCC7;
   color: white;
+  text-transform: none !important;
 }
 
 /*----------------------------------------------------------------*/
