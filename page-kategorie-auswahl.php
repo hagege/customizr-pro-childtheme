@@ -57,7 +57,7 @@ if ( apply_filters( 'czr_ms', false ) ):
                           array("Bildung", $url_ordner . "bildung/","Veranstaltungen zur Bildung"),
                           array("Diverses", $url_ordner . "diverses/","Veranstaltungen, die sonst in keine Kategorie passen"),
                           array("Eltern-Lehrer-Erzieher", $url_ordner . "eltern-lehrer-erzieher/","Veranstaltungen, die speziell für Eltern, Lehrer und/oder Erzieher vorgesehen sind"),
-                          array("Eltern und Kind", $url_ordner . "eldern-und-kind/","Veranstaltungen für Eltern mit ihren Kindern"),
+                          array("Eltern und Kind", $url_ordner . "eltern-und-kind/","Veranstaltungen für Eltern mit ihren Kindern"),
                           array("Familie", $url_ordner . "familie/","Veranstaltungen für die ganze Familie"),
                           array("Feiern und Feste", $url_ordner . "feiern-und-feste","Veranstaltungen zu Feiern und Festen"),
                           array("Ferien", $url_ordner . "ferien/","Ferienveranstaltungen"),
