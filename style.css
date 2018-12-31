@@ -302,6 +302,18 @@ img.rund {
 /*  text-decoration: underline;	*/
 }
 
+/* Kategorie - Auswahl */
+.kat_wahl {
+    color: #3b3b3b;
+    text-decoration: underline;
+}
+
+.kat_wahl:hover {
+/*  background-color: #aaaaaa !important; 	*/
+  color: #77BCC7 !important;
+/*  text-decoration: underline;	*/
+}
+
 
 /*----------------------------------------------------------------*/
 /* Start: Button in Beiträgen
