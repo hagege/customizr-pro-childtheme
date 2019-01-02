@@ -296,10 +296,21 @@ img.rund {
     color: #3b3b3b;
 }
 
+/* Kein Rahmen bei Schlagwörtern */
+.btn-skin-dark-oh.inverted {
+    border-color: #ffffff;
+		padding: 0px;
+}
+
 .btn-skin-dark-oh:hover {
 /*  background-color: #aaaaaa !important; 	*/
   color: #77BCC7 !important;
 /*  text-decoration: underline;	*/
+}
+
+/* Schriftgröße für Widget-Titel */
+.sidebar .widget-title {
+    font-size: 1.0em;
 }
 
 /* Kategorie - Auswahl */
@@ -331,6 +342,12 @@ img.rund {
   background-color: #77BCC7;
   color: white;
   text-transform: none !important;
+}
+
+/* Menüpunkte leicht vergrößert */
+#main-menu{
+  font-weight: 800 !important;
+	font-size: 1.1em;
 }
 
 /*----------------------------------------------------------------*/
@@ -380,16 +397,7 @@ a.tribe-events-button-beitrag:hover{
   background-color: #F9B81E;
 }
 
-/* Schrfitgröße für Widget-Titel */
-.sidebar .widget-title {
-    font-size: 1.0em;
-}
 
-/* Kein Rahmen bei Schlagwörtern */
-.btn-skin-dark-oh.inverted {
-    border-color: #ffffff;
-		padding: 0px;
-}
 /*----------------------------------------------------------------*/
 /* Ende: Button in Beiträgen
 /* Datum: 23.02.2018
