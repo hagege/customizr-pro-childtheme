@@ -36,6 +36,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 
 /* Breite des Containers (statt 1140px) erweitert */
+/* Seitenbreite muss wegen der Werbung besser ausgenutzt werden, sonst sind die Banner zu schmal */
 .container {
     max-width: 1440px !important;
 }
