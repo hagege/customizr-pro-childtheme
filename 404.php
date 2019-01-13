@@ -102,7 +102,8 @@
                             Im Interesse der Aktualität macht es bei manchen Beiträgen oder Veranstaltungen wenig Sinn, diese Beiträge oder Veranstaltungen ewig "mitzuschleppen".
                             Daher bist du jetzt auf dieser Seite gelandet.<br>
                             Allerdings kannst du über die <strong>Suche</strong> ja mal einen Begriff eingeben, der mit der Thematik der gelöschten Seite zu tun hatte.<br>
-                            Möglicherweise erhältst du dann Treffer zu aktuelleren Beiträgen oder Veranstaltungen zu diesem Thema.
+                            Möglicherweise erhältst du dann Treffer zu aktuelleren Beiträgen oder Veranstaltungen zu diesem Thema.<br>
+                            <em>Grafik: pixabay.com </em>
                           </p>
                           <!-- <a href="https://aachenerkinder.de/beitrag-existiert-nicht-mehr/?s=">Zur Suche</a> -->
                           <?php get_search_form() ?>
