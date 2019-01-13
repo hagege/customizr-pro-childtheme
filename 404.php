@@ -96,8 +96,9 @@
                     <article id="post-0" class="post error404 no-results not-found row text-center">
                       <div class="tc-content col-12">
                         <div class="entry-content">
+
                           <!-- <p><?php _e( 'Sorry, but the requested page is not found. You might try a search below.' , 'customizr-pro' ) ?></p> -->
-                          <p align="left">Sorry - leider war der Beitrag oder die Veranstaltung schon sehr alt und wir haben den Eintrag daher gelöscht.<br>
+                          <p align="left"><img class="size-medium wp-image-66574" src="https://aachenerkinder.de/wp-content/uploads/2019/01/platzhalter_404_cow-30710_640-min_weiss.jpg" align="right" alt="404" width="200" />Sorry - leider war der Beitrag oder die Veranstaltung schon sehr alt und wir haben den Eintrag daher gelöscht.<br>
                             Im Interesse der Aktualität macht es bei manchen Beiträgen oder Veranstaltungen wenig Sinn, diese Beiträge oder Veranstaltungen ewig "mitzuschleppen".
                             Daher bist du jetzt auf dieser Seite gelandet.<br>
                             Allerdings kannst du über die <strong>Suche</strong> ja mal einen Begriff eingeben, der mit der Thematik der gelöschten Seite zu tun hatte.<br>

@@ -1,0 +1,4 @@
+.block-editor *, .block-editor ::after, .block-editor ::before, .components-modal__frame *, .components-modal__frame ::after, .components-modal__frame ::before {
+    background-color: blue;
+    color: white;
+}
