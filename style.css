@@ -354,6 +354,32 @@ img.rund {
   text-transform: none !important;
 }
 
+
+/* Darstellung der Tabellen auf der Seite "Marktplatz" */
+/* hgg, 7.2.2019 */
+#ac_marktplatz tr:nth-child(even){background-color: #f2f2f2;}
+
+#ac_marktplatz tr:hover {background-color: #ddd;}
+
+#ac_marktplatz th {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  background-color: #77BCC7;
+  color: white;
+  text-transform: none !important;
+}
+
+#ac_marktplatz td {
+  padding: 0.8em !important;
+}
+
+.element_zentriert {
+    clear: both;
+    display: block;
+    margin: 0 auto 0.8em;
+}
+
 /* Menüpunkte leicht vergrößert */
 #main-menu{
   font-weight: 800 !important;
