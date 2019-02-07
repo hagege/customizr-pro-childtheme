@@ -371,13 +371,13 @@ img.rund {
 }
 
 #ac_marktplatz td {
-  padding: 0.8em !important;
+  padding: 0.5em !important;
 }
 
 .element_zentriert {
     clear: both;
     display: block;
-    margin: 0 auto 0.8em;
+    margin: 0 auto 0.5em;
 }
 
 /* Menüpunkte leicht vergrößert */
