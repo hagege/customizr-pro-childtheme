@@ -829,6 +829,10 @@ dl dt::before {
     content: none;
 }
 
+/* Schriftgröße verkleinern - hgg, 16.2.2019 */
+#tribe-bar-form .tribe-bar-submit input[type="submit"] {
+    font-size: 11px;
+}
 
 /*----------------------------------------------------------------*/
 /* Ende: Anpassungen für Darstellung der Filter Bar (TEC)
