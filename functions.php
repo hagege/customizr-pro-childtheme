@@ -5,7 +5,7 @@
 
   require_once 'library/inc.kundenfunktionen.php';
   require_once 'library/inc.overwrite_plugin.php';
-  require_once 'library/inc.disable_tribe_js.php'; 
+  require_once 'library/inc.disable_tribe_js.php';
 
 
 /* https://theeventscalendar.com/support/forums/topic/counting-posts/ */
@@ -291,6 +291,17 @@ function customprefix_total_number_published_events($atts) {
     return wp_count_posts('tribe_events')->publish;
 }
 add_shortcode('published-events-count', 'customprefix_total_number_published_events');
+
+
+// Zeigt bei einer Veranstaltung oder einem Beitrag automatisch den Text aus "Beschriftung" in kursiv
+// Aufruf: [copyright_bild]
+function bildnachweis($atts) {
+    $ausgabe = '<em>' . get_post(get_post_thumbnail_id())->post_excerpt . '</em>';
+	  return $ausgabe;
+}
+add_shortcode('copyright_bild', 'bildnachweis');
+
+
 
 /*----------------------------------------------------------------*/
 /* Ende: shortcodes für Anzahl Veranstaltungen und Beiträge
