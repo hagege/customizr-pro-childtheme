@@ -293,29 +293,22 @@ function customprefix_total_number_published_events($atts) {
 add_shortcode('published-events-count', 'customprefix_total_number_published_events');
 
 
-// Zeigt bei einer Veranstaltung oder einem Beitrag automatisch den Text aus "Beschriftung" in kursiv
-// Aufruf: [copyright_bild]
-function bildnachweis($atts) {
-    $ausgabe = '<em>' . get_post(get_post_thumbnail_id())->post_excerpt . '</em>';
-	  return $ausgabe;
-}
-add_shortcode('copyright_bild', 'bildnachweis');
-
 
 // Zeigt bei einer Veranstaltung oder einem Beitrag automatisch den Text aus "Beschriftung" in kursiv
 // Aufruf-Beispiele:
 // [fuss link="https://aachen50plus.de" kfm="ja"] --> zeigt immer Bildnachweis, dann Mehr Infos mit dem Link und bei kfm="ja" den Link zu "weiteren Kinderflohmärkten"
 // [fuss kfm="ja"] --> zeigt immer Bildnachweis, dann "keine Webseite angegeben" und bei kfm="ja" den Link zu "weiteren Kinderflohmärkten"
 // [fuss] --> zeigt immer Bildnachweis, dann "keine Webseite angegeben" und keinen Link zu "weiteren Kinderflohmärkten"
+// hgg, 23.2.2019
 function beitrags_fuss($atts) {
 	$werte = shortcode_atts( array(
 	  'link' => 'keine Webseite',
     'kfm' => 'nein',
 	  ), $atts);
-  $ausgabe = 'keine Webseite angegeben';
+  $ausgabe = '<br><strong>keine Webseite angegeben</strong>';
 
   if ( $werte['link'] != 'keine Webseite' ) {
-    $ausgabe = '<a href=' . $werte['link'] . ' rel="nofollow">Mehr Infos</a>';
+    $ausgabe = '<br><a href=' . $werte['link'] . ' target="_blank">Mehr Infos</a>';
   }
   $ausgabe = $ausgabe . '<br><br><em>' . get_post(get_post_thumbnail_id())->post_excerpt . '</em>';
   if ( $werte['kfm'] != 'nein' ) {
@@ -325,6 +318,7 @@ function beitrags_fuss($atts) {
 	return $ausgabe;
 }
 add_shortcode('fuss', 'beitrags_fuss');
+
 
 /*----------------------------------------------------------------*/
 /* Ende: shortcodes für Anzahl Veranstaltungen und Beiträge
