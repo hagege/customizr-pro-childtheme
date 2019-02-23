@@ -302,6 +302,29 @@ function bildnachweis($atts) {
 add_shortcode('copyright_bild', 'bildnachweis');
 
 
+// Zeigt bei einer Veranstaltung oder einem Beitrag automatisch den Text aus "Beschriftung" in kursiv
+// Aufruf-Beispiele:
+// [fuss link="https://aachen50plus.de" kfm="ja"] --> zeigt immer Bildnachweis, dann Mehr Infos mit dem Link und bei kfm="ja" den Link zu "weiteren Kinderflohmärkten"
+// [fuss kfm="ja"] --> zeigt immer Bildnachweis, dann "keine Webseite angegeben" und bei kfm="ja" den Link zu "weiteren Kinderflohmärkten"
+// [fuss] --> zeigt immer Bildnachweis, dann "keine Webseite angegeben" und keinen Link zu "weiteren Kinderflohmärkten"
+function beitrags_fuss($atts) {
+	$werte = shortcode_atts( array(
+	  'link' => 'keine Webseite',
+    'kfm' => 'nein',
+	  ), $atts);
+  $ausgabe = 'keine Webseite angegeben';
+
+  if ( $werte['link'] != 'keine Webseite' ) {
+    $ausgabe = '<a href=' . $werte['link'] . ' rel="nofollow">Mehr Infos</a>';
+  }
+  $ausgabe = $ausgabe . '<br><br><em>' . get_post(get_post_thumbnail_id())->post_excerpt . '</em>';
+  if ( $werte['kfm'] != 'nein' ) {
+    $ausgabe = $ausgabe . '<br><br><a href="https://aachenerkinder.de/veranstaltungen/kategorie/flohmarkt/Karte">Weitere Kinderflohmärkte</a>';
+  }
+
+	return $ausgabe;
+}
+add_shortcode('fuss', 'beitrags_fuss');
 
 /*----------------------------------------------------------------*/
 /* Ende: shortcodes für Anzahl Veranstaltungen und Beiträge
