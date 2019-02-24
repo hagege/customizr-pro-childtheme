@@ -180,97 +180,6 @@ add_action('widgets_init', create_function('', 'register_widget( "Schlagwort_wid
 /*----------------------------------------------------------------*/
 
 
-/*----------------------------------------------------------------*/
-/* Start: eigenes Anzahl Veranstaltungen-Widget
-/* Datum: 18.12.2018
-/* Autor: hgg
-/*----------------------------------------------------------------*/
-class anzahl_widget extends WP_Widget {
-
-    function __construct() {
-        parent::__construct(
-                'anzahl-widget', // Base ID
-                'Anzahl Events', // Name
-                array('description' => __('eigenes Widget Anzahl Veranstaltungen / Freizeitmöglichkeiten (hgg)'),) // Args
-        );
-    }
-
-    public function widget($args, $instance) {
-        extract($args);
-
-        /* Display Widget */
-        /* $anzahl_events = ! empty( $instance['anzahl_events'] ) ? $instance['anzahl_events'] : wp_count_posts('tribe_events'); */
-        /* die Schleife ist eigentlich nur notwendig, wenn das Widget noch nicht eingerichtet war */
-        if (empty($instance['anzahl_freizeit'])) {
-          $anzahl_events = wp_count_posts('tribe_events');
-          $anzahl_events = $anzahl_events->publish;
-          $instance['anzahl_events'] = $anzahl_events;
-          $anzahl_posts = wp_count_posts('post');
-          $anzahl_posts = $anzahl_posts->publish;
-          $instance['anzahl_posts'] = $anzahl_posts;
-          $instance['anzahl_freizeit'] = 407;
-        }
-
-        ?>
-
-        <hr>
-        <div class="sidebar_widget">
-          <span class="gross"><?php echo $instance['anzahl_events']; ?>
-          </span> Termine und Veranstaltungen<br>
-          <span class="gross"><?php echo $instance['anzahl_posts']; ?></span> Artikel<br>
-          <span class="gross"><?php echo $instance['anzahl_freizeit']; ?></span> Freizeitangebote
-           <!-- Your Content goes here -->
-        </div>
-        <hr>
-
-        <?php
-
-    }
-
-    public function update($new_instance, $old_instance) {
-
-        $instance = $old_instance;
-        $anzahl_events = wp_count_posts('tribe_events');
-        $anzahl_events = $anzahl_events->publish;
-        $anzahl_posts = wp_count_posts('post');
-        $anzahl_posts = $anzahl_posts->publish;
-
-        /* Strip tags to remove HTML (important for text inputs). */
-        $instance['anzahl_events'] = ( ! empty( $new_instance['anzahl_events'] ) ) ? sanitize_text_field( $new_instance['anzahl_events'] ) : $anzahl_events;
-        $instance['anzahl_posts'] = ( ! empty( $new_instance['anzahl_posts'] ) ) ? sanitize_text_field( $new_instance['anzahl_posts'] ) : $anzahl_posts;
-        $instance['anzahl_freizeit'] = ( ! empty( $new_instance['anzahl_freizeit'] ) ) ? sanitize_text_field( $new_instance['anzahl_freizeit'] ) : 407;
-
-        /* No need to strip tags for.. */
-
-        return $instance;
-    }
-
-    public function form($instance) {
-
-        $anzahl_freizeit = ! empty( $instance['anzahl_freizeit'] ) ? $instance['anzahl_freizeit'] : esc_html__( '407', 'text_domain' );
-
-        ?>
-
-        <!-- Title: Text Input -->
-        <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'anzahl_freizeit' ) ); ?>"><?php esc_attr_e( 'Anzahl Freizeitmöglichkeiten:', 'text_domain' ); ?></label>
-            <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'anzahl_freizeit' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'anzahl_freizeit' ) ); ?>" type="text" value="<?php echo esc_attr( $anzahl_freizeit ); ?>">
-        </p>
-
-        <!-- more Settings goes here! -->
-
-        <?php
-    }
-
-}
-
-add_action('widgets_init', create_function('', 'register_widget( "anzahl_widget" );'));
-
-/*----------------------------------------------------------------*/
-/* Ende: eigenes Anzahl Veranstaltungen-Widget
-/* Datum: 18.12.2018
-/* Autor: hgg
-/*----------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------*/
@@ -338,7 +247,7 @@ add_action('admin_head', function(){
 /* Datum: 22.12.2018
 /* Autor: hgg
 /*----------------------------------------------------------------*/
-// Add some text after the header
+// Add some text after the header - für theme customizr
 add_action( '__before_loop' , 'add_promotional_text' );
 function add_promotional_text() {
   // If we're not on the home page, do nothing

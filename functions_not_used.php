@@ -1,6 +1,6 @@
 <?php
 
-/* nicht genutzte (ng) oder nicht funktionierende (nf) Snippets */ 
+/* nicht genutzte (ng) oder nicht funktionierende (nf) Snippets */
 
 
 
@@ -22,7 +22,7 @@ add_filter('the_content', 'wp_change_date');
 
 
 
-/* Anzeige des Datums bei Beiträgen */ 
+/* Anzeige des Datums bei Beitrï¿½gen */
 /* nf */
 add_filter( 'tc_date_meta' , 'display_the_update_date');
 function display_the_update_date() {
@@ -48,29 +48,29 @@ add_action( 'get_the_date', 'add_publish_dates', 10, 3 );
 
 
 /*----------------------------------------------------------------*/
-/* Start: Veröffentlichungsdatum bei der Einzelansicht
+/* Start: Verï¿½ffentlichungsdatum bei der Einzelansicht
 /* Datum: 22.12.2018
 /* Autor: hgg
-/* funktioniert zwar, aber die Ausgabe erfolgt zusätzlich oben im Menü
+/* funktioniert zwar, aber die Ausgabe erfolgt zusï¿½tzlich oben im Menï¿½
 /*----------------------------------------------------------------*/
 function loop_mit_datum( $query ) {
-  echo 'Veröffentlicht: ' . get_the_date();
+  echo 'Verï¿½ffentlicht: ' . get_the_date();
 }
 
 
 add_action( 'pre_get_posts', 'loop_mit_datum' );
 /*----------------------------------------------------------------*/
-/* Start: Veröffentlichungsdatum bei der Einzelansicht
+/* Start: Verï¿½ffentlichungsdatum bei der Einzelansicht
 /* Datum: 22.12.2018
 /* Autor: hgg
 /*----------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------*/
-/* Start: Veröffentlichungsdatum und -autor bei der Einzelansicht
+/* Start: Verï¿½ffentlichungsdatum und -autor bei der Einzelansicht
 /* Datum: 22.12.2018
 /* Autor: hgg
-/* funktioniert zwar, aber die Ausgabe erfolgt zusätzlich oben im Menü
+/* funktioniert zwar, aber die Ausgabe erfolgt zusï¿½tzlich oben im Menï¿½
 /* https://themecoder.de/2017/11/02/datum-und-autor-von-beitraegen-im-wordpress-theme-anzeigen/
 /*----------------------------------------------------------------*/
 function loop_mit_datum( $query ) {
@@ -97,10 +97,10 @@ if ( ! function_exists( 'theme_slug_entry_date' ) ) :
 			esc_html( get_the_modified_date() )
 		);
 		$posted_on = sprintf(
-			esc_html_x( 'Veröffentlicht am %s', 'post date', 'theme-slug' ),
+			esc_html_x( 'Verï¿½ffentlicht am %s', 'post date', 'theme-slug' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
-    return '<span class="meta-date">' . $posted_on . '</span>'; 
+    return '<span class="meta-date">' . $posted_on . '</span>';
 	}
 endif;
 
@@ -113,17 +113,109 @@ if ( ! function_exists( 'theme_slug_entry_author' ) ) :
 			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 			esc_html( get_the_author() )
 		);
-		$posted_by = sprintf( esc_html_x( 'Veröffentlicht von %s', 'post author', 'theme-slug' ), $author );
+		$posted_by = sprintf( esc_html_x( 'Verï¿½ffentlicht von %s', 'post author', 'theme-slug' ), $author );
 		return '<span class="meta-author"> ' . $posted_by . '</span>';
 	}
 endif;
 
 
 /*----------------------------------------------------------------*/
-/* Start: Veröffentlichungsdatum bei der Einzelansicht
+/* Start: Verï¿½ffentlichungsdatum bei der Einzelansicht
 /* Datum: 22.12.2018
 /* Autor: hgg
 /*----------------------------------------------------------------*/
 
-?>
 
+/*----------------------------------------------------------------*/
+/* Start: eigenes Anzahl Veranstaltungen-Widget
+/* Datum: 18.12.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+class anzahl_widget extends WP_Widget {
+
+    function __construct() {
+        parent::__construct(
+                'anzahl-widget', // Base ID
+                'Anzahl Events', // Name
+                array('description' => __('eigenes Widget Anzahl Veranstaltungen / FreizeitmÃ¶glichkeiten (hgg)'),) // Args
+        );
+    }
+
+    public function widget($args, $instance) {
+        extract($args);
+
+        /* Display Widget */
+        /* $anzahl_events = ! empty( $instance['anzahl_events'] ) ? $instance['anzahl_events'] : wp_count_posts('tribe_events'); */
+        /* die Schleife ist eigentlich nur notwendig, wenn das Widget noch nicht eingerichtet war */
+        if (empty($instance['anzahl_freizeit'])) {
+          $anzahl_events = wp_count_posts('tribe_events');
+          $anzahl_events = $anzahl_events->publish;
+          $instance['anzahl_events'] = $anzahl_events;
+          $anzahl_posts = wp_count_posts('post');
+          $anzahl_posts = $anzahl_posts->publish;
+          $instance['anzahl_posts'] = $anzahl_posts;
+          $instance['anzahl_freizeit'] = 407;
+        }
+
+        ?>
+
+        <hr>
+        <div class="sidebar_widget">
+          <span class="gross"><?php echo $instance['anzahl_events']; ?>
+          </span> Termine und Veranstaltungen<br>
+          <span class="gross"><?php echo $instance['anzahl_posts']; ?></span> Artikel<br>
+          <span class="gross"><?php echo $instance['anzahl_freizeit']; ?></span> Freizeitangebote
+           <!-- Your Content goes here -->
+        </div>
+        <hr>
+
+        <?php
+
+    }
+
+    public function update($new_instance, $old_instance) {
+
+        $instance = $old_instance;
+        $anzahl_events = wp_count_posts('tribe_events');
+        $anzahl_events = $anzahl_events->publish;
+        $anzahl_posts = wp_count_posts('post');
+        $anzahl_posts = $anzahl_posts->publish;
+
+        /* Strip tags to remove HTML (important for text inputs). */
+        $instance['anzahl_events'] = ( ! empty( $new_instance['anzahl_events'] ) ) ? sanitize_text_field( $new_instance['anzahl_events'] ) : $anzahl_events;
+        $instance['anzahl_posts'] = ( ! empty( $new_instance['anzahl_posts'] ) ) ? sanitize_text_field( $new_instance['anzahl_posts'] ) : $anzahl_posts;
+        $instance['anzahl_freizeit'] = ( ! empty( $new_instance['anzahl_freizeit'] ) ) ? sanitize_text_field( $new_instance['anzahl_freizeit'] ) : 407;
+
+        /* No need to strip tags for.. */
+
+        return $instance;
+    }
+
+    public function form($instance) {
+
+        $anzahl_freizeit = ! empty( $instance['anzahl_freizeit'] ) ? $instance['anzahl_freizeit'] : esc_html__( '407', 'text_domain' );
+
+        ?>
+
+        <!-- Title: Text Input -->
+        <p>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'anzahl_freizeit' ) ); ?>"><?php esc_attr_e( 'Anzahl FreizeitmÃ¶glichkeiten:', 'text_domain' ); ?></label>
+            <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'anzahl_freizeit' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'anzahl_freizeit' ) ); ?>" type="text" value="<?php echo esc_attr( $anzahl_freizeit ); ?>">
+        </p>
+
+        <!-- more Settings goes here! -->
+
+        <?php
+    }
+
+}
+
+add_action('widgets_init', create_function('', 'register_widget( "anzahl_widget" );'));
+
+/*----------------------------------------------------------------*/
+/* Ende: eigenes Anzahl Veranstaltungen-Widget
+/* Datum: 18.12.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+
+?>
