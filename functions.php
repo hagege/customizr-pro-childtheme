@@ -216,7 +216,7 @@ function beitrags_fuss($atts) {
   	  ), $atts);
     $ausgabe = '<br><strong>keine Webseite angegeben</strong>';
 
-    if ( $werte['link'] != 'keine Webseite' ) {
+    if ( $werte['link'] != 'keine Webseite' and trim($werte['link']) != '') {
       $ausgabe = '<br><a href=' . $werte['link'] . ' target="_blank">Mehr Infos</a>';
     }
     $ausgabe = $ausgabe . '<br><br><em>' . get_post(get_post_thumbnail_id())->post_excerpt . '</em>';
