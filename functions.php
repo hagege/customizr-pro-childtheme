@@ -221,7 +221,7 @@ function beitrags_fuss($atts) {
   }
   $ausgabe = $ausgabe . '<br><br><em>' . get_post(get_post_thumbnail_id())->post_excerpt . '</em>';
   if ( $werte['kfm'] != 'nein' ) {
-    $ausgabe = $ausgabe . '<br><br><a href="https://aachenerkinder.de/veranstaltungen/kategorie/flohmarkt/Karte">Weitere Kinderflohmärkte</a>';
+    $ausgabe = $ausgabe . '<br><br><p class="button-absatz"><a class="tribe-events-button-beitrag" href="https://aachenerkinder.de/veranstaltungen/kategorie/flohmarkt/Karte">Weitere Kinderflohmärkte</a></p>';
   }
 
 	return $ausgabe;
