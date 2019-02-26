@@ -205,7 +205,7 @@ add_shortcode('published-events-count', 'customprefix_total_number_published_eve
 
 // Zeigt bei einer Veranstaltung oder einem Beitrag automatisch den Text aus "Beschriftung" in kursiv
 // Aufruf-Beispiele:
-// [fuss link="https://aachen50plus.de" kfm="ja"] --> zeigt immer Bildnachweis, dann Mehr Infos mit dem Link und bei kfm="ja" den Link zu "weiteren Kinderflohmärkten"
+// [fuss link="https://aachen50plus.de" kfm="ja" vl="ja"] --> zeigt immer Bildnachweis, dann Mehr Infos mit dem Link und bei kfm="ja" den Link zu "weiteren Kinderflohmärkten" und bei vl="ja" den Link zu "Weitere Veranstaltungen"
 // [fuss kfm="ja"] --> zeigt immer Bildnachweis, dann "keine Webseite angegeben" und bei kfm="ja" den Link zu "weiteren Kinderflohmärkten"
 // [fuss] --> zeigt immer Bildnachweis, dann "keine Webseite angegeben" und keinen Link zu "weiteren Kinderflohmärkten"
 // hgg, 23.2.2019
@@ -213,6 +213,7 @@ function beitrags_fuss($atts) {
   	$werte = shortcode_atts( array(
   	  'link' => 'keine Webseite',
       'kfm' => 'nein',
+      'vl' => 'nein',
   	  ), $atts);
     $ausgabe = '<br><strong>keine Webseite angegeben</strong>';
 
@@ -222,6 +223,9 @@ function beitrags_fuss($atts) {
     $ausgabe = $ausgabe . '<br><br><em>' . get_post(get_post_thumbnail_id())->post_excerpt . '</em>';
     if ( $werte['kfm'] != 'nein' ) {
       $ausgabe = $ausgabe . '<br><br><p class="button-absatz"><a class="tribe-events-button-beitrag" href="https://aachenerkinder.de/veranstaltungen/kategorie/flohmarkt/Karte">Weitere Kinderflohmärkte</a></p>';
+    }
+    if ( $werte['vl'] != 'nein' ) {
+      $ausgabe = $ausgabe . '<br><br><p class="button-absatz"><a class="tribe-events-button-beitrag" href="https://aachenerkinder.de/veranstaltungen/kategorie/terminanzeige/">Weitere Veranstaltungen</a></p>';
     }
     $ausgabe = $ausgabe . '<hr>';
 	return $ausgabe;
