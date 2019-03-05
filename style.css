@@ -394,7 +394,7 @@ img.rund {
 
 /* Absatz für Button */
 .button-absatz {
-    margin:30px 10px 30px 0px;
+    margin:30px 10px 30px 0px !important;
     display:inline-flex;
 }
 
