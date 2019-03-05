@@ -389,12 +389,12 @@ img.rund {
 /* Start: Button in Beiträgen
 /* Datum: 23.02.2018
 /* Autor: hgg
-/* z. Bsp.: weiße Farbe, bei Hover: grüner Button
+/* z. Bsp.: grüner Hintergrund, Schrift: weiße Farbe, bei Hover: oranger Button
 /*----------------------------------------------------------------*/
 
 /* Absatz für Button */
 .button-absatz {
-    margin:30px 0px 30px 0px;
+    margin:30px 10px 30px 0px;
     display:inline-flex;
 }
 

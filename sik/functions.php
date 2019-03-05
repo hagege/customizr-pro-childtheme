@@ -10,30 +10,30 @@
 
 /* https://theeventscalendar.com/support/forums/topic/counting-posts/ */
 function tribe_count_by_cat ( $event_category_slug ) {
- 
+
     if ( ! class_exists('Tribe__Events__Main') ) return false;
- 
-     
+
+
     $tax_query = array(    'taxonomy'    => Tribe__Events__Main::TAXONOMY,
                         'field'        => 'slug',
                         'terms'        => $event_category_slug );
- 
+
       $args = array( 'post_type' => Tribe__Events__Main::POSTTYPE, 'post_status' => 'publish', 'tax_query' => array( $tax_query ), 'posts_per_page' => -1);
- 
+
     $query = new WP_Query( $args );
- 
+
     return $query->found_posts;
 }
 
 
- 
+
 /**
  * Test if the current widget is an Advanced List Widget and fix the event limit if it is.
  */
 function increase_event_widget_limit(array $instance, $widget) {
     if (is_a($widget, 'Tribe__Events__Pro__Advanced_List_Widget'))
         $instance['limit'] = 30;
- 
+
     return $instance;
 }
 add_filter('avf_title_args', 'fix_blog_page_title', 10, 2);
@@ -51,7 +51,7 @@ add_filter('the_generator', 'wpb_remove_version');
 
 
 /*----------------------------------------------------------------*/
-/* Start: PHP in Text-Widget nutzen 
+/* Start: PHP in Text-Widget nutzen
 /* Datum: 05.04.2018
 /* Autor: hgg
 /*----------------------------------------------------------------*/
@@ -66,14 +66,14 @@ function gibmirphp($text) {
   return $text;
 }
 /*----------------------------------------------------------------*/
-/* Ende: PHP in Text-Widget nutzen 
+/* Ende: PHP in Text-Widget nutzen
 /* Datum: 05.04.2018
 /* Autor: hgg
 /*----------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------*/
-/* Start: eigenes Schlagwörter-Widget mit weiteren Parametern nutzen 
+/* Start: eigenes Schlagwörter-Widget mit weiteren Parametern nutzen
 /* Datum: 17.12.2018
 /* Autor: hgg
 /*----------------------------------------------------------------*/
@@ -91,11 +91,11 @@ class Schlagwort_widget extends WP_Widget {
         extract($args);
 
         /* Display Widget */
-        $kleinste = ! empty( $instance['smallest'] ) ? $instance['smallest'] : 8; 
+        $kleinste = ! empty( $instance['smallest'] ) ? $instance['smallest'] : 8;
         $groesste = ! empty( $instance['largest'] ) ? $instance['largest'] : 22;
         $titel = ! empty( $instance['title'] ) ? $instance['title'] : 'Schlagwörter';
         $anzahl = ! empty( $instance['number'] ) ? $instance['number'] : 35;
-        $einheit = ! empty( $instance['unit'] ) ? $instance['unit'] : 'pt'; 
+        $einheit = ! empty( $instance['unit'] ) ? $instance['unit'] : 'pt';
         $sortiert = ! empty( $instance['orderby'] ) ? $instance['orderby'] : 'name';
         ?>
         <div class="sidebar_widget">
@@ -136,7 +136,7 @@ class Schlagwort_widget extends WP_Widget {
         $largest = ! empty( $instance['largest'] ) ? $instance['largest'] : esc_html__( '25', 'text_domain' );
         $unit = ! empty( $instance['unit'] ) ? $instance['unit'] : esc_html__( 'pt', 'text_domain' );
         $orderby = ! empty( $instance['orderby'] ) ? $instance['orderby'] : esc_html__( 'name', 'text_domain' );
-        
+
         ?>
 
         <!-- Title: Text Input -->
@@ -174,103 +174,12 @@ class Schlagwort_widget extends WP_Widget {
 
 add_action('widgets_init', create_function('', 'register_widget( "Schlagwort_widget" );'));
 /*----------------------------------------------------------------*/
-/* Ende: Schlagwörter-Widget nutzen 
+/* Ende: Schlagwörter-Widget nutzen
 /* Datum: 17.12.2018
 /* Autor: hgg
 /*----------------------------------------------------------------*/
 
 
-/*----------------------------------------------------------------*/
-/* Start: eigenes Anzahl Veranstaltungen-Widget 
-/* Datum: 18.12.2018
-/* Autor: hgg
-/*----------------------------------------------------------------*/
-class anzahl_widget extends WP_Widget {
-
-    function __construct() {
-        parent::__construct(
-                'anzahl-widget', // Base ID
-                'Anzahl Events', // Name
-                array('description' => __('eigenes Widget Anzahl Veranstaltungen / Freizeitmöglichkeiten (hgg)'),) // Args
-        );
-    }
-
-    public function widget($args, $instance) {
-        extract($args);
-
-        /* Display Widget */
-        /* $anzahl_events = ! empty( $instance['anzahl_events'] ) ? $instance['anzahl_events'] : wp_count_posts('tribe_events'); */
-        /* die Schleife ist eigentlich nur notwendig, wenn das Widget noch nicht eingerichtet war */ 
-        if (empty($instance['anzahl_freizeit'])) {
-          $anzahl_events = wp_count_posts('tribe_events');
-          $anzahl_events = $anzahl_events->publish;
-          $instance['anzahl_events'] = $anzahl_events;
-          $anzahl_posts = wp_count_posts('post');
-          $anzahl_posts = $anzahl_posts->publish;
-          $instance['anzahl_posts'] = $anzahl_posts;
-          $instance['anzahl_freizeit'] = 407;
-        }
-        
-        ?>
-
-        <hr>
-        <div class="sidebar_widget">
-          <span class="gross"><?php echo $instance['anzahl_events']; ?>
-          </span> Termine und Veranstaltungen<br>
-          <span class="gross"><?php echo $instance['anzahl_posts']; ?></span> Artikel<br>
-          <span class="gross"><?php echo $instance['anzahl_freizeit']; ?></span> Freizeitangebote
-           <!-- Your Content goes here -->
-        </div>
-        <hr>
-
-        <?php
-
-    }
-
-    public function update($new_instance, $old_instance) {
-
-        $instance = $old_instance;
-        $anzahl_events = wp_count_posts('tribe_events');
-        $anzahl_events = $anzahl_events->publish;
-        $anzahl_posts = wp_count_posts('post');
-        $anzahl_posts = $anzahl_posts->publish;
-
-        /* Strip tags to remove HTML (important for text inputs). */
-        $instance['anzahl_events'] = ( ! empty( $new_instance['anzahl_events'] ) ) ? sanitize_text_field( $new_instance['anzahl_events'] ) : $anzahl_events;
-        $instance['anzahl_posts'] = ( ! empty( $new_instance['anzahl_posts'] ) ) ? sanitize_text_field( $new_instance['anzahl_posts'] ) : $anzahl_posts;
-        $instance['anzahl_freizeit'] = ( ! empty( $new_instance['anzahl_freizeit'] ) ) ? sanitize_text_field( $new_instance['anzahl_freizeit'] ) : 407;
-
-        /* No need to strip tags for.. */
-
-        return $instance;
-    }
-
-    public function form($instance) {
-
-        $anzahl_freizeit = ! empty( $instance['anzahl_freizeit'] ) ? $instance['anzahl_freizeit'] : esc_html__( '407', 'text_domain' );
-        
-        ?>
-
-        <!-- Title: Text Input -->
-        <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'anzahl_freizeit' ) ); ?>"><?php esc_attr_e( 'Anzahl Freizeitmöglichkeiten:', 'text_domain' ); ?></label>
-            <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'anzahl_freizeit' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'anzahl_freizeit' ) ); ?>" type="text" value="<?php echo esc_attr( $anzahl_freizeit ); ?>">
-        </p>
-
-        <!-- more Settings goes here! -->
-
-        <?php
-    }
-
-}
-
-add_action('widgets_init', create_function('', 'register_widget( "anzahl_widget" );'));
-
-/*----------------------------------------------------------------*/
-/* Ende: eigenes Anzahl Veranstaltungen-Widget 
-/* Datum: 18.12.2018
-/* Autor: hgg
-/*----------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------*/
@@ -292,6 +201,39 @@ function customprefix_total_number_published_events($atts) {
 }
 add_shortcode('published-events-count', 'customprefix_total_number_published_events');
 
+
+
+// Zeigt bei einer Veranstaltung oder einem Beitrag automatisch den Text aus "Beschriftung" in kursiv
+// Aufruf-Beispiele:
+// [fuss link="https://aachen50plus.de" kfm="ja" vl="ja"] --> zeigt immer Bildnachweis, dann Mehr Infos mit dem Link und bei kfm="ja" den Link zu "weiteren Kinderflohmärkten" und bei vl="ja" den Link zu "Weitere Veranstaltungen"
+// [fuss kfm="ja"] --> zeigt immer Bildnachweis, dann "keine Webseite angegeben" und bei kfm="ja" den Link zu "weiteren Kinderflohmärkten"
+// [fuss] --> zeigt immer Bildnachweis, dann "keine Webseite angegeben" und keinen Link zu "weiteren Kinderflohmärkten"
+// hgg, 23.2.2019
+function beitrags_fuss($atts) {
+  	$werte = shortcode_atts( array(
+  	  'link' => 'keine Webseite',
+      'kfm' => 'nein',
+      'vl' => 'nein',
+  	  ), $atts);
+    $ausgabe = '<br><strong>keine Webseite angegeben</strong>';
+
+    if ( $werte['link'] != 'keine Webseite' and trim($werte['link']) != '') {
+      $ausgabe = '<br><a href=' . $werte['link'] . ' target="_blank">Mehr Infos</a>';
+    }
+    $ausgabe = $ausgabe . '<br><br><em>' . get_post(get_post_thumbnail_id())->post_excerpt . '</em>';
+    if ( $werte['kfm'] != 'nein' ) {
+      $ausgabe = $ausgabe . '<br><br><p class="button-absatz"><a class="tribe-events-button-beitrag" href="https://aachenerkinder.de/veranstaltungen/kategorie/flohmarkt/Karte">Weitere Kinderflohmärkte</a></p>';
+    }
+    if ( $werte['vl'] != 'nein' ) {
+      $ausgabe = $ausgabe . '<br><br><p class="button-absatz"><a class="tribe-events-button-beitrag" href="https://aachenerkinder.de/veranstaltungen/kategorie/terminanzeige/">Weitere Veranstaltungen</a></p>';
+    }
+    $ausgabe = $ausgabe . '<hr>';
+	return $ausgabe;
+}
+add_shortcode('fuss', 'beitrags_fuss');
+
+
+
 /*----------------------------------------------------------------*/
 /* Ende: shortcodes für Anzahl Veranstaltungen und Beiträge
 /* Datum: 18.12.2018
@@ -299,7 +241,7 @@ add_shortcode('published-events-count', 'customprefix_total_number_published_eve
 /*----------------------------------------------------------------*/
 
 
-/* Korrektur des Datum-Zeit-Problems bei Veranstaltungen, wenn man den Block (Gutenberg) verwendet */ 
+/* Korrektur des Datum-Zeit-Problems bei Veranstaltungen, wenn man den Block (Gutenberg) verwendet */
 add_action('admin_head', function(){
     echo "<style>.tribe-editor__date-time .editor-block-list__block > .editor-block-list__insertion-point { top: 50px; }</style>";
 });
@@ -310,14 +252,14 @@ add_action('admin_head', function(){
 /* Datum: 22.12.2018
 /* Autor: hgg
 /*----------------------------------------------------------------*/
-// Add some text after the header
+// Add some text after the header - für theme customizr
 add_action( '__before_loop' , 'add_promotional_text' );
 function add_promotional_text() {
   // If we're not on the home page, do nothing
   if ( !is_front_page() )
     return;
   // Echo the html
-  echo "<div><strong>aachenerkinder.de</strong> - Internetportal für Familien und Kinder in der Städteregion Aachen und Umgebung mit Freizeitangeboten und Veranstaltungen, Terminen, vielen Infos und Tipps – Online-Familienzeitung.</div><br>";
+  echo "<div class='ackids'><strong>aachenerkinder.de</strong> - Internetportal für Familien und Kinder in der Städteregion Aachen und Umgebung mit Freizeitangeboten und Veranstaltungen, Terminen, vielen Infos und Tipps – Online-Familienzeitung.</div><br>";
 }
 /*----------------------------------------------------------------*/
 /* Ende: Text vor dem loop
@@ -327,34 +269,51 @@ function add_promotional_text() {
 
 
 /*----------------------------------------------------------------*/
-/* Start: Veröffentlichungsdatum bei der Einzelansicht
-/* Datum: 22.12.2018
+/* Start: Anzeige image in der Beitragsliste
+/* Datum: 25.12.2018
 /* Autor: hgg
 /*----------------------------------------------------------------*/
-function loop_mit_datum( $query ) {
-		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
-		}
-		$time_string = sprintf( $time_string,
-			esc_attr( get_the_date( 'c' ) ),
-			esc_html( get_the_date() ),
-			esc_attr( get_the_modified_date( 'c' ) ),
-			esc_html( get_the_modified_date() )
-		);
-		$posted_on = sprintf(
-			esc_html_x( 'Veröffentlicht am %s', 'post date', 'theme-slug' ),
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-		);
-		echo '<span class="meta-date">' . $posted_on . '</span>';
-	}
 
-  /* echo 'Veröffentlicht: ' . get_the_date(); */
+add_filter('manage_posts_columns', 'add_img_column');
+add_filter('manage_posts_custom_column', 'manage_img_column', 10, 2);
 
-add_action( 'pre_get_posts', 'loop_mit_datum' );
+function add_img_column($columns) {
+  $columns = array_slice($columns, 0, 1, true) + array("img" => "Beitragsbild") + array_slice($columns, 1, count($columns) - 1, true);
+  return $columns;
+}
+
+function manage_img_column($column_name, $post_id) {
+ if( $column_name == 'img' ) {
+  echo get_the_post_thumbnail($post_id, 'thumbnail');
+ }
+ return $column_name;
+}
+
 /*----------------------------------------------------------------*/
-/* Start: Veröffentlichungsdatum bei der Einzelansicht
-/* Datum: 22.12.2018
+/* Ende: Anzeige image in der Beitragsliste
+/* Datum: 25.12.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+
+/*----------------------------------------------------------------*/
+/* Start: Wartungsmodus
+/* Datum: 26.12.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+/*
+function wpr_maintenance_mode() {
+ if ( !current_user_can( 'edit_themes' ) || !is_user_logged_in() ) {
+  ?><div style="width: 100%; height: 100%; overflow: hidden; background-image: url(http://aachener-senioren.de/_test_/wp-content/uploads/2016/07/platzhalter_ferien_ocean-1149981_1280.jpg)">
+  <?php
+  $meldung = "<h1 style=\"text-align: center\">aachenerkinder.de</h1><p style=\"text-align: center\">Sorry, die Webseite befindet sich zur Zeit im Wartungsmodus.<br>Wir ändern gerade die Optik der Seite, aber außer der Optik ändert sich nichts.<br><br>Es wird leider noch ein wenig dauern, bis die Seite wieder zur Verfügung steht.<br>Wir gehen davon aus, dass aachenerkinder.de um ca. 6.30 Uhr wieder online ist.<br>Danke für Dein Verständnis.<br><br>Foto: pixabay.com</div>";
+  wp_die($meldung);
+ }
+}
+add_action('get_header', 'wpr_maintenance_mode');
+*/
+/*----------------------------------------------------------------*/
+/* Ende: Wartungsmodus
+/* Datum: 26.12.2018
 /* Autor: hgg
 /*----------------------------------------------------------------*/
 
