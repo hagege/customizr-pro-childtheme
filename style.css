@@ -394,9 +394,16 @@ img.rund {
 
 /* Absatz für Button */
 .button-absatz {
+    margin:30px 0px 30px 0px;
+    display:inline-flex;
+}
+
+/* Absatz für Button im shortcode fuss*/
+.button-absatz-fuss {
     margin:30px 10px 30px 0px !important;
     display:inline-flex;
 }
+
 
 .tribe-events-button-beitrag {
     padding: 10px;
