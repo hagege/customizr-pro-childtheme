@@ -122,7 +122,7 @@ article .entry-content a:hover{
 /* folgende Regel führte zu Problemen beim Bild im Einzelbeitrag: */
 /* .tc-thumbnail img { */
 .tc-thumbnail.entry-media__holder {
-	  max-height: 150px !important;
+	  max-height: 142px !important;
     /* clip-path: inset(2% 2% 2% 2% round 2% 2%);*/
     object-fit: cover;
     object-position: top center;
