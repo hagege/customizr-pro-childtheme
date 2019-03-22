@@ -207,7 +207,7 @@ add_shortcode('published-events-count', 'customprefix_total_number_published_eve
 /*----------------------------------------------------------------*/
 
 /*----------------------------------------------------------------*/
-/* Start: shortcode für Copyright, Link, Link Kinderflohmärkte, Link Veranstaltungsliste, Link Ferien
+/* Start: shortcode für Copyright, Link, Link Kinderflohmärkte, Link Veranstaltungsliste, Link Ferien, interner Link
 /* Datum: 23.2.2019
 /* Autor: hgg
 /*----------------------------------------------------------------*/
