@@ -213,18 +213,23 @@ add_shortcode('published-events-count', 'customprefix_total_number_published_eve
 /*----------------------------------------------------------------*/
 // Zeigt bei einer Veranstaltung oder einem Beitrag automatisch den Text aus "Beschriftung" in kursiv
 // Aufruf-Beispiele:
-// [fuss link="https://aachen50plus.de" kfm="ja" vl="ja"] --> zeigt immer Bildnachweis, dann Mehr Infos mit dem Link und bei kfm="ja" den Link zu "weiteren Kinderflohmärkten" und bei vl="ja" den Link zu "Weitere Veranstaltungen"
-// [fuss kfm="ja"] --> zeigt immer Bildnachweis, dann "keine Webseite angegeben" und bei kfm="ja" den Link zu "weiteren Kinderflohmärkten"
+// [fuss link="https://aachen50plus.de" kfm="" vl=""] --> zeigt immer Bildnachweis, dann Mehr Infos mit dem Link und bei kfm="ja" den Link zu "weiteren Kinderflohmärkten" und bei vl="ja" den Link zu "Weitere Veranstaltungen"
+// [fuss kfm=""] --> zeigt immer Bildnachweis, dann "keine Webseite angegeben" und bei kfm="ja" den Link zu "weiteren Kinderflohmärkten"
 // [fuss] --> zeigt immer Bildnachweis, dann "keine Webseite angegeben" und keinen Link zu "weiteren Kinderflohmärkten"
 // erweitert: hgg, 5.3.2019:
-// [fuss ferien="ja"] --> zeigt immer Bildnachweis, dann "keine Webseite angegeben" und bei ferien="ja" den Link zu "weitere Ferienangebote"
+// [fuss ferien=""] --> zeigt immer Bildnachweis, dann "keine Webseite angegeben" und bei ferien="ja" den Link zu "weitere Ferienangebote"
 // Formatierung der Buttons geändert: Nicht mehr untereinander, sondern nebeneiander und die Buttons per CSS in der style.css mit einem Rand versehen
+// erweitert: hgg, 22.3.2019: il steht für interner Link
+// [fuss il="https://aachenerkinder.de/freizeitangebote/"] --> zeigt immer Bildnachweis, dann "keine Webseite angegeben" und bei il="https://aachenerkinder.de/freizeitangebote/" den (internen) Link zu einer anderen Seite
+// Formatierung der Buttons geändert: Nicht mehr untereinander, sondern nebeneiander und die Buttons per CSS in der style.css mit einem Rand versehen
+
 function beitrags_fuss($atts) {
   	$werte = shortcode_atts( array(
   	  'link' => 'keine Webseite',
       'kfm' => 'nein',
       'vl' => 'nein',
       'ferien' => 'nein',
+      'il' => 'keine Webseite',
   	  ), $atts);
     $ausgabe = '<br><strong>keine Webseite angegeben</strong>';
 
@@ -241,6 +246,9 @@ function beitrags_fuss($atts) {
     if ( $werte['ferien'] != 'nein' ) {
       $ausgabe = $ausgabe . '<p class="button-absatz-fuss"><a class="tribe-events-button-beitrag" href="https://aachenerkinder.de/veranstaltungen/kategorie/ferien/">Weitere Ferienangebote</a></p>';
     }
+    if ( $werte['il'] != 'keine Webseite' and trim($werte['il']) != '') {
+       $ausgabe = $ausgabe . '<p class="button-absatz-fuss"><a class="tribe-events-button-beitrag" href=' . $werte['il'] . ' target="_blank">Mehr Infos auf dieser Seite</a></p><hr>';
+    }
     $ausgabe = $ausgabe . '<hr>';
 	return $ausgabe;
 }
@@ -250,34 +258,6 @@ add_shortcode('fuss', 'beitrags_fuss');
 /* Datum: 23.2.2019
 /* Autor: hgg
 /*----------------------------------------------------------------*/
-
-
-
-/*----------------------------------------------------------------*/
-/* Start: shortcode für internen Link
-/* Datum: 22.3.2019
-/* Autor: hgg
-/*----------------------------------------------------------------*/
-function interner_link($atts) {
-  	$werte = shortcode_atts( array(
-  	  'ilink' => 'keine Webseite',
-  	  ), $atts);
-
-    $ausgabe = 'nichts';
-    if ( $werte['ilink'] != 'keine Webseite' and trim($werte['ilink']) != '') {
-       $ausgabe = '<p class="button-absatz-fuss"><a class="tribe-events-button-beitrag" href=' . $werte['ilink'] . ' target="_blank">Mehr Infos auf dieser Seite</a></p><hr>';
-    }
-	return $ausgabe;
-}
-add_shortcode('intern', 'interner_link');
-
-
-/*----------------------------------------------------------------*/
-/* Ende: shortcode für internen Link
-/* Datum: 22.3.2019
-/* Autor: hgg
-/*----------------------------------------------------------------*/
-
 
 
 /* Korrektur des Datum-Zeit-Problems bei Veranstaltungen, wenn man den Block (Gutenberg) verwendet */
