@@ -200,10 +200,17 @@ function customprefix_total_number_published_events($atts) {
     return wp_count_posts('tribe_events')->publish;
 }
 add_shortcode('published-events-count', 'customprefix_total_number_published_events');
+/*----------------------------------------------------------------*/
+/* Ende: shortcodes für Anzahl Veranstaltungen und Beiträge
+/* Datum: 18.12.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
 
-
-
-// hgg, 23.2.2019
+/*----------------------------------------------------------------*/
+/* Start: shortcode für Copyright, Link, Link Kinderflohmärkte, Link Veranstaltungsliste, Link Ferien
+/* Datum: 23.2.2019
+/* Autor: hgg
+/*----------------------------------------------------------------*/
 // Zeigt bei einer Veranstaltung oder einem Beitrag automatisch den Text aus "Beschriftung" in kursiv
 // Aufruf-Beispiele:
 // [fuss link="https://aachen50plus.de" kfm="ja" vl="ja"] --> zeigt immer Bildnachweis, dann Mehr Infos mit dem Link und bei kfm="ja" den Link zu "weiteren Kinderflohmärkten" und bei vl="ja" den Link zu "Weitere Veranstaltungen"
@@ -238,15 +245,39 @@ function beitrags_fuss($atts) {
 	return $ausgabe;
 }
 add_shortcode('fuss', 'beitrags_fuss');
-
-
-
-
 /*----------------------------------------------------------------*/
-/* Ende: shortcodes für Anzahl Veranstaltungen und Beiträge
-/* Datum: 18.12.2018
+/* Ende: shortcode für Copyright, Link, Link Kinderflohmärkte, Link Veranstaltungsliste, Link Ferien
+/* Datum: 23.2.2019
 /* Autor: hgg
 /*----------------------------------------------------------------*/
+
+
+
+/*----------------------------------------------------------------*/
+/* Start: shortcode für internen Link
+/* Datum: 22.3.2019
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+function interner_link($atts) {
+  	$werte = shortcode_atts( array(
+  	  'ilink' => 'keine Webseite',
+  	  ), $atts);
+
+    $ausgabe = 'nichts';
+    if ( $werte['ilink'] != 'keine Webseite' and trim($werte['ilink']) != '') {
+       $ausgabe = '<p class="button-absatz-fuss"><a class="tribe-events-button-beitrag" href=' . $werte['ilink'] . ' target="_blank">Mehr Infos auf dieser Seite</a></p><hr>';
+    }
+	return $ausgabe;
+}
+add_shortcode('intern', 'interner_link');
+
+
+/*----------------------------------------------------------------*/
+/* Ende: shortcode für internen Link
+/* Datum: 22.3.2019
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+
 
 
 /* Korrektur des Datum-Zeit-Problems bei Veranstaltungen, wenn man den Block (Gutenberg) verwendet */
