@@ -225,15 +225,15 @@ add_shortcode('published-events-count', 'customprefix_total_number_published_eve
 
 function beitrags_fuss($atts) {
   	$werte = shortcode_atts( array(
-  	  'link' => 'keine Webseite',
+  	  'link' => '',
       'kfm' => 'nein',
       'vl' => 'nein',
       'ferien' => 'nein',
-      'il' => 'keine Webseite',
+      'il' => '',
   	  ), $atts);
-    $ausgabe = '<br><strong>keine Webseite angegeben</strong>';
+    $ausgabe = '';
 
-    if ( $werte['link'] != 'keine Webseite' and trim($werte['link']) != '') {
+    if ( trim($werte['link']) != '') {
       $ausgabe = '<br><a href=' . $werte['link'] . ' target="_blank">Mehr Infos</a>';
     }
     $ausgabe = $ausgabe . '<br><br><em>' . get_post(get_post_thumbnail_id())->post_excerpt . '</em><br>';
@@ -246,7 +246,7 @@ function beitrags_fuss($atts) {
     if ( $werte['ferien'] != 'nein' ) {
       $ausgabe = $ausgabe . '<p class="button-absatz-fuss"><a class="tribe-events-button-beitrag" href="https://aachenerkinder.de/veranstaltungen/kategorie/ferien/">Weitere Ferienangebote</a></p>';
     }
-    if ( $werte['il'] != 'keine Webseite' and trim($werte['il']) != '') {
+    if ( trim($werte['il']) != '') {
        $ausgabe = $ausgabe . '<p class="button-absatz-fuss"><a class="tribe-events-button-beitrag" href=' . $werte['il'] . ' target="_blank">Mehr Infos auf dieser Seite</a></p><hr>';
     }
     $ausgabe = $ausgabe . '<hr>';
