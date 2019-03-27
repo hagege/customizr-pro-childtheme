@@ -232,6 +232,7 @@ function beitrags_fuss($atts) {
       'il' => '',
   	  ), $atts);
     $ausgabe = '';
+    $veranstaltungen = 'https://aachenerkinder.de/veranstaltungen/kategorie/';
 
     if ( trim($werte['link']) != '') {
       $ausgabe = '<br><a href=' . $werte['link'] . ' target="_blank">Mehr Infos</a>';
@@ -240,9 +241,14 @@ function beitrags_fuss($atts) {
     if ( $werte['kfm'] != 'nein' ) {
       $ausgabe = $ausgabe . '<p class="button-absatz-fuss"><a class="tribe-events-button-beitrag" href="https://aachenerkinder.de/veranstaltungen/kategorie/flohmarkt/Karte">Weitere Kinderflohmärkte</a></p>';
     }
+
     if ( $werte['vl'] != 'nein' ) {
-      $ausgabe = $ausgabe . '<p class="button-absatz-fuss"><a class="tribe-events-button-beitrag" href="https://aachenerkinder.de/veranstaltungen/kategorie/terminanzeige/">Weitere Veranstaltungen</a></p>';
+      if ( trim($werte['vl']) != '' ) {
+         $veranstaltungen = $veranstaltungen . $werte['vl'];
+      }
+      $ausgabe = $ausgabe . '<p class="button-absatz-fuss"><a class="tribe-events-button-beitrag" href=' . $veranstaltungen . ' target="_blank">Weitere Veranstaltungen</a></p>';
     }
+
     if ( $werte['ferien'] != 'nein' ) {
       $ausgabe = $ausgabe . '<p class="button-absatz-fuss"><a class="tribe-events-button-beitrag" href="https://aachenerkinder.de/veranstaltungen/kategorie/ferien/">Weitere Ferienangebote</a></p>';
     }
