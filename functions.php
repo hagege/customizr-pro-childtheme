@@ -222,6 +222,8 @@ add_shortcode('published-events-count', 'customprefix_total_number_published_eve
 // erweitert: hgg, 22.3.2019: il steht für interner Link
 // [fuss il="https://aachenerkinder.de/freizeitangebote/"] --> zeigt immer Bildnachweis, dann "keine Webseite angegeben" und bei il="https://aachenerkinder.de/freizeitangebote/" den (internen) Link zu einer anderen Seite
 // Formatierung der Buttons geändert: Nicht mehr untereinander, sondern nebeneiander und die Buttons per CSS in der style.css mit einem Rand versehen
+// erweitert: hgg, 29.3.2019: zusätzlich kann bei vl die Kategorie angeben werden, so dass bei Klick auf den Link sofort die Veranstaltungen der jeweiligen Kategorie angezeigt werden, z. B.
+// [fuss link="http://www.melan.de/go/standort-detail/1-flohmarkt-troedelmarkt-in-aachen-altstadt.html" kfm="ja" vl="Familie" il="https://aachenerkinder.de/service/wetter/"]
 
 function beitrags_fuss($atts) {
   	$werte = shortcode_atts( array(
