@@ -243,11 +243,10 @@ function beitrags_fuss($atts) {
     if ( $werte['kfm'] != 'nein' ) {
       $ausgabe = $ausgabe . '<p class="button-absatz-fuss"><a class="tribe-events-button-beitrag" href="https://aachenerkinder.de/veranstaltungen/kategorie/flohmarkt/Karte">Weitere Kinderflohmärkte</a></p>';
     }
-
     if ( $werte['vl'] != 'nein' ) {
-      if ( trim($werte['vl']) != '' ) {
-         /* Leerzeichen werden ggfs. durch - ersetzt (Sicherheitsmaßnahme bei Eingabe von Kategorien, die Leerzeichen enthalten, z. B. "Feiern und Feste") */
-         $veranstaltungen = $veranstaltungen . str_replace(" ", "-", $werte['vl']);
+      if ( trim($werte['vl']) != '' AND trim($werte['vl']) != 'ja') {
+        /* Leerzeichen werden ggfs. durch - ersetzt (Sicherheitsmaßnahme bei Eingabe von Kategorien, die Leerzeichen enthalten, z. B. "Feiern und Feste") */
+        $veranstaltungen = $veranstaltungen . str_replace(" ", "-", $werte['vl']);
       }
       $ausgabe = $ausgabe . '<p class="button-absatz-fuss"><a class="tribe-events-button-beitrag" href=' . $veranstaltungen . ' target="_blank">Weitere Veranstaltungen</a></p>';
     }
