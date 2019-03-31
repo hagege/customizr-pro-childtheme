@@ -246,7 +246,8 @@ function beitrags_fuss($atts) {
 
     if ( $werte['vl'] != 'nein' ) {
       if ( trim($werte['vl']) != '' ) {
-         $veranstaltungen = $veranstaltungen . $werte['vl'];
+        /* Leerzeichen werden ggfs. durch - ersetzt (Sicherheitsmaßnahme bei Eingabe von Kategorien, die Leerzeichen enthalten, z. B. "Feiern und Feste") */
+        $veranstaltungen = $veranstaltungen . str_replace(" ", "-", $werte['vl']);
       }
       $ausgabe = $ausgabe . '<p class="button-absatz-fuss"><a class="tribe-events-button-beitrag" href=' . $veranstaltungen . ' target="_blank">Weitere Veranstaltungen</a></p>';
     }
