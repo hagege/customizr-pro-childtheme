@@ -250,6 +250,8 @@ function beitrags_fuss($atts) {
         $vergleichswert = $werte['vl'];
         /* wenn der Vergleichswert im Array der Kategorien enthalten ist: */
         if (in_array($vergleichswert, $kategorien )){
+          /* Sonderzeichen ersetzen */
+          $werte['vl'] = sonderzeichen ($werte['vl']);
           $veranstaltungen = $veranstaltungen . str_replace(" ", "-", $werte['vl']);
           $vergleichswert = ': ' . $vergleichswert . '';
           }
@@ -308,6 +310,20 @@ function cliff_get_events_taxonomies(){
 	   /* var_dump( $events_cats_names );  Anzeige der Kategorien */
 	}
   return $events_cats_names;
+}
+
+/* Umlaute umwandeln, damit z. B. Führung in Fuehrung umgewandelt wird, weil sonst die Kategorieliste nicht gefunden wird. */
+function sonderzeichen($string)
+{
+   $string = str_replace("ä", "ae", $string);
+   $string = str_replace("ü", "ue", $string);
+   $string = str_replace("ö", "oe", $string);
+   $string = str_replace("Ä", "Ae", $string);
+   $string = str_replace("Ü", "Ue", $string);
+   $string = str_replace("Ö", "Oe", $string);
+   $string = str_replace("ß", "ss", $string);
+   $string = str_replace("´", "", $string);
+return $string;
 }
 
 

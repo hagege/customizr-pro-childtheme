@@ -200,28 +200,44 @@ function customprefix_total_number_published_events($atts) {
     return wp_count_posts('tribe_events')->publish;
 }
 add_shortcode('published-events-count', 'customprefix_total_number_published_events');
+/*----------------------------------------------------------------*/
+/* Ende: shortcodes für Anzahl Veranstaltungen und Beiträge
+/* Datum: 18.12.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
 
-
-
-// hgg, 23.2.2019
+/*----------------------------------------------------------------*/
+/* Start: shortcode für Copyright, Link, Link Kinderflohmärkte, Link Veranstaltungsliste, Link Ferien, interner Link
+/* Datum: 23.2.2019
+/* Autor: hgg
+/*----------------------------------------------------------------*/
 // Zeigt bei einer Veranstaltung oder einem Beitrag automatisch den Text aus "Beschriftung" in kursiv
 // Aufruf-Beispiele:
-// [fuss link="https://aachen50plus.de" kfm="ja" vl="ja"] --> zeigt immer Bildnachweis, dann Mehr Infos mit dem Link und bei kfm="ja" den Link zu "weiteren Kinderflohmärkten" und bei vl="ja" den Link zu "Weitere Veranstaltungen"
-// [fuss kfm="ja"] --> zeigt immer Bildnachweis, dann "keine Webseite angegeben" und bei kfm="ja" den Link zu "weiteren Kinderflohmärkten"
+// [fuss link="https://aachen50plus.de" kfm="" vl=""] --> zeigt immer Bildnachweis, dann Mehr Infos mit dem Link und bei kfm="ja" den Link zu "weiteren Kinderflohmärkten" und bei vl="ja" den Link zu "Weitere Veranstaltungen"
+// [fuss kfm=""] --> zeigt immer Bildnachweis, dann "keine Webseite angegeben" und bei kfm="ja" den Link zu "weiteren Kinderflohmärkten"
 // [fuss] --> zeigt immer Bildnachweis, dann "keine Webseite angegeben" und keinen Link zu "weiteren Kinderflohmärkten"
 // erweitert: hgg, 5.3.2019:
-// [fuss ferien="ja"] --> zeigt immer Bildnachweis, dann "keine Webseite angegeben" und bei ferien="ja" den Link zu "weitere Ferienangebote"
+// [fuss ferien=""] --> zeigt immer Bildnachweis, dann "keine Webseite angegeben" und bei ferien="ja" den Link zu "weitere Ferienangebote"
 // Formatierung der Buttons geändert: Nicht mehr untereinander, sondern nebeneiander und die Buttons per CSS in der style.css mit einem Rand versehen
+// erweitert: hgg, 22.3.2019: il steht für interner Link
+// [fuss il="https://aachenerkinder.de/freizeitangebote/"] --> zeigt immer Bildnachweis, dann "keine Webseite angegeben" und bei il="https://aachenerkinder.de/freizeitangebote/" den (internen) Link zu einer anderen Seite
+// Formatierung der Buttons geändert: Nicht mehr untereinander, sondern nebeneiander und die Buttons per CSS in der style.css mit einem Rand versehen
+// erweitert: hgg, 29.3.2019: zusätzlich kann bei vl die Kategorie angeben werden, so dass bei Klick auf den Link sofort die Veranstaltungen der jeweiligen Kategorie angezeigt werden, z. B.
+// [fuss link="http://www.melan.de/go/standort-detail/1-flohmarkt-troedelmarkt-in-aachen-altstadt.html" kfm="ja" vl="Familie" il="https://aachenerkinder.de/service/wetter/"]
+
 function beitrags_fuss($atts) {
   	$werte = shortcode_atts( array(
-  	  'link' => 'keine Webseite',
+  	  'link' => '',
       'kfm' => 'nein',
       'vl' => 'nein',
       'ferien' => 'nein',
+      'il' => '',
   	  ), $atts);
-    $ausgabe = '<br><strong>keine Webseite angegeben</strong>';
+    $ausgabe = '';
+    $veranstaltungen = 'https://aachenerkinder.de/veranstaltungen/kategorie/';
+    $kategorien = cliff_get_events_taxonomies();
 
-    if ( $werte['link'] != 'keine Webseite' and trim($werte['link']) != '') {
+    if ( trim($werte['link']) != '') {
       $ausgabe = '<br><a href=' . $werte['link'] . ' target="_blank">Mehr Infos</a>';
     }
     $ausgabe = $ausgabe . '<br><br><em>' . get_post(get_post_thumbnail_id())->post_excerpt . '</em><br>';
@@ -229,24 +245,70 @@ function beitrags_fuss($atts) {
       $ausgabe = $ausgabe . '<p class="button-absatz-fuss"><a class="tribe-events-button-beitrag" href="https://aachenerkinder.de/veranstaltungen/kategorie/flohmarkt/Karte">Weitere Kinderflohmärkte</a></p>';
     }
     if ( $werte['vl'] != 'nein' ) {
-      $ausgabe = $ausgabe . '<p class="button-absatz-fuss"><a class="tribe-events-button-beitrag" href="https://aachenerkinder.de/veranstaltungen/kategorie/terminanzeige/">Weitere Veranstaltungen</a></p>';
+      if ( trim($werte['vl']) != '') {
+        /* Leerzeichen werden ggfs. durch "-" ersetzt (Sicherheitsmaßnahme bei Eingabe von Kategorien, die Leerzeichen enthalten, z. B. "Feiern und Feste") */
+        $vergleichswert = $werte['vl'];
+        /* wenn der Vergleichswert im Array der Kategorien enthalten ist: */
+        if (in_array($vergleichswert, $kategorien )){
+          $veranstaltungen = $veranstaltungen . str_replace(" ", "-", $werte['vl']);
+          $vergleichswert = ': ' . $vergleichswert . '';
+          }
+        else {
+          $vergleichswert = '';
+          }
+      }
+      $ausgabe = $ausgabe . '<p class="button-absatz-fuss"><a class="tribe-events-button-beitrag" href=' . $veranstaltungen . ' target="_blank">Weitere Veranstaltungen' . $vergleichswert . '</a></p>';
     }
+
     if ( $werte['ferien'] != 'nein' ) {
       $ausgabe = $ausgabe . '<p class="button-absatz-fuss"><a class="tribe-events-button-beitrag" href="https://aachenerkinder.de/veranstaltungen/kategorie/ferien/">Weitere Ferienangebote</a></p>';
+    }
+    if ( trim($werte['il']) != '') {
+       $ausgabe = $ausgabe . '<p class="button-absatz-fuss"><a class="tribe-events-button-beitrag" href=' . $werte['il'] . ' target="_blank">Mehr Infos auf dieser Seite</a></p><hr>';
     }
     $ausgabe = $ausgabe . '<hr>';
 	return $ausgabe;
 }
 add_shortcode('fuss', 'beitrags_fuss');
-
-
-
-
 /*----------------------------------------------------------------*/
-/* Ende: shortcodes für Anzahl Veranstaltungen und Beiträge
-/* Datum: 18.12.2018
+/* Ende: shortcode für Copyright, Link, Link Kinderflohmärkte, Link Veranstaltungsliste, Link Ferien
+/* Datum: 23.2.2019
 /* Autor: hgg
 /*----------------------------------------------------------------*/
+
+
+/**
+  * The Events Calendar: See all Events Categories - var_dump at top of Events archive page
+  * Screenshot: https://cl.ly/0Q0B1D0g2a43
+  *
+  * for https://theeventscalendar.com/support/forums/topic/getting-list-of-event-categories/
+  *
+  * From https://gist.github.com/cliffordp/36d2b1f5b4f03fc0c8484ef0d4e0bbbb
+  */
+add_action( 'tribe_events_before_template', 'cliff_get_events_taxonomies' );
+function cliff_get_events_taxonomies(){
+	if( ! class_exists( 'Tribe__Events__Main' ) ) {
+		return false;
+	}
+
+	$tecmain = Tribe__Events__Main::instance();
+
+	// https://developer.wordpress.org/reference/functions/get_terms/
+	$cat_args = array(
+		'hide_empty' => true,
+	);
+	$events_cats = get_terms( $tecmain::TAXONOMY, $cat_args );
+
+	if( ! is_wp_error( $events_cats ) && ! empty( $events_cats ) && is_array( $events_cats) ) {
+		$events_cats_names = array();
+		foreach( $events_cats as $key => $value ) {
+			$events_cats_names[] = $value->name;
+		}
+
+	   /* var_dump( $events_cats_names );  Anzeige der Kategorien */
+	}
+  return $events_cats_names;
+}
 
 
 /* Korrektur des Datum-Zeit-Problems bei Veranstaltungen, wenn man den Block (Gutenberg) verwendet */
