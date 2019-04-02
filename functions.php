@@ -256,6 +256,7 @@ function beitrags_fuss($atts) {
           $vergleichswert = ': ' . $vergleichswert . '';
           }
         else {
+          $veranstaltungen = $veranstaltungen . 'terminanzeige';
           $vergleichswert = '';
           }
       }
