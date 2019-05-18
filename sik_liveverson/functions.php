@@ -235,6 +235,7 @@ function beitrags_fuss($atts) {
   	  ), $atts);
     $ausgabe = '';
     $veranstaltungen = 'https://aachenerkinder.de/veranstaltungen/kategorie/';
+    $kategorien = cliff_get_events_taxonomies();
 
     if ( trim($werte['link']) != '') {
       $ausgabe = '<br><a href=' . $werte['link'] . ' target="_blank">Mehr Infos</a>';
@@ -244,11 +245,22 @@ function beitrags_fuss($atts) {
       $ausgabe = $ausgabe . '<p class="button-absatz-fuss"><a class="tribe-events-button-beitrag" href="https://aachenerkinder.de/veranstaltungen/kategorie/flohmarkt/Karte">Weitere Kinderflohmärkte</a></p>';
     }
     if ( $werte['vl'] != 'nein' ) {
-      if ( trim($werte['vl']) != '' AND trim($werte['vl']) != 'ja') {
-        /* Leerzeichen werden ggfs. durch - ersetzt (Sicherheitsmaßnahme bei Eingabe von Kategorien, die Leerzeichen enthalten, z. B. "Feiern und Feste") */
-        $veranstaltungen = $veranstaltungen . str_replace(" ", "-", $werte['vl']);
+      if ( trim($werte['vl']) != '') {
+        /* Leerzeichen werden ggfs. durch "-" ersetzt (Sicherheitsmaßnahme bei Eingabe von Kategorien, die Leerzeichen enthalten, z. B. "Feiern und Feste") */
+        $vergleichswert = $werte['vl'];
+        /* wenn der Vergleichswert im Array der Kategorien enthalten ist: */
+        if (in_array($vergleichswert, $kategorien )){
+          /* Sonderzeichen ersetzen */
+          $werte['vl'] = sonderzeichen ($werte['vl']);
+          $veranstaltungen = $veranstaltungen . str_replace(" ", "-", $werte['vl']);
+          $vergleichswert = ': ' . $vergleichswert . '';
+          }
+        else {
+          $veranstaltungen = $veranstaltungen . 'terminanzeige';
+          $vergleichswert = '';
+          }
       }
-      $ausgabe = $ausgabe . '<p class="button-absatz-fuss"><a class="tribe-events-button-beitrag" href=' . $veranstaltungen . ' target="_blank">Weitere Veranstaltungen</a></p>';
+      $ausgabe = $ausgabe . '<p class="button-absatz-fuss"><a class="tribe-events-button-beitrag" href=' . $veranstaltungen . ' target="_blank">Weitere Veranstaltungen' . $vergleichswert . '</a></p>';
     }
 
     if ( $werte['ferien'] != 'nein' ) {
@@ -266,6 +278,54 @@ add_shortcode('fuss', 'beitrags_fuss');
 /* Datum: 23.2.2019
 /* Autor: hgg
 /*----------------------------------------------------------------*/
+
+
+/**
+  * The Events Calendar: See all Events Categories - var_dump at top of Events archive page
+  * Screenshot: https://cl.ly/0Q0B1D0g2a43
+  *
+  * for https://theeventscalendar.com/support/forums/topic/getting-list-of-event-categories/
+  *
+  * From https://gist.github.com/cliffordp/36d2b1f5b4f03fc0c8484ef0d4e0bbbb
+  */
+add_action( 'tribe_events_before_template', 'cliff_get_events_taxonomies' );
+function cliff_get_events_taxonomies(){
+	if( ! class_exists( 'Tribe__Events__Main' ) ) {
+		return false;
+	}
+
+	$tecmain = Tribe__Events__Main::instance();
+
+	// https://developer.wordpress.org/reference/functions/get_terms/
+	$cat_args = array(
+		'hide_empty' => true,
+	);
+	$events_cats = get_terms( $tecmain::TAXONOMY, $cat_args );
+
+	if( ! is_wp_error( $events_cats ) && ! empty( $events_cats ) && is_array( $events_cats) ) {
+		$events_cats_names = array();
+		foreach( $events_cats as $key => $value ) {
+			$events_cats_names[] = $value->name;
+		}
+
+	   /* var_dump( $events_cats_names );  Anzeige der Kategorien */
+	}
+  return $events_cats_names;
+}
+
+/* Umlaute umwandeln, damit z. B. Führung in Fuehrung umgewandelt wird, weil sonst die Kategorieliste nicht gefunden wird. */
+function sonderzeichen($string)
+{
+   $string = str_replace("ä", "ae", $string);
+   $string = str_replace("ü", "ue", $string);
+   $string = str_replace("ö", "oe", $string);
+   $string = str_replace("Ä", "Ae", $string);
+   $string = str_replace("Ü", "Ue", $string);
+   $string = str_replace("Ö", "Oe", $string);
+   $string = str_replace("ß", "ss", $string);
+   $string = str_replace("´", "", $string);
+return $string;
+}
 
 
 /* Korrektur des Datum-Zeit-Problems bei Veranstaltungen, wenn man den Block (Gutenberg) verwendet */
