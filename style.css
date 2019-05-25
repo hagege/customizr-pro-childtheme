@@ -142,6 +142,8 @@ article .entry-content a:hover{
 @media only screen and (min-width: 575px) {
   .tc-thumbnail.entry-media__holder.tc-singular-thumbnail-wrapper.__before_regular_heading_title {
       max-height: 400px !important;
+      object-fit: none;
+      object-position: initial;
   }
 }
 
