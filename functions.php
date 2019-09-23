@@ -7,8 +7,9 @@
 /*----------------------------------------------------------------*/
 
 function child_theme_styles() {
-wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
-wp_enqueue_style( 'child-theme-css', get_stylesheet_directory_uri() .'/style.css' , array('parent-style'));
+  wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+// die folgende Zeile ist wohl nicht notwendig:
+//wp_enqueue_style( 'child-theme-css', get_stylesheet_directory_uri() .'/style.css' , array('parent-style'));
 
 }
 add_action( 'wp_enqueue_scripts', 'child_theme_styles' );
@@ -435,7 +436,7 @@ add_action('get_header', 'wpr_maintenance_mode');
 add_filter( 'the_content', 'filter_the_content_in_the_main_loop' );
 
 function filter_the_content_in_the_main_loop( $content ) {
- 
+
     // Prüfen ob wir in dem Loop eines Beitrags oder einer Seite sind
     if (( is_single() OR is_page()) && in_the_loop() && is_main_query() ) {
         // Den HTML Teil für die Schrift könnt ihr beliebig ändern oder erweitern
