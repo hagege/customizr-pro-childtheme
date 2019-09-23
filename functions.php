@@ -1,5 +1,24 @@
 <?php
 
+/*----------------------------------------------------------------*/
+/* Start: style.css Datei des Eltern-Themes einbinden
+/* Datum: 232.09.2019
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+
+function child_theme_styles() {
+wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+wp_enqueue_style( 'child-theme-css', get_stylesheet_directory_uri() .'/style.css' , array('parent-style'));
+
+}
+add_action( 'wp_enqueue_scripts', 'child_theme_styles' );
+
+/*----------------------------------------------------------------*/
+/* Ende: style.css Datei des Eltern-Themes einbinden
+/* Datum: 232.09.2019
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+
 
 /* Problem mit Enfold: */
 
@@ -407,4 +426,28 @@ add_action('get_header', 'wpr_maintenance_mode');
 /* Autor: hgg
 /*----------------------------------------------------------------*/
 
+
+/*----------------------------------------------------------------*/
+/* Start: Unterstützerbutton am Ende von jedem Beitrag oder jeder Veranstaltung
+/* Datum: 22.09.2019
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+add_filter( 'the_content', 'filter_the_content_in_the_main_loop' );
+
+function filter_the_content_in_the_main_loop( $content ) {
+ 
+    // Prüfen ob wir in dem Loop eines Beitrags oder einer Seite sind
+    if (( is_single() OR is_page()) && in_the_loop() && is_main_query() ) {
+        // Den HTML Teil für die Schrift könnt ihr beliebig ändern oder erweitern
+        // return $content . '<p><font size="-0.5pt">Hinweis: Als Amazon-Partner verdiene ich an qualifizierten Käufen.</font></p>';
+        return $content . '<p class="button-absatz"><a class="tribe-events-button-beitrag" href="https://aachenerkinder.de/werde-unterstuetzer-bei-aachenerkinder-de/" target="_blank" rel="noopener noreferrer">Unterstützer werden</a></p>';
+    }
+
+    return $content;
+}
+/*----------------------------------------------------------------*/
+/* Ende: Unterstützerbutton am Ende von jedem Beitrag oder jeder Veranstaltung
+/* Datum: 22.09.2019
+/* Autor: hgg
+/*----------------------------------------------------------------*/
 ?>

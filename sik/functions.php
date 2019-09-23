@@ -225,6 +225,7 @@ add_shortcode('published-events-count', 'customprefix_total_number_published_eve
 // erweitert: hgg, 29.3.2019: zusätzlich kann bei vl die Kategorie angeben werden, so dass bei Klick auf den Link sofort die Veranstaltungen der jeweiligen Kategorie angezeigt werden, z. B.
 // [fuss link="http://www.melan.de/go/standort-detail/1-flohmarkt-troedelmarkt-in-aachen-altstadt.html" kfm="ja" vl="Familie" il="https://aachenerkinder.de/service/wetter/"]
 
+/*
 function beitrags_fuss($atts) {
   	$werte = shortcode_atts( array(
   	  'link' => '',
@@ -246,14 +247,17 @@ function beitrags_fuss($atts) {
     }
     if ( $werte['vl'] != 'nein' ) {
       if ( trim($werte['vl']) != '') {
-        /* Leerzeichen werden ggfs. durch "-" ersetzt (Sicherheitsmaßnahme bei Eingabe von Kategorien, die Leerzeichen enthalten, z. B. "Feiern und Feste") */
+        // Leerzeichen werden ggfs. durch "-" ersetzt (Sicherheitsmaßnahme bei Eingabe von Kategorien, die Leerzeichen enthalten, z. B. "Feiern und Feste") //
         $vergleichswert = $werte['vl'];
-        /* wenn der Vergleichswert im Array der Kategorien enthalten ist: */
+        // wenn der Vergleichswert im Array der Kategorien enthalten ist: //
         if (in_array($vergleichswert, $kategorien )){
+          // Sonderzeichen ersetzen //
+          $werte['vl'] = sonderzeichen ($werte['vl']);
           $veranstaltungen = $veranstaltungen . str_replace(" ", "-", $werte['vl']);
           $vergleichswert = ': ' . $vergleichswert . '';
           }
         else {
+          $veranstaltungen = $veranstaltungen . 'terminanzeige';
           $vergleichswert = '';
           }
       }
@@ -285,6 +289,7 @@ add_shortcode('fuss', 'beitrags_fuss');
   *
   * From https://gist.github.com/cliffordp/36d2b1f5b4f03fc0c8484ef0d4e0bbbb
   */
+/*
 add_action( 'tribe_events_before_template', 'cliff_get_events_taxonomies' );
 function cliff_get_events_taxonomies(){
 	if( ! class_exists( 'Tribe__Events__Main' ) ) {
@@ -305,9 +310,24 @@ function cliff_get_events_taxonomies(){
 			$events_cats_names[] = $value->name;
 		}
 
-	   /* var_dump( $events_cats_names );  Anzeige der Kategorien */
+	   // var_dump( $events_cats_names );  Anzeige der Kategorien //
 	}
   return $events_cats_names;
+}
+
+/* Umlaute umwandeln, damit z. B. Führung in Fuehrung umgewandelt wird, weil sonst die Kategorieliste nicht gefunden wird. */
+/*
+function sonderzeichen($string)
+{
+   $string = str_replace("ä", "ae", $string);
+   $string = str_replace("ü", "ue", $string);
+   $string = str_replace("ö", "oe", $string);
+   $string = str_replace("Ä", "Ae", $string);
+   $string = str_replace("Ü", "Ue", $string);
+   $string = str_replace("Ö", "Oe", $string);
+   $string = str_replace("ß", "ss", $string);
+   $string = str_replace("´", "", $string);
+return $string;
 }
 
 
