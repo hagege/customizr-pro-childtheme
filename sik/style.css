@@ -386,6 +386,48 @@ img.rund {
 #ac_marktplatz td {
   padding: 10px;
 }
+/*------------------------------------------------------------------------------------------------------*/
+/* Darstellung der Tabellen auf der Seite "Unterstützerseite" */
+/* hgg, 12.9.2019 */
+
+/* Veranstalter */
+
+#veranstalter_tabelle tr:nth-child(even){background-color: #f2f2f2;}
+
+#veranstalter_tabelle tr:hover {background-color: #ddd;}
+
+#veranstalter_tabelle th {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  background-color: #FE5045;
+  color: white;
+  text-transform: none !important;
+}
+
+#veranstalter_tabelle td {
+  padding: 10px;
+}
+
+/* Besucher */
+#besucher_tabelle tr:nth-child(even){background-color: #f2f2f2;}
+
+#besucher_tabelle tr:hover {background-color: #ddd;}
+
+#besucher_tabelle th {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  background-color: #B4CC1E;
+  color: white;
+  text-transform: none !important;
+}
+
+#besucher_tabelle td {
+  padding: 10px;
+}
+
+/*------------------------------------------------------------------------------------------------------*/
 
 .element_zentriert {
     clear: both;
