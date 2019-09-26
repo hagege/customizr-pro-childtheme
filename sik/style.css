@@ -121,17 +121,30 @@ article .entry-content a:hover{
 /* Bildhöhe bei Beiträgen auf 150px festlegen und einen Bildausschnitt wählen */
 /* folgende Regel führte zu Problemen beim Bild im Einzelbeitrag: */
 /* .tc-thumbnail img { */
+/* Darstellung in der Übersicht (z. B. Hauptseite mit Beiträgen), 23.5.2019, hgg */
 .tc-thumbnail.entry-media__holder {
 	  max-height: 141px !important;
-    /* clip-path: inset(2% 2% 2% 2% round 2% 2%);*/
     object-fit: cover;
-    object-position: top center;
+    object-position: center;
+    /* clip-path: inset(2% 2% 2% 2% round 2% 2%); */
 }
 
-.tc-thumbnail.entry-media__holder.tc-singular-thumbnail-wrapper.__before_regular_heading_title {
-    max-height: 250px !important;
-    object-fit: none;
-    object-position: initial;
+/* Darstellung im Einzelbeitrag je nach Displaybreite, 23.5.2019, hgg */
+@media only screen and (max-width: 574px) {
+  .tc-thumbnail.entry-media__holder.tc-singular-thumbnail-wrapper.__before_regular_heading_title {
+      max-height: 250px !important;
+      /*
+      object-fit: none;
+      object-position: initial;
+      */
+  }
+}
+@media only screen and (min-width: 575px) {
+  .tc-thumbnail.entry-media__holder.tc-singular-thumbnail-wrapper.__before_regular_heading_title {
+      max-height: 400px !important;
+      object-fit: none;
+      object-position: initial;
+  }
 }
 
 
