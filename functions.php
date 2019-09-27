@@ -440,7 +440,7 @@ function filter_the_content_in_the_main_loop( $content ) {
     // Prüfen ob wir in dem Loop eines Beitrags oder einer Seite sind
     if (( is_single() OR is_page()) && in_the_loop() && is_main_query() ) {
         // Den HTML Teil für die Schrift könnt ihr beliebig ändern oder erweitern
-        return $content . '<p class="button-absatz"><a class="tribe-events-button-beitrag" href="https://aachenerkinder.de/werde-mitglied-bei-aachenerkinder-de/" target="_blank" rel="noopener noreferrer">Werde Mitglied</a></p>';
+        return $content . '<div><p class="button-absatz"><a class="tribe-events-button-beitrag" href="https://aachenerkinder.de/werde-mitglied-bei-aachenerkinder-de/" target="_blank" rel="noopener noreferrer">Werde Mitglied</a></p></div><div>Werde als Besucher oder Veranstalter Mitglied bei aachenerkinder.de und unterstütze unsere Arbeit.</div>';
     }
 
     return $content;
