@@ -500,6 +500,16 @@ a.tribe-events-button-beitrag:hover{
   background-color: #F9B81E;
 }
 
+/* Button und Beschreibungstext für Mitgliedschaft aachenerkinder.de */
+div.mitglied {
+  border: 1px solid #eee;
+  padding: 5px;
+}
+
+p.mitglied_beschreibung {
+  padding-left: 5px;
+}
+
 
 /*----------------------------------------------------------------*/
 /* Ende: Button in Beiträgen
