@@ -502,7 +502,7 @@ a.tribe-events-button-beitrag:hover{
 
 /* Button und Beschreibungstext für Mitgliedschaft aachenerkinder.de */
 div.mitglied {
-  border: 1px solid #eee;
+  /* border: 1px solid #eee; */
   padding: 5px;
 }
 
