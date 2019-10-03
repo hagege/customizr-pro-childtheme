@@ -10,7 +10,13 @@ Version: 12.2018
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
-@import url("../customizr-pro/style.css");
+
+/*----------------------------------------------------------------*/
+/* Start: style.css wird über functions.php eingebunden
+/* Datum: 25.09.2019
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+/* @import url("../customizr-pro/style.css"); */
 
 @import url("parallax_scrolling.css");
 
@@ -492,6 +498,16 @@ a.tribe-events-button-beitrag:visited{
 a.tribe-events-button-beitrag:hover{
   color: #fff!important;
   background-color: #F9B81E;
+}
+
+/* Button und Beschreibungstext für Mitgliedschaft aachenerkinder.de */
+div.mitglied {
+  border: 1px solid #eee;
+  padding: 5px;
+}
+
+p.mitglied_beschreibung {
+  padding-left: 5px;
 }
 
 
