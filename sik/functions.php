@@ -188,11 +188,20 @@ class Schlagwort_widget extends WP_Widget {
         <!-- more Settings goes here! -->
 
         <?php
+
     }
 
 }
+/*----------------------------------------------------------------*/
+/* Korrektur, weil create_function() deprecated ab PHP Version 7.2 */
+/* hgg, 3.10.2019
+/*----------------------------------------------------------------*/
+function SW_widget() {
+    register_widget('Schlagwort_widget');
+}
 
-add_action('widgets_init', create_function('', 'register_widget( "Schlagwort_widget" );'));
+add_action('widgets_init', 'SW_widget');
+
 /*----------------------------------------------------------------*/
 /* Ende: Schlagwörter-Widget nutzen
 /* Datum: 17.12.2018
