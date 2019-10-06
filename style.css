@@ -531,13 +531,23 @@ a.button-mitglied:hover{
 }
 
 /* Container für Mitgliedsbutton und Infotext - hgg, 6.10.2019 */
+@media (min-width: 431px) {
+  .ackids_container {
+    display: inline-flex;
+    border: 1px solid #eee;
+    padding: 10px;
+    vertical-align: middle !important;
+  }
+}
+
+@media (max-width: 430px) {
 .ackids_container {
-  display: inline-flex;
+  display: block;
   border: 1px solid #eee;
   padding: 10px;
   vertical-align: middle !important;
+  }
 }
-
 .ackids_container > div {
   text-align: left;
 }
