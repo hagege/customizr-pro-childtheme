@@ -450,7 +450,7 @@ function filter_the_content_in_the_main_loop( $content ) {
     // Prüfen ob wir in dem Loop eines Beitrags oder einer Seite sind
     if (( is_single() OR is_page()) && in_the_loop() && is_main_query() ) {
         // Den HTML Teil für die Schrift könnt ihr beliebig ändern oder erweitern
-        $ackids_button = '<div class="ackids_container"><div class="mitglied"><a class="button-mitglied" href="https://aachenerkinder.de/werde-mitglied-bei-aachenerkinder-de/" target="_blank" rel="noopener noreferrer">Werde Mitglied</a></div><div class="mitglied_beschreibung">Werde als Besucher oder Veranstalter Mitglied bei aachenerkinder.de und unterstütze unsere Arbeit.</div></div>';
+        $ackids_button = '<div class="ackids_container"><div class="mitglied"><a class="button-mitglied" href="https://steadyhq.com/de/aachenerkinder" target="_blank" rel="noopener noreferrer">Werde Mitglied</a></div><div class="mitglied_beschreibung">Werde als Besucher oder Veranstalter Mitglied bei aachenerkinder.de und unterstütze unsere Arbeit.</div></div>';
         return $ackids_button . $content . $ackids_button;
     }
 
