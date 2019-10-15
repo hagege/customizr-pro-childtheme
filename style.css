@@ -713,7 +713,9 @@ body .dataTables_wrapper .dataTables_filter input {
   font-size: 1.0rem !important;
   font-weight: bold;
   margin-bottom: 20px !important;
+  /* keine Umwandlung in Großbuchstaben, hgg, 15.10.2019 
   text-transform: uppercase;
+  */
 }
 
 #wpgmza_filter_1:after {

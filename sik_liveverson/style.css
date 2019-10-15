@@ -10,7 +10,13 @@ Version: 12.2018
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
-@import url("../customizr-pro/style.css");
+
+/*----------------------------------------------------------------*/
+/* Start: style.css wird über functions.php eingebunden
+/* Datum: 25.09.2019
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+/* @import url("../customizr-pro/style.css"); */
 
 @import url("parallax_scrolling.css");
 
@@ -121,17 +127,30 @@ article .entry-content a:hover{
 /* Bildhöhe bei Beiträgen auf 150px festlegen und einen Bildausschnitt wählen */
 /* folgende Regel führte zu Problemen beim Bild im Einzelbeitrag: */
 /* .tc-thumbnail img { */
+/* Darstellung in der Übersicht (z. B. Hauptseite mit Beiträgen), 23.5.2019, hgg */
 .tc-thumbnail.entry-media__holder {
 	  max-height: 141px !important;
-    /* clip-path: inset(2% 2% 2% 2% round 2% 2%);*/
     object-fit: cover;
-    object-position: top center;
+    object-position: center;
+    /* clip-path: inset(2% 2% 2% 2% round 2% 2%); */
 }
 
-.tc-thumbnail.entry-media__holder.tc-singular-thumbnail-wrapper.__before_regular_heading_title {
-    max-height: 250px !important;
-    object-fit: none;
-    object-position: initial;
+/* Darstellung im Einzelbeitrag je nach Displaybreite, 23.5.2019, hgg */
+@media only screen and (max-width: 574px) {
+  .tc-thumbnail.entry-media__holder.tc-singular-thumbnail-wrapper.__before_regular_heading_title {
+      max-height: 250px !important;
+      /*
+      object-fit: none;
+      object-position: initial;
+      */
+  }
+}
+@media only screen and (min-width: 575px) {
+  .tc-thumbnail.entry-media__holder.tc-singular-thumbnail-wrapper.__before_regular_heading_title {
+      max-height: 400px !important;
+      object-fit: none;
+      object-position: initial;
+  }
 }
 
 
@@ -373,6 +392,48 @@ img.rund {
 #ac_marktplatz td {
   padding: 10px;
 }
+/*------------------------------------------------------------------------------------------------------*/
+/* Darstellung der Tabellen auf der Seite "Unterstützerseite" */
+/* hgg, 12.9.2019 */
+
+/* Veranstalter */
+
+#veranstalter_tabelle tr:nth-child(even){background-color: #f2f2f2;}
+
+#veranstalter_tabelle tr:hover {background-color: #ddd;}
+
+#veranstalter_tabelle th {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  background-color: #FE5045;
+  color: white;
+  text-transform: none !important;
+}
+
+#veranstalter_tabelle td {
+  padding: 10px;
+}
+
+/* Besucher */
+#besucher_tabelle tr:nth-child(even){background-color: #f2f2f2;}
+
+#besucher_tabelle tr:hover {background-color: #ddd;}
+
+#besucher_tabelle th {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  background-color: #B4CC1E;
+  color: white;
+  text-transform: none !important;
+}
+
+#besucher_tabelle td {
+  padding: 10px;
+}
+
+/*------------------------------------------------------------------------------------------------------*/
 
 .element_zentriert {
     clear: both;
@@ -437,6 +498,70 @@ a.tribe-events-button-beitrag:visited{
 a.tribe-events-button-beitrag:hover{
   color: #fff!important;
   background-color: #F9B81E;
+}
+
+
+/* Button für Mitgliedschaft invers - hgg, 6.10.2019 */
+
+.button-mitglied {
+    padding: 10px;
+    color: #ffffff!important;
+    font-size: 1.0em;
+    background-color: #F9B81E;
+    /* keine runden Ecken */
+    /* border-radius: 4px; */
+    text-decoration: none!important;
+}
+
+a.button-mitglied:focus{
+  color: #fff!important;
+  text-decoration: none;
+}
+
+a.button-mitglied:visited{
+  color: #fff!important;
+  text-decoration: none;
+}
+
+
+/* Hintergrund: gelb */
+a.button-mitglied:hover{
+  color: #fff!important;
+  background-color:#77BCC7;
+}
+
+/* Container für Mitgliedsbutton und Infotext - hgg, 6.10.2019 */
+@media (min-width: 431px) {
+  .ackids_container {
+    display: inline-flex;
+    border: 1px solid #eee;
+    padding: 10px;
+    vertical-align: middle !important;
+  }
+}
+
+@media (max-width: 430px) {
+.ackids_container {
+  display: block;
+  border: 1px solid #eee;
+  padding: 10px;
+  vertical-align: middle !important;
+  }
+}
+.ackids_container > div {
+  text-align: left;
+}
+
+
+/* Button und Beschreibungstext für Mitgliedschaft aachenerkinder.de */
+div.mitglied {
+  border: 5px;
+  padding: 10px;
+  white-space: nowrap;
+}
+
+div.mitglied_beschreibung {
+  padding-left: 10px;
 }
 
 
