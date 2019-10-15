@@ -604,14 +604,14 @@ div.mitglied_beschreibung {
 }
 
 /*Auf kleinen Displays 2 Kategoriefilter nebeneinander darstellen */
-@media (min-width: 800px) and (max-width: 1399px)  {
+@media (min-width: 600px) and (max-width: 1399px)  {
   .category_filter {
     width: 50%;
   }
 }
 
 /*Auf sehr kleinen Displays 1 Kategoriefilter darstellen */
-@media (max-width: 799px)  {
+@media (max-width: 599px)  {
   .category_filter {
     width: 100%;
   }
