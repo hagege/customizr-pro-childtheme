@@ -702,7 +702,8 @@ body .dataTables_wrapper .dataTables_filter input {
 #wpgmza_filter_1 {
   text-align: left;
   margin-bottom: 0px;
-  font-size: 1.6rem !important;
+  /* Schriftgröße verkleinert, hgg: 15.10.2019 */
+  font-size: 1.0rem !important;
   font-weight: bold;
   margin-bottom: 20px !important;
   text-transform: uppercase;
@@ -755,7 +756,7 @@ table.dataTable.no-footer {
 
 #wpgmza_table_1 thead tr, #wpgmza_table_1 thead th {
     width: 100px !important;
-}
+}                               
 /*--------------------------------------------------------------- */
 /* Ende: Anpassungen Freizeitangebote WP GOOGLE MAPS */
 /*--------------------------------------------------------------- */
