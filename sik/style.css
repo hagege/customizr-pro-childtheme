@@ -500,14 +500,68 @@ a.tribe-events-button-beitrag:hover{
   background-color: #F9B81E;
 }
 
-/* Button und Beschreibungstext für Mitgliedschaft aachenerkinder.de */
-div.mitglied {
-  /* border: 1px solid #eee; */
-  padding: 5px;
+
+/* Button für Mitgliedschaft invers - hgg, 6.10.2019 */
+
+.button-mitglied {
+    padding: 10px;
+    color: #ffffff!important;
+    font-size: 1.0em;
+    background-color: #F9B81E;
+    /* keine runden Ecken */
+    /* border-radius: 4px; */
+    text-decoration: none!important;
 }
 
-p.mitglied_beschreibung {
-  padding-left: 5px;
+a.button-mitglied:focus{
+  color: #fff!important;
+  text-decoration: none;
+}
+
+a.button-mitglied:visited{
+  color: #fff!important;
+  text-decoration: none;
+}
+
+
+/* Hintergrund: gelb */
+a.button-mitglied:hover{
+  color: #fff!important;
+  background-color:#77BCC7;
+}
+
+/* Container für Mitgliedsbutton und Infotext - hgg, 6.10.2019 */
+@media (min-width: 431px) {
+  .ackids_container {
+    display: inline-flex;
+    border: 1px solid #eee;
+    padding: 10px;
+    vertical-align: middle !important;
+  }
+}
+
+@media (max-width: 430px) {
+.ackids_container {
+  display: block;
+  border: 1px solid #eee;
+  padding: 10px;
+  vertical-align: middle !important;
+  }
+}
+.ackids_container > div {
+  text-align: left;
+}
+
+
+/* Button und Beschreibungstext für Mitgliedschaft aachenerkinder.de */
+div.mitglied {
+  border: 5px;
+  padding: 10px;
+  white-space: nowrap;
+}
+
+div.mitglied_beschreibung {
+  padding-left: 10px;
 }
 
 
@@ -550,15 +604,22 @@ p.mitglied_beschreibung {
 }
 
 /*Auf kleinen Displays 2 Kategoriefilter nebeneinander darstellen */
-@media (max-width: 1400px)  {
+@media (min-width: 500px) and (max-width: 1399px)  {
   .category_filter {
     width: 50%;
   }
 }
 
+/*Auf sehr kleinen Displays 1 Kategoriefilter darstellen */
+@media (max-width: 499px)  {
+  .category_filter {
+    width: 100%;
+  }
+}
+
 
 .category_filter img {
-  height: 40px !important;
+  height: 30px !important;
   width: auto;
 }
 
@@ -648,10 +709,13 @@ body .dataTables_wrapper .dataTables_filter input {
 #wpgmza_filter_1 {
   text-align: left;
   margin-bottom: 0px;
-  font-size: 1.6rem !important;
+  /* Schriftgröße verkleinert, hgg: 15.10.2019 */
+  font-size: 1.0rem !important;
   font-weight: bold;
   margin-bottom: 20px !important;
+  /* keine Umwandlung in Großbuchstaben, hgg, 15.10.2019
   text-transform: uppercase;
+  */
 }
 
 #wpgmza_filter_1:after {
