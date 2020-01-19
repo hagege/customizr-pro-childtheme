@@ -17,5 +17,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $address = tribe_get_address( $venue_id ).", ".tribe_get_zip( $venue_id )." ".tribe_get_city( $venue_id ).", ".tribe_get_country( $venue_id );
-$shortcode  = '[leaflet-map address="'.$address.'" zoom="15" fit_markers="1"]';
+$shortcode = '[leaflet-map zoomcontrol address="'.$address.'" zoom="14"]';
+  /* $shortcode = '[leaflet-map zoomcontrol address="'.$address.'" zoom="16? fit_markers="1?]'; */
+$shortcode .= '[leaflet-marker address="'.$address.', DE"]';
+/* $shortcode  = '[leaflet-map address="'.$address.'" zoom="15" fit_markers="1"]'; */
 echo do_shortcode($shortcode);
+?>

@@ -1,0 +1,1192 @@
+/*
+Theme Name: customizr-pro-child
+Theme URI: https://presscustomizr.com/customizr
+Description: Childtheme for customizr
+Tags: Tags: one-column, two-columns, three-columns, left-sidebar, right-sidebar, buddypress, custom-menu, custom-colors, featured-images, full-width-template, theme-options, threaded-comments, translation-ready, sticky-post, post-formats, rtl-language-support, editor-style
+Author: Hans-Gerd Gerhards
+Author URI: https://aachenerkinder.de
+Template: customizr-pro
+Version: 12.2018
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+/*----------------------------------------------------------------*/
+/* Start: style.css wird über functions.php eingebunden
+/* Datum: 25.09.2019
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+/* @import url("../customizr-pro/style.css"); */
+
+@import url("parallax_scrolling.css");
+
+/*----------------------------------------------------------------*/
+/* 1. ALLGEMEIN
+/* 2. Anpassungen Freizeitangebote WP GOOGLE MAPS
+/* 3. TEC (The Events Calendar)
+/*----------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------*/
+/* 1. ALLGEMEIN
+/*----------------------------------------------------------------*/
+
+
+
+/*----------------------------------------------------------------*/
+/* Start: allgemeine Anpassungen für Darstellung
+/* Datum: 18.11.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+
+
+
+/* Breite des Containers (statt 1140px) erweitert */
+/* Seitenbreite muss wegen der Werbung besser ausgenutzt werden, sonst sind die Banner zu schmal */
+.container {
+    max-width: 1440px !important;
+}
+
+
+/*
+@media only screen and (min-width: 993px) and (max-width: 1140px) {
+  .container {
+      max-width: 1140px !important;
+  }
+}
+*/
+
+/* Überschrift bei schmaleren mobilen displays */
+@media only screen and (min-width: 768px) and (max-width: 1140px) {
+  .fp-title {
+    font-size: 1.2em;
+  }
+}
+
+
+/* Hintergrundfarbe des Hauptmenüs */
+.primary-navbar__wrapper, .desktop-sticky, .mobile-sticky {
+    background-color: #F9B81E;
+}
+
+
+/* Menü: Keine Umwandlung in Großbuchstaben */
+.nav__menu {
+	text-transform: none;
+}
+
+/* Eule größer beim Runterscrollen (sticky menue) */
+.can-shrink-brand.sticky-brand-shrink-on .desktop-sticky
+.navbar-brand img {
+    max-height: 130px !important;
+    width: auto !important;
+}
+
+/* Untermenues werden leider trotzdem rechts angezeigt, wenn der Punkt am rechten Rand gelistet wird */
+/*.menue_links {
+  text-align: left!important;
+}
+*/
+
+/* Darstellung Links (Hover) bei Beiträgen */
+article .entry-content a:hover{
+  color: #77BCC7;
+	text-decoration: underline;
+  text-decoration-color: #77BCC7;
+}
+
+
+/* Schriftart im Container mit Beschreibung aachenerkinder.de */
+/* kleinere Darstellung bis 840px */
+@media only screen and (max-width: 840px) {
+  .ackids {
+    font-size: 0.9em;
+  }
+}
+
+@media only screen and (min-width: 841px) {
+  .ackids {
+    font-size: 1.2em;
+  }
+}
+
+
+/*----------------------------------------------------------------*/
+/* Start: Anpassungen für Darstellung der Überschrift und
+/*        Zeilenabstand Masonry grid
+/* Datum: 21.11.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+
+.grid-title_size, .grid .entry-title, .grid .woocommerce .woocommerce-products-header .page-title, .woocommerce .woocommerce-products-header .grid .page-title {
+    line-height: 1.1;
+    font-size: 1.3em;
+}
+
+
+/* Bildhöhe bei Beiträgen auf 150px festlegen und einen Bildausschnitt wählen */
+/* folgende Regel führte zu Problemen beim Bild im Einzelbeitrag: */
+/* .tc-thumbnail img { */
+/* Darstellung in der Übersicht (z. B. Hauptseite mit Beiträgen), 23.5.2019, hgg */
+.tc-thumbnail.entry-media__holder {
+	  max-height: 141px !important;
+    object-fit: cover;
+    object-position: center;
+    /* clip-path: inset(2% 2% 2% 2% round 2% 2%); */
+}
+
+/* Darstellung im Einzelbeitrag je nach Displaybreite, 23.5.2019, hgg */
+@media only screen and (max-width: 574px) {
+  .tc-thumbnail.entry-media__holder.tc-singular-thumbnail-wrapper.__before_regular_heading_title {
+      max-height: 250px !important;
+      /*
+      object-fit: none;
+      object-position: initial;
+      */
+  }
+}
+@media only screen and (min-width: 575px) {
+  .tc-thumbnail.entry-media__holder.tc-singular-thumbnail-wrapper.__before_regular_heading_title {
+      max-height: 400px !important;
+      object-fit: none;
+      object-position: initial;
+  }
+}
+
+
+/*----------------------------------------------------------------*/
+/* Ende: Anpassungen für Darstellung der Übesrchrift und
+/*        Zeilenabstand Masonry grid
+/* Datum: 21.11.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------*/
+/* Ende: allgemeine Anpassungen für Darstellung
+/* Datum: 18.11.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+
+
+
+/*----------------------------------------------------------------*/
+/* Start: Anpassungen für Paginierung
+/* Datum: 17.11.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+/* Schriftgröße im Container "Ältere Beiträge" vergrößern */
+.post-navigation nav {
+    font-size: 1.3em;
+}
+
+/* oranger Hintergrund auf aktiver Seite */
+.pagination .current {
+    background-color: #F9B81E;
+    height: 60px;
+    width: 60px;
+    border-radius: 60px;
+}
+
+/* blauer Hintergrund und rund */
+.pagination .pag-list > * {
+    background-color: #77BCC7;
+    margin: 0 5px;
+    float: left;
+    height: 60px;
+    width: 60px;
+    line-height: 35px;
+    text-align: center;
+    padding: 0;
+    border-radius: 60px;
+    margin-right: 3px;
+    box-shadow: 0 0 1px 0 rgba(0,0,0,.2);
+}
+
+/* Platz für Seitennummern */
+.col-sm-4 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+/* Platz für Text neuer und älter */
+.col-2 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+/* Platz für Text voheriger und nächster Beitrag */
+.col-5 {
+    max-width: 33%!important;
+}
+
+/* Inhalte in der Sidebar rechtsbündig */
+.tc-sidebar.text-md-right .widget-title::after {
+    right: 0;
+    left: 0;
+}
+
+
+/* Text ältere und neuere Beiträge stärker hervorheben */
+/* funktioniert noch nicht */
+.post-navigation .meta-nav {
+    opacity: 0.8!important;
+}
+/*----------------------------------------------------------------*/
+/* Ende: Anpassungen für Paginierung
+/* Datum: 17.11.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+
+
+
+
+
+/*----------------------------------------------------------------*/
+/* Start: aktuelle Mitteilungen in Beiträgen
+/* Datum: 19.4.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+.mitteilung {
+  background-color: #F9F9F9;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-width:5px;
+  border-style:dashed;
+}
+/*----------------------------------------------------------------*/
+/* Ende: aktuelle Mitteilungen in Beiträgen
+/* Datum: 19.4.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------*/
+/* Start: Tabellen responsive
+/* Datum: 28.9.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+@media only screen and (max-width: 840px) {
+table.responsive {
+  margin-bottom: 0;
+  overflow: hidden;
+  overflow-x: scroll;
+  display: block;
+  white-space: nowrap;
+}
+}
+/*----------------------------------------------------------------*/
+/* Ende: Tabellen responsive
+/* Datum: 28.9.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+
+/*----------------------------------------------------------------*/
+/* Start: Schriftarten
+/* Datum: 02.11.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+span.gross {
+  font-size: 18pt;
+  font-weight: bold;
+}
+
+span.klein {
+  font-size: 9pt;
+  font-style:italic;
+}
+/*----------------------------------------------------------------*/
+/* Ende: Schriftarten
+/* Datum: 02.11.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+
+
+/* "Runde" Bilder */
+img.rund {
+	  float: right;
+    margin: 0 0 2rem 2rem;
+    border-radius: 50%;
+}
+
+/* Inhalte in der sidebar rechtsbündig anzeigen (customizr) */
+.text-md-right {
+    text-align: left !important;
+}
+
+/* Schlagwörter: Änderung Darstellung */
+.btn-skin-dark-oh {
+    background-color: #ffffff !important;
+    border-color: #ffffff !important;
+    color: #3b3b3b;
+}
+
+/* Kein Rahmen bei Schlagwörtern */
+.btn-skin-dark-oh.inverted {
+    border-color: #ffffff;
+		padding: 0px;
+}
+
+.btn-skin-dark-oh:hover {
+/*  background-color: #aaaaaa !important; 	*/
+  color: #77BCC7 !important;
+/*  text-decoration: underline;	*/
+}
+
+/* Schriftgröße für Widget-Titel */
+.sidebar .widget-title {
+    font-size: 1.0em;
+}
+
+/* Kategorie - Auswahl */
+.kat_wahl {
+    color: #3b3b3b;
+    text-decoration: underline;
+}
+
+.kat_wahl:hover {
+/*  background-color: #aaaaaa !important; 	*/
+  color: #77BCC7 !important;
+/*  text-decoration: underline;	*/
+}
+
+/* schönere Darstellung von Tabellen */
+.ac_tabelle td, th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.ac_tabelle tr:nth-child(even){background-color: #f2f2f2;}
+
+.ac_tabelle tr:hover {background-color: #ddd;}
+
+.ac_tabelle th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #77BCC7;
+  color: white;
+  text-transform: none !important;
+}
+
+
+/* Darstellung der Tabellen auf der Seite "Marktplatz" */
+/* hgg, 7.2.2019 */
+#ac_marktplatz tr:nth-child(even){background-color: #f2f2f2;}
+
+#ac_marktplatz tr:hover {background-color: #ddd;}
+
+#ac_marktplatz th {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  background-color: #77BCC7;
+  color: white;
+  text-transform: none !important;
+}
+
+#ac_marktplatz td {
+  padding: 10px;
+}
+/*------------------------------------------------------------------------------------------------------*/
+/* Darstellung der Tabellen auf der Seite "Unterstützerseite" */
+/* hgg, 12.9.2019 */
+
+/* Veranstalter */
+
+#veranstalter_tabelle tr:nth-child(even){background-color: #f2f2f2;}
+
+#veranstalter_tabelle tr:hover {background-color: #ddd;}
+
+#veranstalter_tabelle th {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  background-color: #FE5045;
+  color: white;
+  text-transform: none !important;
+}
+
+#veranstalter_tabelle td {
+  padding: 10px;
+}
+
+/* Besucher */
+#besucher_tabelle tr:nth-child(even){background-color: #f2f2f2;}
+
+#besucher_tabelle tr:hover {background-color: #ddd;}
+
+#besucher_tabelle th {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  background-color: #B4CC1E;
+  color: white;
+  text-transform: none !important;
+}
+
+#besucher_tabelle td {
+  padding: 10px;
+}
+
+/*------------------------------------------------------------------------------------------------------*/
+
+.element_zentriert {
+    clear: both;
+    display: block;
+    margin: 0 auto 0.5em;
+}
+
+/* Menüpunkte leicht vergrößert */
+#main-menu{
+  font-weight: 800 !important;
+}
+
+/*----------------------------------------------------------------*/
+/* Start: Button in Beiträgen
+/* Datum: 23.02.2018
+/* Autor: hgg
+/* z. Bsp.: grüner Hintergrund, Schrift: weiße Farbe, bei Hover: oranger Button
+/*----------------------------------------------------------------*/
+
+/* Absatz für Button */
+.button-absatz {
+    margin:30px 0px 30px 0px;
+    display:inline-flex;
+}
+
+/* Absatz für Button im shortcode fuss*/
+.button-absatz-fuss {
+    margin:30px 10px 30px 0px !important;
+    display:inline-flex;
+}
+
+
+.tribe-events-button-beitrag {
+    padding: 10px;
+    color: #ffffff!important;
+    font-size: 1.0em;
+    background-color: #77BCC7;
+    /* keine runden Ecken */
+    /* border-radius: 4px; */
+    text-decoration: none!important;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 840px) {
+  .tribe-events-button-beitrag {
+      font-size: 0.8em;
+  }
+}
+
+
+a.tribe-events-button-beitrag:focus{
+  color: #fff!important;
+  text-decoration: none;
+}
+
+a.tribe-events-button-beitrag:visited{
+  color: #fff!important;
+  text-decoration: none;
+}
+
+
+/* Hintergrund: gelb */
+a.tribe-events-button-beitrag:hover{
+  color: #fff!important;
+  background-color: #F9B81E;
+}
+
+
+/* Button für Mitgliedschaft invers - hgg, 6.10.2019 */
+
+.button-mitglied {
+    padding: 10px;
+    color: #ffffff!important;
+    font-size: 1.0em;
+    background-color: #F9B81E;
+    /* keine runden Ecken */
+    /* border-radius: 4px; */
+    text-decoration: none!important;
+}
+
+a.button-mitglied:focus{
+  color: #fff!important;
+  text-decoration: none;
+}
+
+a.button-mitglied:visited{
+  color: #fff!important;
+  text-decoration: none;
+}
+
+
+/* Hintergrund: gelb */
+a.button-mitglied:hover{
+  color: #fff!important;
+  background-color:#77BCC7;
+}
+
+/* Container für Mitgliedsbutton und Infotext - hgg, 6.10.2019 */
+@media (min-width: 431px) {
+  .ackids_container {
+    display: inline-flex;
+    border: 1px solid #eee;
+    padding: 10px;
+    vertical-align: middle !important;
+  }
+}
+
+@media (max-width: 430px) {
+.ackids_container {
+  display: block;
+  border: 1px solid #eee;
+  padding: 10px;
+  vertical-align: middle !important;
+  }
+}
+.ackids_container > div {
+  text-align: left;
+}
+
+
+/* Button und Beschreibungstext für Mitgliedschaft aachenerkinder.de */
+div.mitglied {
+  border: 5px;
+  padding: 10px;
+  white-space: nowrap;
+}
+
+div.mitglied_beschreibung {
+  padding-left: 10px;
+}
+
+
+/*----------------------------------------------------------------*/
+/* Ende: Button in Beiträgen
+/* Datum: 23.02.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------*/
+/* 2. Anpassungen Freizeitangebote WP GOOGLE MAPS
+/*----------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------- */
+/* Start: Anpassungen Freizeitangebote WP GOOGLE MAPS */
+/*--------------------------------------------------------------- */
+
+/*Kategorien nebeneinander floaten */
+.category_filter {
+    display: block;
+    float: left;
+    margin-bottom: 10px;
+    font-size:0.8em;
+  }
+
+/*Auf großen Displays 4 Kategoriefilter nebeneinander darstellen */
+@media (min-width: 2000px) {
+  .category_filter {
+    width: 25%;
+  }
+}
+
+/*Auf mittelgroßen Displays 3 Kategoriefilter nebeneinander darstellen */
+@media (min-width: 1400px) and (max-width: 2000px) {
+  .category_filter {
+    width: 33%;
+  }
+}
+
+/*Auf kleinen Displays 2 Kategoriefilter nebeneinander darstellen */
+@media (min-width: 500px) and (max-width: 1399px)  {
+  .category_filter {
+    width: 50%;
+  }
+}
+
+/*Auf sehr kleinen Displays 1 Kategoriefilter darstellen */
+@media (max-width: 499px)  {
+  .category_filter {
+    width: 100%;
+  }
+}
+
+
+.category_filter img {
+  height: 30px !important;
+  width: auto;
+}
+
+.category_filter input {
+  display: inline-block!important;
+  margin: 0 2px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 2px solid grey;
+  border-radius: 0px;
+   width: 15px;
+  height: 15px;
+  position: relative;
+  cursor: pointer;
+}
+
+.category_filter input:checked:before {
+  content     : '✓';
+  width: 15px;
+  height: 15px;
+  color       : black;
+  font-size   : 0.975em;
+  line-height : 0;
+  text-align  : center;
+  font-weight : bold;
+  position: absolute;
+  left: -3px;
+  top: 6px;
+}
+
+table.wpgmza_table thead tr{
+  background-color: #2f3c4e;
+}
+
+table.wpgmza_table thead tr th {color: #fff;}
+table.wpgmza_table tbody .wpgmza_marker_icon {
+  height: 55px !important;
+  width: auto;
+}
+
+table.wpgmza_table tbody tr td {
+  border-bottom: 1px solid #dbdbdb !important;
+}
+
+body .dataTables_wrapper .dataTables_paginate {
+  display: block;
+  float: none;
+  margin: auto;
+  text-align: center;
+}
+
+body .dataTables_wrapper .dataTables_info {
+  float: none;
+  text-align: center;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+select {
+  border: 1px solid lightgrey;
+  padding: 8px;
+  outline: none;
+  font-size: 13px;
+  border-radius: 2px;
+  -webkit-appearance: inherit;
+  -webkit-user-select: auto;
+  -moz-transition: border .25s linear, color .25s linear, background-color .25s linear;
+  background: none;
+  width: auto;
+  position: relative;
+  z-index: 2;
+}
+
+body .dataTables_wrapper .dataTables_length,
+body .dataTables_wrapper .dataTables_filter {
+  margin: 15px 0;
+}
+
+body .dataTables_wrapper .dataTables_filter input {
+  border-radius: 2px;
+  height: 30px;
+  border: 1px solid lightgrey;
+  padding: 0 5px;
+}
+
+#wpgmza_filter_1 {
+  text-align: left;
+  margin-bottom: 0px;
+  /* Schriftgröße verkleinert, hgg: 15.10.2019 */
+  font-size: 1.0rem !important;
+  font-weight: bold;
+  margin-bottom: 20px !important;
+  /* keine Umwandlung in Großbuchstaben, hgg, 15.10.2019
+  text-transform: uppercase;
+  */
+}
+
+#wpgmza_filter_1:after {
+  content: ":";
+}
+
+#wpgmza_table_1 thead tr,#wpgmza_table_1 thead th{
+  background: #77BCC7;
+  color: #fff;
+}
+
+#wpgmza_table_1 thead strong{
+color: #fff;
+}
+
+.main_color tr:nth-child(odd){
+  background: #fff;
+}
+
+/* wp google maps */
+.wpgmza_filter_container{
+  display: block;
+  float: left;
+  width: 100% !important;
+}
+
+/* Korrekte Darstellung der Checkboxen */
+#top input[type="checkbox"] {
+    display: inline-block;
+}
+
+/* Scrollbar entfernen */
+.wpgmza_marker_holder {
+    overflow: hidden;
+}
+
+/* Tabelle nicht über die gesamte Breite, weil sonst */
+/* die Schrift am linken Rand der Tabelle "klebt"    */
+table.dataTable.no-footer {
+    width: 95% !important;
+}
+
+/* Suche und Anzahl mit Rand */
+.dataTables_wrapper .dataTables_length, body .dataTables_wrapper .dataTables_filter {
+    margin: 15px !important;
+}
+
+#wpgmza_table_1 thead tr, #wpgmza_table_1 thead th {
+    width: 100px !important;
+}
+/*--------------------------------------------------------------- */
+/* Ende: Anpassungen Freizeitangebote WP GOOGLE MAPS */
+/*--------------------------------------------------------------- */
+
+
+
+/*----------------------------------------------------------------*/
+/* 3. TEC (The Events Calendar)
+/*----------------------------------------------------------------*/
+
+/*----------------------------------------------------------------*/
+/* Start: Darstellung der Details in Einzelansicht (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+/* Schriften etc. größer */
+.tribe-events-start-date-label,
+.tribe-events-start-time-label,
+.tribe-events-event-categories-label,
+.tribe-events-event-url-label,
+.tribe-organizer-tel-label,
+.tribe-organizer-email-label
+{
+    padding-left: 0px;
+		font-size: 1.1em;
+	  padding-right: 0px;
+}
+
+dt{
+		padding-left: 0px!important;
+    font-size: 1.1em;
+		padding-right: 0px;
+}
+
+/* Mehr Platz beim Datum */
+.tribe-event-date-start .tribe-event-date-end .tribe-event-time{
+	padding-right: 5px;
+}
+
+
+
+/* Veranstalterdaten nebeneinander mit mehr Platz */
+@media screen and (max-width: 768px) {
+.tribe-events-meta-group.tribe-events-meta-group-organizer,
+.tribe-events-meta-group.tribe-events-meta-group-details {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 769px) {
+.tribe-events-meta-group.tribe-events-meta-group-organizer,
+.tribe-events-meta-group.tribe-events-meta-group-details {
+    width: 50%;
+  }
+}
+
+/*
+.single-tribe_events .secondary .tribe-events-venue-map {
+    width: 45% !important;
+}
+*/
+
+abbr[title], abbr[data-original-title] {
+    -webkit-text-decoration: none;
+    text-decoration: none;
+}
+
+/*----------------------------------------------------------------*/
+/* Ende: Darstellung der Details in Einzelansicht (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+
+/*----------------------------------------------------------------*/
+/* Start: Darstellung der Überschrift in Listenansicht TEC)
+/* Datum: 23.11.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+
+.tribe-events-map-event-title {
+    font-size: 21px !important;
+}
+
+/*----------------------------------------------------------------*/
+/* Ende: Darstellung der Überschrift in Listenansicht TEC)
+/* Datum: 23.11.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+
+/*----------------------------------------------------------------*/
+/* Start: Darstellung der Links mit Unterstrich (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+
+#tribe-events-content a, .tribe-events-adv-list-widget .tribe-events-widget-link a, .tribe-events-adv-list-widget .tribe-events-widget-link a:hover, .tribe-events-back a, .tribe-events-back a:hover, .tribe-events-event-meta a, .tribe-events-list-widget .tribe-events-widget-link a, .tribe-events-list-widget .tribe-events-widget-link a:hover, ul.tribe-events-sub-nav a, ul.tribe-events-sub-nav a:hover {
+    text-decoration: underline;
+}
+
+/* Titel ohne Unterstrich */
+.tribe-event-url {
+	text-decoration:none!important;
+}
+
+/* Hintergrund weiß statt dunkelgrau, sonst schlecht lesbar */
+.tribe-events-sub-nav li a {
+    background: #fff;
+}
+
+/* Tagesveranstaltungen - Darstellung des Titels geändert (kein Unterstrich) */
+.tribe-events-list-event-title .url {
+    text-decoration: none !important;
+}
+
+/*----------------------------------------------------------------*/
+/* Ende: Darstellung der Links mit Unterstrich (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------*/
+/* Start: Anpassungen Kalender (Listenansicht)
+/* Datum: 17.10.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+
+
+
+/* Hintergrund für Details und Veranstaltungsort */
+.single-tribe_events .tribe-events-event-meta {
+    background-color: #ffffff;
+}
+
+/* Veranstalterangaben etwas größer in der Einzelansicht */
+.single-tribe_events #tribe-events-content .tribe-events-event-meta dd {
+    font-size: 1.3em;
+}
+
+/* Anzeige eines einzelnen Termins etwas schmaler */
+.single-tribe_events #tribe-events-content {
+    /* width: 80%; */
+    float: left;
+    padding-left: 5px;
+}
+
+.tribe-events-list-event-title {
+    display: block!important;
+}
+
+.tribe-event-url {
+    color: #000000 !important;
+    font-weight: normal;
+    display: block !important;
+    line-height: 1.4em;
+}
+
+.tribe-events-map-event-title {
+    font-size: 22px !important;
+}
+
+
+
+/*----------------------------------------------------------------*/
+/* Ende: Anpassungen Kalender (Listenansicht)
+/* Datum: 17.10.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+
+
+
+/*----------------------------------------------------------------*/
+/* Start: Anpassungen für Darstellung der Filter Bar (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+
+.tribe-bar-submit {
+    width: 35%;
+		margin-left: 0;
+}
+
+
+.tribe-bar-date-filter {
+    width: 28%;
+    padding-right: 0px;
+    padding-left: 5px;
+}
+
+
+.tribe-bar-search-filter {
+    width: 28%;
+    padding-right: 0px;
+    padding-left: 5px;
+}
+
+
+#tribe-bar-form label {
+    font-weight: 500;
+}
+
+dl dt::before {
+    content: none;
+}
+
+/* Schriftgröße verkleinern - hgg, 16.2.2019 */
+#tribe-bar-form .tribe-bar-submit input[type="submit"] {
+    font-size: 11px;
+}
+
+/*----------------------------------------------------------------*/
+/* Ende: Anpassungen für Darstellung der Filter Bar (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+
+/*----------------------------------------------------------------*/
+/* Start: Darstellung der Details in Einzelansicht (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+/* Schriften etc. größer */
+.tribe-events-start-date-label,
+.tribe-events-start-time-label,
+.tribe-events-event-categories-label,
+.tribe-events-event-url-label,
+.tribe-organizer-tel-label,
+.tribe-organizer-email-label
+{
+    padding-left: 0px;
+		font-size: 1.1em;
+	  padding-right: 0px;
+}
+
+dt{
+		padding-left: 0px!important;
+    font-size: 1.1em;
+		padding-right: 0px;
+}
+
+/* Mehr Platz beim Datum */
+.tribe-event-date-start .tribe-event-date-end .tribe-event-time{
+	padding-right: 5px;
+}
+
+/*----------------------------------------------------------------*/
+/* Ende: Darstellung der Details in Einzelansicht (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+
+/*----------------------------------------------------------------*/
+/* Start: Darstellung der Links mit Unterstrich (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+/*
+#tribe-events-content a, .tribe-events-adv-list-widget .tribe-events-widget-link a, .tribe-events-adv-list-widget .tribe-events-widget-link a:hover, .tribe-events-back a, .tribe-events-back a:hover, .tribe-events-event-meta a, .tribe-events-list-widget .tribe-events-widget-link a, .tribe-events-list-widget .tribe-events-widget-link a:hover, ul.tribe-events-sub-nav a, ul.tribe-events-sub-nav a:hover {
+    text-decoration: underline;
+}
+*/
+
+/* Titel ohne Unterstrich */
+.tribe-event-url {
+	text-decoration:none!important;
+}
+
+/*----------------------------------------------------------------*/
+/* Ende: Darstellung der Links mit Unterstrich (TEC)
+/* Datum: 17.11.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+
+/*----------------------------------------------------------------*/
+/* Start: Hover - Effekt mit blauem Unterstrich
+/* Datum: 17.11.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+#tribe-events-content a, .tribe-events-adv-list-widget .tribe-events-widget-link a{
+  position: relative;
+  color: #000;
+  text-decoration: underline;
+}
+
+#tribe-events-content a:hover, .tribe-events-adv-list-widget .tribe-events-widget-link a:hover{
+  color: #77BCC7;
+	text-decoration: underline;
+  text-decoration-color: #77BCC7;
+}
+
+/*  Hover - Effekt mit blauem animierten Unterstrich ausgeschaltet, 14.12.2018, hgg */
+/*
+#tribe-events-content a:hover, .tribe-events-adv-list-widget .tribe-events-widget-link a:hover{
+  color: #000;
+	text-decoration: none;
+}
+
+#tribe-events-content a:before, .tribe-events-adv-list-widget .tribe-events-widget-link a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 2px;
+  left: 0;
+  background-color: #77BCC7;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+#tribe-events-content a:hover:before, .tribe-events-adv-list-widget .tribe-events-widget-link a:hover:before{
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+*/
+/*----------------------------------------------------------------*/
+/* Ende: Hover - Effekt mit blauem animierten Unterstrich
+/* Datum: 17.11.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------- */
+/* Start: Tribe Widget Calendar Aachener Kinder Styles */
+/*--------------------------------------------------------------- */
+
+/* Überschrift mit Monat */
+.tribe-mini-calendar thead {
+    background-color: #77BCC7 !important;
+    border: 1px solid #77BCC7 !important;
+}
+
+/* Hintergrund und Farbe bei aktuellem Tag */
+.tribe-mini-calendar .tribe-events-present,.tribe-mini-calendar .tribe-mini-calendar-today {
+    background-color:#77BCC7 !important;
+}
+
+/* Hintergrund und Farbe bei Hover auf Tag */
+.tribe-mini-calendar .tribe-events-has-events:hover a:hover {
+    background-color:#77BCC7 !important;
+}
+
+/* Datum vor dem event in der sidebar */
+.tribe-mini-calendar-event .list-date {
+    background: #77BCC7 !important;
+}
+
+/* Rand oben und unten bei Überschrift Tage größer */
+.tribe-mini-calendar-dayofweek{
+	padding-top:5px!important;
+	padding-bottom:5px!important;
+}
+
+/* Punkte beim Kalender für Termine vorhanden nicht zeigen */
+.tribe-mini-calendar .tribe-events-has-events div[id*="daynum-"] a::before {
+    display: none;
+}
+
+/* kein unterer Rand beim aktuellen Tag im Kalender */
+.tribe-mini-calendar-day-link{
+  padding-bottom: 0px!important;;
+}
+
+/* Damit der Minikalender korekt dargestellt wird */
+
+table:not([id^="wp-calendar"]):not(.ui-datepicker-calendar) th, table:not([id^="wp-calendar"]):not(.ui-datepicker-calendar) td, td {
+    padding: 0px;
+}
+
+
+
+/* Überschrift Kalender abhängig von der Breite */
+/* vorheriger und nachfolgender Monat ohne Rand */
+/* hgg, 10.12.2018 */
+
+/* Rand über und unter dem Monat beim Minikalender vergrößern */
+.tribe-mini-calendar-nav span {
+		margin-top: 6px !important;
+		margin-bottom: 6px !important;
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 840px) {
+  .tribe-mini-calendar-nav span {
+      font-size: 0.65em;
+  }
+	.tribe-mini-calendar-nav .next-month {
+			margin: 0 0 0 0px!important;
+  }
+	.tribe-mini-calendar-nav .prev-month {
+			margin: 0 0px 0 0!important;
+	}
+}
+
+@media only screen and (min-width: 841px) and (max-width: 990px) {
+  .tribe-mini-calendar-nav span {
+      font-size: 0.7em;
+  }
+	.tribe-mini-calendar-nav .next-month {
+			margin: 0 0 0 0px!important;
+  }
+	.tribe-mini-calendar-nav .prev-month {
+			margin: 0 0px 0 0!important;
+	}
+}
+
+@media only screen and (min-width: 991px) and (max-width: 1024px) {
+  .tribe-mini-calendar-nav span {
+      font-size: 0.8em;
+  }
+}
+
+@media screen and (min-width: 1025px), (max-width: 765px) {
+  .tribe-mini-calendar-nav span {
+      font-size: 1.0em;
+  }
+}
+
+/*--------------------------------------------------------------- */
+/* Ende: Tribe Widget Calendar Aachener Kinder Styles */
+/*--------------------------------------------------------------- */
