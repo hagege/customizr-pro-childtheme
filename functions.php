@@ -8,6 +8,7 @@
 
 function child_theme_styles() {
   wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+  wp_enqueue_style( 'additional-style_1', get_stylesheet_directory_uri() . '/parallax_scrolling.css' ); 
 // die folgende Zeile ist wohl nicht notwendig:
 //wp_enqueue_style( 'child-theme-css', get_stylesheet_directory_uri() .'/style.css' , array('parent-style'));
 
