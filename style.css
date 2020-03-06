@@ -6,7 +6,7 @@ Tags: Tags: one-column, two-columns, three-columns, left-sidebar, right-sidebar,
 Author: Hans-Gerd Gerhards
 Author URI: https://aachenerkinder.de
 Template: customizr-pro
-Version: 12.2018
+Version: 3.2020
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
@@ -18,7 +18,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 /*----------------------------------------------------------------*/
 /* @import url("../customizr-pro/style.css"); */
 
-/* @import url("parallax_scrolling.css"); */
+/* werden in functions.php eingebunden: 
+/* @import url("parallax_scrolling.css");
+/* Beiträge in Seiten per shortcode [aktuelle_posts] zeigen */ 
+/* @import url("posts_in_site.css");
+
 
 /*----------------------------------------------------------------*/
 /* 1. ALLGEMEIN
@@ -604,22 +608,15 @@ div.mitglied_beschreibung {
 }
 
 /*Auf kleinen Displays 2 Kategoriefilter nebeneinander darstellen */
-@media (min-width: 500px) and (max-width: 1399px)  {
+@media (max-width: 1400px)  {
   .category_filter {
     width: 50%;
   }
 }
 
-/*Auf sehr kleinen Displays 1 Kategoriefilter darstellen */
-@media (max-width: 499px)  {
-  .category_filter {
-    width: 100%;
-  }
-}
-
 
 .category_filter img {
-  height: 30px !important;
+  height: 40px !important;
   width: auto;
 }
 
@@ -713,9 +710,7 @@ body .dataTables_wrapper .dataTables_filter input {
   font-size: 1.0rem !important;
   font-weight: bold;
   margin-bottom: 20px !important;
-  /* keine Umwandlung in Großbuchstaben, hgg, 15.10.2019
   text-transform: uppercase;
-  */
 }
 
 #wpgmza_filter_1:after {
@@ -765,11 +760,10 @@ table.dataTable.no-footer {
 
 #wpgmza_table_1 thead tr, #wpgmza_table_1 thead th {
     width: 100px !important;
-}
+}                               
 /*--------------------------------------------------------------- */
 /* Ende: Anpassungen Freizeitangebote WP GOOGLE MAPS */
 /*--------------------------------------------------------------- */
-
 
 
 /*----------------------------------------------------------------*/
@@ -1091,102 +1085,75 @@ dt{
 /*----------------------------------------------------------------*/
 
 
-/*--------------------------------------------------------------- */
-/* Start: Tribe Widget Calendar Aachener Kinder Styles */
-/*--------------------------------------------------------------- */
+/* ------------------------------- */
+/* Start Anpassungen Mini-Kalender */
+/* ------------------------------- */ 
 
-/* Überschrift mit Monat */
-.tribe-mini-calendar thead {
-    background-color: #77BCC7 !important;
-    border: 1px solid #77BCC7 !important;
+/* Titelzeile im Minikalender */
+.tribe-mini-calendar-nav td {
+    background: #77BCC7!important;
+    border-color: #77BCC7!important;
 }
 
-/* Hintergrund und Farbe bei aktuellem Tag */
-.tribe-mini-calendar .tribe-events-present,.tribe-mini-calendar .tribe-mini-calendar-today {
-    background-color:#77BCC7 !important;
+.tribe-mini-calendar-nav span{
+	background: #77BCC7;
 }
 
-/* Hintergrund und Farbe bei Hover auf Tag */
-.tribe-mini-calendar .tribe-events-has-events:hover a:hover {
-    background-color:#77BCC7 !important;
+/* Tag mit Veranstaltungen */
+.tribe-mini-calendar .tribe-events-has-events {
+    background: #77BCC7!important;
+    opacity:1.0;
 }
 
-/* Datum vor dem event in der sidebar */
-.tribe-mini-calendar-event .list-date {
-    background: #77BCC7 !important;
+/* Veranstaltungen in diesem Monat */
+td.tribe-events-thismonth.tribe-events-future.tribe-events-has-events.mobile-trigger {
+    opacity:0.7;
 }
 
-/* Rand oben und unten bei Überschrift Tage größer */
-.tribe-mini-calendar-dayofweek{
-	padding-top:5px!important;
-	padding-bottom:5px!important;
+/* Veranstaltungen in folgenden Monaten */
+td.tribe-events-othermonth.tribe-events-future.tribe-events-has-events.mobile-trigger {
+    opacity:0.5;
 }
 
-/* Punkte beim Kalender für Termine vorhanden nicht zeigen */
-.tribe-mini-calendar .tribe-events-has-events div[id*="daynum-"] a::before {
-    display: none;
+/* Veranstaltungen in vergangenen Monaten */
+td.tribe-events-othermonth.tribe-events-past.tribe-events-has-events.mobile-trigger {
+    opacity: 0.2;
 }
 
-/* kein unterer Rand beim aktuellen Tag im Kalender */
-.tribe-mini-calendar-day-link{
-  padding-bottom: 0px!important;;
+/* Schriftfarbe im Kalender */
+.tribe-mini-calendar .tribe-events-has-events div[id*=daynum-] a {
+    color: #000!important;
 }
 
-/* Damit der Minikalender korekt dargestellt wird */
+.tribe-mini-calendar-no-event {
+    background: #fff!important;
+    color: #000!important;
+}
 
-table:not([id^="wp-calendar"]):not(.ui-datepicker-calendar) th, table:not([id^="wp-calendar"]):not(.ui-datepicker-calendar) td, td {
-    padding: 0px;
+/* ------------------------------- */
+/* Ende Anpassungen Mini-Kalender  */
+/* ------------------------------- */ 
+
+
+/* Veranstaltungen exportieren */
+a.tribe-events-c-ical__link, .tribe-events .tribe-events-c-ical__link {
+    background-color: #77BCC7;
+    border: 1px solid #77BCC7;
+    color: #fff;
+}
+
+/* Veranstaltungen exportieren (hover)*/
+a.tribe-events-c-ical__link:hover {
+    background-color: #F9B81E!important;
+    border: 1px solid #F9B81E;
+    color: #fff;
+    text-decoration:none!important;
 }
 
 
-
-/* Überschrift Kalender abhängig von der Breite */
-/* vorheriger und nachfolgender Monat ohne Rand */
-/* hgg, 10.12.2018 */
-
-/* Rand über und unter dem Monat beim Minikalender vergrößern */
-.tribe-mini-calendar-nav span {
-		margin-top: 6px !important;
-		margin-bottom: 6px !important;
-}
+/* ------------------------------- */
+/* Ende Anpassungen Mini-Kalender  */
+/* ------------------------------- */
 
 
-@media only screen and (min-width: 768px) and (max-width: 840px) {
-  .tribe-mini-calendar-nav span {
-      font-size: 0.65em;
-  }
-	.tribe-mini-calendar-nav .next-month {
-			margin: 0 0 0 0px!important;
-  }
-	.tribe-mini-calendar-nav .prev-month {
-			margin: 0 0px 0 0!important;
-	}
-}
 
-@media only screen and (min-width: 841px) and (max-width: 990px) {
-  .tribe-mini-calendar-nav span {
-      font-size: 0.7em;
-  }
-	.tribe-mini-calendar-nav .next-month {
-			margin: 0 0 0 0px!important;
-  }
-	.tribe-mini-calendar-nav .prev-month {
-			margin: 0 0px 0 0!important;
-	}
-}
-
-@media only screen and (min-width: 991px) and (max-width: 1024px) {
-  .tribe-mini-calendar-nav span {
-      font-size: 0.8em;
-  }
-}
-
-@media screen and (min-width: 1025px), (max-width: 765px) {
-  .tribe-mini-calendar-nav span {
-      font-size: 1.0em;
-  }
-}
-
-/*--------------------------------------------------------------- */
-/* Ende: Tribe Widget Calendar Aachener Kinder Styles */
-/*--------------------------------------------------------------- */

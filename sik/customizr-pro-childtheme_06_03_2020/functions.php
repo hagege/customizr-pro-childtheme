@@ -460,5 +460,23 @@ function filter_the_content_in_the_main_loop( $content ) {
 /* Ende: Unterstützerbutton am Ende von jedem Beitrag oder jeder Veranstaltung
 /* Datum: 22.09.2019
 /* Autor: hgg
-/*----------------------------------------------------------------*/
+/*----------------------------------------------------------------*/        
+
+add_action('wp_footer', function() {
+    if (class_exists('Tribe__Events__Main') && tribe_is_day()) {
+        ?>
+        <script>
+            jQuery(function ($) {
+                setTimeout(function(){
+                    $( '#tribe-events' ).off( 'click', '.tribe-events-nav-previous a, .tribe-events-nav-next a').on( 'click', '.tribe-events-nav-previous a, .tribe-events-nav-next a', function(e){
+                        e.preventDefault();
+                        window.location.href = $(this).attr('href');
+                    });
+                }, 500);
+            });
+        </script>
+        <?php
+    }
+});
+
 ?>

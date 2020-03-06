@@ -1,0 +1,35 @@
+/*----------------------------------------------------------------*/
+/* Start: Parallax Scrolling Effekt
+/* Datum: 24.10.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
+.para_img-1, .para_img-2, .para_img-3 {
+  position: relative;
+  /* opacity: 0.65; */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.para_img-1 {
+  background-image: url("http://aachener-senioren.de/_test_/wp-content/uploads/2015/12/Weihnachtsmarkt_aachen.jpg");
+  min-height: 400px;
+}
+
+.para_img-2 {
+  /* background-image: url(""); */
+  background-color: #F9B81E;
+  min-height: 400px;
+}
+
+.para_img-3 {
+  background-image: url("");
+  min-height: 400px;
+}
+
+/*----------------------------------------------------------------*/
+/* Ende: Parallax Scrolling Effekt
+/* Datum: 24.10.2018
+/* Autor: hgg
+/*----------------------------------------------------------------*/
