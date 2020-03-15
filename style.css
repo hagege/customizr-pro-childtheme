@@ -575,15 +575,14 @@ div.mitglied_beschreibung {
 /* Autor: hgg
 /*----------------------------------------------------------------*/
 
+/*----------------------------------------------------------------*/
+/* ENDE 1. ALLGEMEIN
+/*----------------------------------------------------------------*/
 
 /*----------------------------------------------------------------*/
 /* 2. Anpassungen Freizeitangebote WP GOOGLE MAPS
 /*----------------------------------------------------------------*/
 
-
-/*--------------------------------------------------------------- */
-/* Start: Anpassungen Freizeitangebote WP GOOGLE MAPS */
-/*--------------------------------------------------------------- */
 
 /*Kategorien nebeneinander floaten */
 .category_filter {
@@ -762,7 +761,7 @@ table.dataTable.no-footer {
     width: 100px !important;
 }                               
 /*--------------------------------------------------------------- */
-/* Ende: Anpassungen Freizeitangebote WP GOOGLE MAPS */
+/* ENDE: 2. Anpassungen Freizeitangebote WP GOOGLE MAPS */
 /*--------------------------------------------------------------- */
 
 
@@ -1125,6 +1124,7 @@ td.tribe-events-othermonth.tribe-events-past.tribe-events-has-events.mobile-trig
     color: #000!important;
 }
 
+/* Tag ohne Veranstaltungen */
 .tribe-mini-calendar-no-event {
     background: #fff!important;
     color: #000!important;
@@ -1150,10 +1150,9 @@ a.tribe-events-c-ical__link:hover {
     text-decoration:none!important;
 }
 
-
-/* ------------------------------- */
-/* Ende Anpassungen Mini-Kalender  */
-/* ------------------------------- */
+/*----------------------------------------------------------------*/
+/* ENDE 3. TEC (The Events Calendar)
+/*----------------------------------------------------------------*/
 
 
 

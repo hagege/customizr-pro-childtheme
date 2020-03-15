@@ -28,7 +28,8 @@ add_action( 'wp_enqueue_scripts', 'child_theme_styles' );
 /* Problem mit Enfold: */
 
   require_once 'library/inc.kundenfunktionen.php';
-  require_once 'library/inc.overwrite_plugin.php';
+  /* wird nicht mehr genutzt, hgg, 8.3.2020 */
+/*  require_once 'library/inc.overwrite_plugin.php'; */
   require_once 'library/inc.disable_tribe_js.php';
 /*  require_once 'library/inc.testfunctions.php'; */
 
