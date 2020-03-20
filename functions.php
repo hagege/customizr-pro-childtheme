@@ -20,15 +20,13 @@ add_action( 'wp_enqueue_scripts', 'child_theme_styles' );
 
 /*----------------------------------------------------------------*/
 /* Ende: style.css Datei des Eltern-Themes einbinden
-/* Datum: 232.09.2019
+/* Datum: 23.09.2019
 /* Autor: hgg
 /*----------------------------------------------------------------*/
 
 
-/* Problem mit Enfold: */
-
   require_once 'library/inc.kundenfunktionen.php';
-  /* wird nicht mehr genutzt, hgg, 8.3.2020 */
+  /* wird nicht mehr genutzt, hgg, 8.3.2020 (Anpassung WP Google Maps Checkboxen) */
 /*  require_once 'library/inc.overwrite_plugin.php'; */
   require_once 'library/inc.disable_tribe_js.php';
 /*  require_once 'library/inc.testfunctions.php'; */
@@ -240,130 +238,6 @@ add_shortcode('published-events-count', 'customprefix_total_number_published_eve
 /* Autor: hgg
 /*----------------------------------------------------------------*/
 
-/*----------------------------------------------------------------*/
-/* Start: shortcode für Copyright, Link, Link Kinderflohmärkte, Link Veranstaltungsliste, Link Ferien, interner Link
-/* Datum: 23.2.2019
-/* Autor: hgg
-/*----------------------------------------------------------------*/
-// Zeigt bei einer Veranstaltung oder einem Beitrag automatisch den Text aus "Beschriftung" in kursiv
-// Aufruf-Beispiele:
-// [fuss link="https://aachen50plus.de" kfm="" vl=""] --> zeigt immer Bildnachweis, dann Mehr Infos mit dem Link und bei kfm="ja" den Link zu "weiteren Kinderflohmärkten" und bei vl="ja" den Link zu "Weitere Veranstaltungen"
-// [fuss kfm=""] --> zeigt immer Bildnachweis, dann "keine Webseite angegeben" und bei kfm="ja" den Link zu "weiteren Kinderflohmärkten"
-// [fuss] --> zeigt immer Bildnachweis, dann "keine Webseite angegeben" und keinen Link zu "weiteren Kinderflohmärkten"
-// erweitert: hgg, 5.3.2019:
-// [fuss ferien=""] --> zeigt immer Bildnachweis, dann "keine Webseite angegeben" und bei ferien="ja" den Link zu "weitere Ferienangebote"
-// Formatierung der Buttons geändert: Nicht mehr untereinander, sondern nebeneiander und die Buttons per CSS in der style.css mit einem Rand versehen
-// erweitert: hgg, 22.3.2019: il steht für interner Link
-// [fuss il="https://aachenerkinder.de/freizeitangebote/"] --> zeigt immer Bildnachweis, dann "keine Webseite angegeben" und bei il="https://aachenerkinder.de/freizeitangebote/" den (internen) Link zu einer anderen Seite
-// Formatierung der Buttons geändert: Nicht mehr untereinander, sondern nebeneiander und die Buttons per CSS in der style.css mit einem Rand versehen
-// erweitert: hgg, 29.3.2019: zusätzlich kann bei vl die Kategorie angeben werden, so dass bei Klick auf den Link sofort die Veranstaltungen der jeweiligen Kategorie angezeigt werden, z. B.
-// [fuss link="http://www.melan.de/go/standort-detail/1-flohmarkt-troedelmarkt-in-aachen-altstadt.html" kfm="ja" vl="Familie" il="https://aachenerkinder.de/service/wetter/"]
-
-/*
-function beitrags_fuss($atts) {
-  	$werte = shortcode_atts( array(
-  	  'link' => '',
-      'kfm' => 'nein',
-      'vl' => 'nein',
-      'ferien' => 'nein',
-      'il' => '',
-  	  ), $atts);
-    $ausgabe = '';
-    $veranstaltungen = 'https://aachenerkinder.de/veranstaltungen/kategorie/';
-    $kategorien = cliff_get_events_taxonomies();
-
-    if ( trim($werte['link']) != '') {
-      $ausgabe = '<br><a href=' . $werte['link'] . ' target="_blank">Mehr Infos</a>';
-    }
-    $ausgabe = $ausgabe . '<br><br><em>' . get_post(get_post_thumbnail_id())->post_excerpt . '</em><br>';
-    if ( $werte['kfm'] != 'nein' ) {
-      $ausgabe = $ausgabe . '<p class="button-absatz-fuss"><a class="tribe-events-button-beitrag" href="https://aachenerkinder.de/veranstaltungen/kategorie/flohmarkt/Karte">Weitere Kinderflohmärkte</a></p>';
-    }
-    if ( $werte['vl'] != 'nein' ) {
-      if ( trim($werte['vl']) != '') {
-        // Leerzeichen werden ggfs. durch "-" ersetzt (Sicherheitsmaßnahme bei Eingabe von Kategorien, die Leerzeichen enthalten, z. B. "Feiern und Feste") //
-        $vergleichswert = $werte['vl'];
-        // wenn der Vergleichswert im Array der Kategorien enthalten ist: //
-        if (in_array($vergleichswert, $kategorien )){
-          // Sonderzeichen ersetzen //
-          $werte['vl'] = sonderzeichen ($werte['vl']);
-          $veranstaltungen = $veranstaltungen . str_replace(" ", "-", $werte['vl']);
-          $vergleichswert = ': ' . $vergleichswert . '';
-          }
-        else {
-          $veranstaltungen = $veranstaltungen . 'terminanzeige';
-          $vergleichswert = '';
-          }
-      }
-      $ausgabe = $ausgabe . '<p class="button-absatz-fuss"><a class="tribe-events-button-beitrag" href=' . $veranstaltungen . ' target="_blank">Weitere Veranstaltungen' . $vergleichswert . '</a></p>';
-    }
-
-    if ( $werte['ferien'] != 'nein' ) {
-      $ausgabe = $ausgabe . '<p class="button-absatz-fuss"><a class="tribe-events-button-beitrag" href="https://aachenerkinder.de/veranstaltungen/kategorie/ferien/">Weitere Ferienangebote</a></p>';
-    }
-    if ( trim($werte['il']) != '') {
-       $ausgabe = $ausgabe . '<p class="button-absatz-fuss"><a class="tribe-events-button-beitrag" href=' . $werte['il'] . ' target="_blank">Mehr Infos auf dieser Seite</a></p><hr>';
-    }
-    $ausgabe = $ausgabe . '<hr>';
-	return $ausgabe;
-}
-add_shortcode('fuss', 'beitrags_fuss');
-/*----------------------------------------------------------------*/
-/* Ende: shortcode für Copyright, Link, Link Kinderflohmärkte, Link Veranstaltungsliste, Link Ferien
-/* Datum: 23.2.2019
-/* Autor: hgg
-/*----------------------------------------------------------------*/
-
-
-/**
-  * The Events Calendar: See all Events Categories - var_dump at top of Events archive page
-  * Screenshot: https://cl.ly/0Q0B1D0g2a43
-  *
-  * for https://theeventscalendar.com/support/forums/topic/getting-list-of-event-categories/
-  *
-  * From https://gist.github.com/cliffordp/36d2b1f5b4f03fc0c8484ef0d4e0bbbb
-  */
-/*
-add_action( 'tribe_events_before_template', 'cliff_get_events_taxonomies' );
-function cliff_get_events_taxonomies(){
-	if( ! class_exists( 'Tribe__Events__Main' ) ) {
-		return false;
-	}
-
-	$tecmain = Tribe__Events__Main::instance();
-
-	// https://developer.wordpress.org/reference/functions/get_terms/
-	$cat_args = array(
-		'hide_empty' => true,
-	);
-	$events_cats = get_terms( $tecmain::TAXONOMY, $cat_args );
-
-	if( ! is_wp_error( $events_cats ) && ! empty( $events_cats ) && is_array( $events_cats) ) {
-		$events_cats_names = array();
-		foreach( $events_cats as $key => $value ) {
-			$events_cats_names[] = $value->name;
-		}
-
-	   // var_dump( $events_cats_names );  Anzeige der Kategorien //
-	}
-  return $events_cats_names;
-}
-
-/* Umlaute umwandeln, damit z. B. Führung in Fuehrung umgewandelt wird, weil sonst die Kategorieliste nicht gefunden wird. */
-/*
-function sonderzeichen($string)
-{
-   $string = str_replace("ä", "ae", $string);
-   $string = str_replace("ü", "ue", $string);
-   $string = str_replace("ö", "oe", $string);
-   $string = str_replace("Ä", "Ae", $string);
-   $string = str_replace("Ü", "Ue", $string);
-   $string = str_replace("Ö", "Oe", $string);
-   $string = str_replace("ß", "ss", $string);
-   $string = str_replace("´", "", $string);
-return $string;
-}
-
 
 /* Korrektur des Datum-Zeit-Problems bei Veranstaltungen, wenn man den Block (Gutenberg) verwendet */
 add_action('admin_head', function(){
@@ -419,27 +293,6 @@ function manage_img_column($column_name, $post_id) {
 /* Autor: hgg
 /*----------------------------------------------------------------*/
 
-/*----------------------------------------------------------------*/
-/* Start: Wartungsmodus
-/* Datum: 26.12.2018
-/* Autor: hgg
-/*----------------------------------------------------------------*/
-/*
-function wpr_maintenance_mode() {
- if ( !current_user_can( 'edit_themes' ) || !is_user_logged_in() ) {
-  ?><div style="width: 100%; height: 100%; overflow: hidden; background-image: url(http://aachener-senioren.de/_test_/wp-content/uploads/2016/07/platzhalter_ferien_ocean-1149981_1280.jpg)">
-  <?php
-  $meldung = "<h1 style=\"text-align: center\">aachenerkinder.de</h1><p style=\"text-align: center\">Sorry, die Webseite befindet sich zur Zeit im Wartungsmodus.<br>Wir ändern gerade die Optik der Seite, aber außer der Optik ändert sich nichts.<br><br>Es wird leider noch ein wenig dauern, bis die Seite wieder zur Verfügung steht.<br>Wir gehen davon aus, dass aachenerkinder.de um ca. 6.30 Uhr wieder online ist.<br>Danke für Dein Verständnis.<br><br>Foto: pixabay.com</div>";
-  wp_die($meldung);
- }
-}
-add_action('get_header', 'wpr_maintenance_mode');
-*/
-/*----------------------------------------------------------------*/
-/* Ende: Wartungsmodus
-/* Datum: 26.12.2018
-/* Autor: hgg
-/*----------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------*/
@@ -456,7 +309,10 @@ function filter_the_content_in_the_main_loop( $content ) {
     if (( is_single() OR is_page()) && in_the_loop() && is_main_query() ) {
         // Den HTML Teil für die Schrift könnt ihr beliebig ändern oder erweitern
         $ackids_button = '<div class="ackids_container"><div class="mitglied"><a class="button-mitglied" href="https://steadyhq.com/de/aachenerkinder" target="_blank" rel="noopener noreferrer">Werde Mitglied</a></div><div class="mitglied_beschreibung">Werde als Besucher oder Veranstalter Mitglied bei aachenerkinder.de und unterstütze unsere Arbeit.</div></div>';
-        return $ackids_button . $content . $ackids_button;
+        // spezielle Anzeige wegen abgesagter Events, hgg, 19.3.2020
+        $abgesagte_events ='<div class="ackids_container"><div class="abgesagt"><strong>Bitte beachten:</strong> Aufgrund der aktuellen Problematik (Corona) kann man davon ausgehen, dass so gut wie keine Veranstaltungen stattfinden. Bleibt gesund!</div></div>';
+        // return $ackids_button . $content . $ackids_button;
+        return $abgesagte_events . $content . $ackids_button;
     }
 
     return $content;

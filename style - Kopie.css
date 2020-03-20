@@ -6,7 +6,7 @@ Tags: Tags: one-column, two-columns, three-columns, left-sidebar, right-sidebar,
 Author: Hans-Gerd Gerhards
 Author URI: https://aachenerkinder.de
 Template: customizr-pro
-Version: 3.2020
+Version: 12.2018
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
@@ -18,10 +18,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 /*----------------------------------------------------------------*/
 /* @import url("../customizr-pro/style.css"); */
 
-/* werden in functions.php eingebunden: 
-/* @import url("parallax_scrolling.css");
+@import url("parallax_scrolling.css");
 /* Beiträge in Seiten per shortcode [aktuelle_posts] zeigen */ 
-/* @import url("posts_in_site.css");
+@import url("posts_in_site.css");
 
 
 /*----------------------------------------------------------------*/
@@ -59,41 +58,6 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
   }
 }
 */
-
-/* Darstellung des Containers im Slider */
-/* hgg, 14.3.2020 */
-@media only screen and (min-width: 841px) {
-	[id^=customizr-slider-] .czrs-subtitle {
-  	  font-size: 22px !important;
-	}
-	/* Text schmaler im Slider darstellen */
-	.carousel-caption {
-			width: 50%;
-			background: rgba(49,49,49,.6);
-		    padding-bottom: 20px;
-			margin-bottom:20px;
-	}
-}
-
-@media only screen and (max-width: 840px) {
-	[id^=customizr-slider-] .czrs-subtitle {
-  	  font-size: 11px !important;
-	}
-	/* Text schmaler im Slider darstellen */
-	.carousel-caption {
-        margin-top: 20px;
-        width: 70%;
-		background: rgba(49,49,49,.6);	
-		padding-bottom: 20px;
-		margin-bottom:20px;
-	}
-}
-
-/* Überschrift Slider weiß */
-[id^=customizr-slider-] .czrs-title.very-big {
-    color: #fff;
-}
-
 
 /* Überschrift bei schmaleren mobilen displays */
 @media only screen and (min-width: 768px) and (max-width: 1140px) {
@@ -163,41 +127,25 @@ article .entry-content a:hover{
 }
 
 
-/* Bildhöhe bei Beiträgen auf 141px festlegen und einen Bildausschnitt wählen */
+/* Bildhöhe bei Beiträgen auf 150px festlegen und einen Bildausschnitt wählen */
 /* folgende Regel führte zu Problemen beim Bild im Einzelbeitrag: */
 /* .tc-thumbnail img { */
-/* Bilder bei der Darstellung in der Übersicht in gleicher Höhe (z. B. Hauptseite mit Beiträgen), 15.3.2020, hgg */
+/* Darstellung in der Übersicht (z. B. Hauptseite mit Beiträgen), 23.5.2019, hgg */
 .tc-thumbnail.entry-media__holder {
-    /* max-height: 141px !important; 
-    clip: rect(50px 550px 300px 100px);
-    /*object-fit: cover;
-    object-position: center;*/
-}
-
-
-/* Bilder bei der Darstellung in der Übersicht in gleicher Höhe (z. B. Hauptseite mit Beiträgen), 15.3.2020, hgg */ 
-.attachment-tc-masonry-thumb-size.tc-thumb-type-thumb.czr-img.wp-post-image.tc-smart-load-skip.czr-smart-loaded {
-    max-height: 141px;
+	  max-height: 141px !important;
     object-fit: cover;
-    object-position: top center;
-    height: 141px;    /* wichtig, damit die Höhe identisch ist, hgg, 15.3.2020 */
+    object-position: center;
+    /* clip-path: inset(2% 2% 2% 2% round 2% 2%); */
 }
 
-/* Bilder bei Einzel-Beiträgen. Teilweise sind die Bilder im Hochformat noch unscharf. Noch nicht optimal */
-/* hgg, 14.3.2020 */
-img.attachment-full.size-full.wp-post-image.tc-smart-load-skip.czr-smart-loaded.v-centered.opacity-forced {
-    /* max-height: 400px; */
-    object-position: top!important;
-    /* clip: rect(0px 400px 350px 0px)!important; */ 
-    /* object-fit: scale-down; */
-}
-
-/* Darstellung im Einzelbeitrag je nach Displaybreite, 23.5.2019, hgg 
+/* Darstellung im Einzelbeitrag je nach Displaybreite, 23.5.2019, hgg */
 @media only screen and (max-width: 574px) {
   .tc-thumbnail.entry-media__holder.tc-singular-thumbnail-wrapper.__before_regular_heading_title {
       max-height: 250px !important;
+      /*
       object-fit: none;
       object-position: initial;
+      */
   }
 }
 @media only screen and (min-width: 575px) {
@@ -208,11 +156,6 @@ img.attachment-full.size-full.wp-post-image.tc-smart-load-skip.czr-smart-loaded.
   }
 }
 
-image.tc-smart-load-skip.czr-smart-loaded.v-centered.opacity-forced {
-    object-fit: cover;
-    object-position: center;
-}
-*/
 
 /*----------------------------------------------------------------*/
 /* Ende: Anpassungen für Darstellung der Übesrchrift und
@@ -560,43 +503,34 @@ a.tribe-events-button-beitrag:hover{
   background-color: #F9B81E;
 }
 
-/* Meldung abgesagte Veranstaltungen, hgg, 20.3.2020 */
-div.abgesagt {
-    color: #ffffff;
-    font-size: 1.0em;
-    background-color: #F9B81E;
-    padding: 10px;
-}
 
 /* Button für Mitgliedschaft invers - hgg, 6.10.2019 */
 
-a.button-mitglied {
+.button-mitglied {
     padding: 10px;
-    color: #ffffff;
+    color: #ffffff!important;
     font-size: 1.0em;
     background-color: #F9B81E;
     /* keine runden Ecken */
     /* border-radius: 4px; */
     text-decoration: none!important;
-    display: inline-block;
 }
 
 a.button-mitglied:focus{
-  color: #fff;
-  text-decoration: none!important;
+  color: #fff!important;
+  text-decoration: none;
 }
 
 a.button-mitglied:visited{
-  color: #fff;
-  text-decoration: none!important;
+  color: #fff!important;
+  text-decoration: none;
 }
 
 
-/* Hintergrund: blau */
+/* Hintergrund: gelb */
 a.button-mitglied:hover{
   color: #fff!important;
   background-color:#77BCC7;
-  text-decoration: none!important;
 }
 
 /* Container für Mitgliedsbutton und Infotext - hgg, 6.10.2019 */
@@ -640,14 +574,15 @@ div.mitglied_beschreibung {
 /* Autor: hgg
 /*----------------------------------------------------------------*/
 
-/*----------------------------------------------------------------*/
-/* ENDE 1. ALLGEMEIN
-/*----------------------------------------------------------------*/
 
 /*----------------------------------------------------------------*/
 /* 2. Anpassungen Freizeitangebote WP GOOGLE MAPS
 /*----------------------------------------------------------------*/
 
+
+/*--------------------------------------------------------------- */
+/* Start: Anpassungen Freizeitangebote WP GOOGLE MAPS */
+/*--------------------------------------------------------------- */
 
 /*Kategorien nebeneinander floaten */
 .category_filter {
@@ -678,8 +613,7 @@ div.mitglied_beschreibung {
   }
 }
 
-/* nicht mehr benötigt, weil jetzt der Codeschnipsel von Adrian nicht mehr genutzt wird */
-/* hgg, 15.3.2020 
+
 .category_filter img {
   height: 40px !important;
   width: auto;
@@ -712,7 +646,6 @@ div.mitglied_beschreibung {
   left: -3px;
   top: 6px;
 }
-*/
 
 table.wpgmza_table thead tr{
   background-color: #2f3c4e;
@@ -828,8 +761,9 @@ table.dataTable.no-footer {
     width: 100px !important;
 }                               
 /*--------------------------------------------------------------- */
-/* ENDE: 2. Anpassungen Freizeitangebote WP GOOGLE MAPS */
+/* Ende: Anpassungen Freizeitangebote WP GOOGLE MAPS */
 /*--------------------------------------------------------------- */
+
 
 
 /*----------------------------------------------------------------*/
@@ -1151,120 +1085,102 @@ dt{
 /*----------------------------------------------------------------*/
 
 
-/* ------------------------------- */
-/* Start Anpassungen Mini-Kalender */
-/* ------------------------------- */ 
+/*--------------------------------------------------------------- */
+/* Start: Tribe Widget Calendar Aachener Kinder Styles */
+/*--------------------------------------------------------------- */
 
-/* Titelzeile im Minikalender */
-.tribe-mini-calendar-nav td {
-    background: #77BCC7!important;
-    border-color: #77BCC7!important;
+/* Überschrift mit Monat */
+.tribe-mini-calendar thead {
+    background-color: #77BCC7 !important;
+    border: 1px solid #77BCC7 !important;
 }
 
-.tribe-mini-calendar-nav span{
-	background: #77BCC7;
+/* Hintergrund und Farbe bei aktuellem Tag */
+.tribe-mini-calendar .tribe-events-present,.tribe-mini-calendar .tribe-mini-calendar-today {
+    background-color:#77BCC7 !important;
 }
 
-/* Tagesanzeige
-.tribe-mini-calendar th {
-    background: #d2d2d2!important;
-    border-color: #fff!important;
-    color: #000!important;
-}
- */
-/* Tag mit Veranstaltungen */
-.tribe-mini-calendar .tribe-events-has-events {
-    background: #77BCC7!important;
-    opacity:1.0;
+/* Hintergrund und Farbe bei Hover auf Tag */
+.tribe-mini-calendar .tribe-events-has-events:hover a:hover {
+    background-color:#77BCC7 !important;
 }
 
-/* Veranstaltungen in diesem Monat */
-td.tribe-events-thismonth.tribe-events-future.tribe-events-has-events.mobile-trigger {
-    opacity:0.7;
+/* Datum vor dem event in der sidebar */
+.tribe-mini-calendar-event .list-date {
+    background: #77BCC7 !important;
 }
 
-/* Veranstaltungen in folgenden Monaten */
-td.tribe-events-othermonth.tribe-events-future.tribe-events-has-events.mobile-trigger {
-    opacity:0.5;
+/* Rand oben und unten bei Überschrift Tage größer */
+.tribe-mini-calendar-dayofweek{
+	padding-top:5px!important;
+	padding-bottom:5px!important;
 }
 
-/* Veranstaltungen in vergangenen Monaten */
-td.tribe-events-othermonth.tribe-events-past.tribe-events-has-events.mobile-trigger {
-    opacity: 0.2;
+/* Punkte beim Kalender für Termine vorhanden nicht zeigen */
+.tribe-mini-calendar .tribe-events-has-events div[id*="daynum-"] a::before {
+    display: none;
 }
 
-/* Schriftfarbe im Kalender */
-.tribe-mini-calendar .tribe-events-has-events div[id*=daynum-] a {
-    color: #000!important;
+/* kein unterer Rand beim aktuellen Tag im Kalender */
+.tribe-mini-calendar-day-link{
+  padding-bottom: 0px!important;;
 }
 
-/* Tag ohne Veranstaltungen */
-.tribe-mini-calendar-no-event {
-    background: #fff!important;
-    color: #000!important;
-}
+/* Damit der Minikalender korekt dargestellt wird */
 
-/* ------------------------------- */
-/* Ende Anpassungen Mini-Kalender  */
-/* ------------------------------- */ 
-
-
-/* Veranstaltungen exportieren */
-a.tribe-events-c-ical__link, .tribe-events .tribe-events-c-ical__link {
-    background-color: #77BCC7;
-    border: 1px solid #77BCC7;
-    color: #fff;
-}
-
-/* Veranstaltungen exportieren (hover)*/
-a.tribe-events-c-ical__link:hover {
-    background-color: #F9B81E!important;
-    border: 1px solid #F9B81E;
-    color: #fff;
-    text-decoration:none!important;
+table:not([id^="wp-calendar"]):not(.ui-datepicker-calendar) th, table:not([id^="wp-calendar"]):not(.ui-datepicker-calendar) td, td {
+    padding: 0px;
 }
 
 
-/* ------------------------------------------------------- */
-/* Start Anpassungen Ansicht Veranstaltungen TEC 5.x       */
-/* ------------------------------------------------------- */
 
-.tribe-common--breakpoint-medium.tribe-events .tribe-events-c-breadcrumbs__list {
-    font-size: 18px;
+/* Überschrift Kalender abhängig von der Breite */
+/* vorheriger und nachfolgender Monat ohne Rand */
+/* hgg, 10.12.2018 */
+
+/* Rand über und unter dem Monat beim Minikalender vergrößern */
+.tribe-mini-calendar-nav span {
+		margin-top: 6px !important;
+		margin-bottom: 6px !important;
 }
 
-.czr-wp-the-content ol>li:before, .woocommerce-Tabs-panel.entry-content ol>li:before, .woocommerce-product-details__short-description ol>li:before {
-    margin-left: .5em;
+
+@media only screen and (min-width: 768px) and (max-width: 840px) {
+  .tribe-mini-calendar-nav span {
+      font-size: 0.65em;
+  }
+	.tribe-mini-calendar-nav .next-month {
+			margin: 0 0 0 0px!important;
+  }
+	.tribe-mini-calendar-nav .prev-month {
+			margin: 0 0px 0 0!important;
+	}
 }
 
-/* Button "Suche" anders gestalten */
-.tribe-common--breakpoint-medium.tribe-events .tribe-events-c-search__button {
-    background-color: grey;
-    color:white;
+@media only screen and (min-width: 841px) and (max-width: 990px) {
+  .tribe-mini-calendar-nav span {
+      font-size: 0.7em;
+  }
+	.tribe-mini-calendar-nav .next-month {
+			margin: 0 0 0 0px!important;
+  }
+	.tribe-mini-calendar-nav .prev-month {
+			margin: 0 0px 0 0!important;
+	}
 }
 
-.tribe-common--breakpoint-medium.tribe-events .tribe-events-c-search__button:hover {
-    background-color: white;
-    color:grey;
+@media only screen and (min-width: 991px) and (max-width: 1024px) {
+  .tribe-mini-calendar-nav span {
+      font-size: 0.8em;
+  }
 }
 
-/* unsortierte Liste ohne Punkte */
-.tribe-common--breakpoint-medium.tribe-events .tribe-events-c-view-selector--tabs .tribe-events-c-view-selector__list {
-    list-style-type: none;
+@media screen and (min-width: 1025px), (max-width: 765px) {
+  .tribe-mini-calendar-nav span {
+      font-size: 1.0em;
+  }
 }
 
-.tribe-events .tribe-events-c-top-bar__nav-list {
-    list-style-type: none;
-}
-
-/* ------------------------------------------------------- */
-/* Ende Anpassungen Ansicht Veranstaltungen TEC 5.x        */
-/* ------------------------------------------------------- */
-
-
-/*----------------------------------------------------------------*/
-/* ENDE 3. TEC (The Events Calendar)
-/*----------------------------------------------------------------*/
-
-
-
+/*--------------------------------------------------------------- */
+/* Ende: Tribe Widget Calendar Aachener Kinder Styles */
+/*--------------------------------------------------------------- */
