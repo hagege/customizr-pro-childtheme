@@ -1,0 +1,57 @@
+/* CSS Document */
+/* ------------------------------- */
+/* Start Anpassungen Mini-Kalender */
+/* ------------------------------- */ 
+
+/* Titelzeile im Minikalender */
+.tribe-mini-calendar-nav td {
+    background: #77BCC7!important;
+    border-color: #77BCC7!important;
+}
+
+.tribe-mini-calendar-nav span{
+	background: #77BCC7;
+}
+
+/* Tagesanzeige
+.tribe-mini-calendar th {
+    background: #d2d2d2!important;
+    border-color: #fff!important;
+    color: #000!important;
+}
+ */
+/* Tag mit Veranstaltungen */
+.tribe-mini-calendar .tribe-events-has-events {
+    background: #77BCC7!important;
+    opacity:1.0;
+}
+
+/* Veranstaltungen in diesem Monat */
+td.tribe-events-thismonth.tribe-events-future.tribe-events-has-events.mobile-trigger {
+    opacity:0.7;
+}
+
+/* Veranstaltungen in folgenden Monaten */
+td.tribe-events-othermonth.tribe-events-future.tribe-events-has-events.mobile-trigger {
+    opacity:0.5;
+}
+
+/* Veranstaltungen in vergangenen Monaten */
+td.tribe-events-othermonth.tribe-events-past.tribe-events-has-events.mobile-trigger {
+    opacity: 0.2;
+}
+
+/* Schriftfarbe im Kalender */
+.tribe-mini-calendar .tribe-events-has-events div[id*=daynum-] a {
+    color: #000!important;
+}
+
+/* Tag ohne Veranstaltungen */
+.tribe-mini-calendar-no-event {
+    background: #fff!important;
+    color: #000!important;
+}
+
+/* ------------------------------- */
+/* Ende Anpassungen Mini-Kalender  */
+/* ------------------------------- */ 

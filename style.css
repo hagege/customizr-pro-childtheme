@@ -18,9 +18,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 /*----------------------------------------------------------------*/
 /* @import url("../customizr-pro/style.css"); */
 
-/* werden in functions.php eingebunden: 
+/* werden in functions.php eingebunden:
 /* @import url("parallax_scrolling.css");
-/* Beiträge in Seiten per shortcode [aktuelle_posts] zeigen */ 
+/* Beiträge in Seiten per shortcode [aktuelle_posts] zeigen */
 /* @import url("posts_in_site.css");
 
 
@@ -83,7 +83,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	.carousel-caption {
         margin-top: 20px;
         width: 70%;
-		background: rgba(49,49,49,.6);	
+		background: rgba(49,49,49,.6);
 		padding-bottom: 20px;
 		margin-bottom:20px;
 	}
@@ -168,31 +168,41 @@ article .entry-content a:hover{
 /* .tc-thumbnail img { */
 /* Bilder bei der Darstellung in der Übersicht in gleicher Höhe (z. B. Hauptseite mit Beiträgen), 15.3.2020, hgg */
 .tc-thumbnail.entry-media__holder {
-    /* max-height: 141px !important; 
+    /* max-height: 141px !important;
     clip: rect(50px 550px 300px 100px);
     /*object-fit: cover;
     object-position: center;*/
 }
 
+/* Darstellung der Bilder beim masonry-grid, seit 22.4.2020, customizr Version 2.2.4, hgg */
+img.attachment-tc-masonry-thumb-size.tc-thumb-type-thumb.czr-img.wp-post-image.tc-smart-loaded {
+    /* height: 150px; */
+    max-height: 141px;
+    object-fit: cover;
+    object-position: center;
+    height: 141px;
+}
 
-/* Bilder bei der Darstellung in der Übersicht in gleicher Höhe (z. B. Hauptseite mit Beiträgen), 15.3.2020, hgg */ 
+/* Bilder bei der Darstellung in der Übersicht in gleicher Höhe (z. B. Hauptseite mit Beiträgen), 15.3.2020, hgg */
+/* "alte" Darstellung. Funktionierte nicht mehr mit customizr Version 2.2.4
 .attachment-tc-masonry-thumb-size.tc-thumb-type-thumb.czr-img.wp-post-image.tc-smart-load-skip.czr-smart-loaded {
     max-height: 141px;
     object-fit: cover;
     object-position: top center;
     height: 141px;    /* wichtig, damit die Höhe identisch ist, hgg, 15.3.2020 */
 }
+*/
 
 /* Bilder bei Einzel-Beiträgen. Teilweise sind die Bilder im Hochformat noch unscharf. Noch nicht optimal */
 /* hgg, 14.3.2020 */
 img.attachment-full.size-full.wp-post-image.tc-smart-load-skip.czr-smart-loaded.v-centered.opacity-forced {
     /* max-height: 400px; */
     object-position: top!important;
-    /* clip: rect(0px 400px 350px 0px)!important; */ 
+    /* clip: rect(0px 400px 350px 0px)!important; */
     /* object-fit: scale-down; */
 }
 
-/* Darstellung im Einzelbeitrag je nach Displaybreite, 23.5.2019, hgg 
+/* Darstellung im Einzelbeitrag je nach Displaybreite, 23.5.2019, hgg
 @media only screen and (max-width: 574px) {
   .tc-thumbnail.entry-media__holder.tc-singular-thumbnail-wrapper.__before_regular_heading_title {
       max-height: 250px !important;
@@ -679,7 +689,7 @@ div.mitglied_beschreibung {
 }
 
 /* nicht mehr benötigt, weil jetzt der Codeschnipsel von Adrian nicht mehr genutzt wird */
-/* hgg, 15.3.2020 
+/* hgg, 15.3.2020
 .category_filter img {
   height: 40px !important;
   width: auto;
@@ -826,7 +836,7 @@ table.dataTable.no-footer {
 
 #wpgmza_table_1 thead tr, #wpgmza_table_1 thead th {
     width: 100px !important;
-}                               
+}
 /*--------------------------------------------------------------- */
 /* ENDE: 2. Anpassungen Freizeitangebote WP GOOGLE MAPS */
 /*--------------------------------------------------------------- */
@@ -1153,7 +1163,7 @@ dt{
 
 /* ------------------------------- */
 /* Start Anpassungen Mini-Kalender */
-/* ------------------------------- */ 
+/* ------------------------------- */
 
 /* Titelzeile im Minikalender */
 .tribe-mini-calendar-nav td {
@@ -1206,7 +1216,7 @@ td.tribe-events-othermonth.tribe-events-past.tribe-events-has-events.mobile-trig
 
 /* ------------------------------- */
 /* Ende Anpassungen Mini-Kalender  */
-/* ------------------------------- */ 
+/* ------------------------------- */
 
 
 /* Veranstaltungen exportieren */
@@ -1265,6 +1275,3 @@ a.tribe-events-c-ical__link:hover {
 /*----------------------------------------------------------------*/
 /* ENDE 3. TEC (The Events Calendar)
 /*----------------------------------------------------------------*/
-
-
-
